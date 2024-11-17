@@ -1,4 +1,4 @@
-echo "================================= ex02 ================================="
+echo "================================= ex03 ================================="
 command1="python3 tester.py | cat -e"
 echo "Command: $command1"
 output=$(eval $command1)
@@ -13,7 +13,7 @@ else
 fi
 rm "$output_file"
 
-command1="python3 find_ft_type.py | cat -e"
+command1="python3 NULL_not_found.py | cat -e"
 echo "Command: $command1"
 output=$(eval $command1)
 echo -e "$output" | cat -e
