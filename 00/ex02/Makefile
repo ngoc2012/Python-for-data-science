@@ -11,6 +11,6 @@
 # **************************************************************************** #
 
 all:
-	python3 format_ft_time.py
+	python3 tester.py
 	
 .PHONY: all clean fclean re test
