@@ -1,4 +1,6 @@
-def ft_filter(f, iter):
+from typing import Callable, Iterable
+
+def ft_filter(f: Callable, iter: Iterable) -> Iterable:
     print(f"The text contains {len(s)} characters:")
     n_upper = sum([1 for c in s if c.isupper()])
     print(f"{n_upper} upper letters")
