@@ -1,19 +1,5 @@
 import sys
-import string
-
-
-def count(s):
-    print(f"The text contains {len(s)} characters:")
-    n_upper = sum([1 for c in s if c.isupper()])
-    print(f"{n_upper} upper letters")
-    n_lower = sum([1 for c in s if c.islower()])
-    print(f"{n_lower} lower letters")
-    n_punctuation = sum([1 for c in s if c in string.punctuation])
-    print(f"{n_punctuation} punctuation marks")
-    n_space = sum([1 for c in s if c.isspace()])
-    print(f"{n_space} spaces")
-    n_digit = sum([1 for c in s if c.isdigit()])
-    print(f"{n_digit} digits")
+from ft_filter import ft_filter
 
 
 def main():
