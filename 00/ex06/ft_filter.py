@@ -1,8 +1,4 @@
-import sys
-import string
-
-
-def count(s):
+def ft_filter(f, iter):
     print(f"The text contains {len(s)} characters:")
     n_upper = sum([1 for c in s if c.isupper()])
     print(f"{n_upper} upper letters")
