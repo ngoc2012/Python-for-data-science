@@ -1,5 +1,12 @@
-echo "================================= ex03 ================================="
-command1="python3 tester.py | cat -e"
+echo "================================= ex04 ================================="
+command1="\
+python3 whatis.py 14 && \
+python3 whatis.py -5 && \
+python3 whatis.py && \
+python3 whatis.py 0 && \
+python3 whatis.py Hi! && \
+python3 whatis.py 13 5 \
+"
 echo "Command: $command1"
 output=$(eval $command1)
 echo -e "Actual Output:\n$output"
@@ -13,7 +20,18 @@ else
 fi
 rm "$output_file"
 
-command1="python3 NULL_not_found.py | cat -e"
-echo "Command: $command1"
-output=$(eval $command1)
-echo -e "$output" | cat -e
+commands=(\
+"python3 whatis.py 108435803487987979874798797987979879879879874" \
+"python3 whatis.py -59999999999999999999999999999999999999999999999999999999999" \
+"python3 whatis.py 0.0000000000000000000000000000000000000000000000000000000001" \
+"python3 whatis.py -0.0000000000000000000000000000000000000000000000000000000001" \
+"python3 whatis.py 1e100" \
+"python3 whatis.py -1e100" \
+)
+
+for cmd in "${commands[@]}"; do
+	echo "Executing: $cmd"
+	output=$(eval $cmd)
+	echo -e "$output" | cat -e
+	echo
+done

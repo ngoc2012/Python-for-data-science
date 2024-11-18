@@ -1,7 +1,5 @@
-Nothing: None <class 'NoneType'>$
-Cheese: nan <class 'float'>$
-Zero: 0 <class 'int'>$
-Empty: <class 'str'>$
-Fake: False <class 'bool'>$
-Type not Found$
-1$
+I'm Even.
+I'm Odd.
+I'm Even.
+AssertionError: argument is not an integer
+AssertionError: more than one argument is provided
