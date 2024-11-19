@@ -34,6 +34,8 @@ def main():
 
 
 if __name__ == "__main__":
+    print(main.__doc__)
+    print(count.__doc__)
     try:
         main()
     except AssertionError as e:
