@@ -1,8 +1,9 @@
 echo "================================= ex06 ================================="
-command1="python3 filterstring.py 'Hello the World' 4 && \
+command1="\
+python3 filterstring.py 'Hello the World' 4 && \
 python3 filterstring.py 'Hello the World' 99 && \
 python3 filterstring.py 3 'Hello the World' && \
-python3 filterstring.py" \
+python3 filterstring.py"
 echo "Command: $command1"
 output=$(eval $command1)
 echo -e "Actual Output:\n$output"
