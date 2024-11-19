@@ -14,12 +14,10 @@ echo "================================= ex06 ================================="
 #rm "$output_file"
 
 commands=(\
-"python3 whatis.py 108435803487987979874798797987979879879879874" \
-"python3 whatis.py -59999999999999999999999999999999999999999999999999999999999" \
-"python3 whatis.py 0.0000000000000000000000000000000000000000000000000000000001" \
-"python3 whatis.py -0.0000000000000000000000000000000000000000000000000000000001" \
-"python3 whatis.py 1e100" \
-"python3 whatis.py -1e100" \
+"python3 filterstring.py 'Hello the World' 4" \
+"python3 filterstring.py 'Hello the World' 99" \
+"python3 filterstring.py 3 'Hello the World'" \
+"python3 filterstring.py" \
 )
 
 for cmd in "${commands[@]}"; do
