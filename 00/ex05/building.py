@@ -19,7 +19,8 @@ def count(s: str):
 
 def main():
     """Main function of a program that takes a single string as an argument\
-and display the sums of its upper, lower, punctuation, digits and space characters."""
+and display the sums of its\
+upper, lower, punctuation, digits and space characters."""
     if len(sys.argv) == 1:
         try:
             count(input("What is the text to count?\n") + "\n")
