@@ -13,6 +13,7 @@ def isInt(number: float) -> bool:
 
 def main():
     assert len(sys.argv) == 3 and isInt(sys.argv[2]), "the argument are bad"
+    print([x for x in ft_filter(lambda x: len(x) >= int(sys.argv[2]), sys.argv[1])])
     s = sys.argv[1]
     count(s)
 
