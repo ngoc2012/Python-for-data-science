@@ -3,6 +3,7 @@ import string
 
 
 def count(s: str):
+    """ Count the number of characters in a string s """
     print(f"The text contains {len(s)} characters:")
     n_upper = sum([1 for c in s if c.isupper()])
     print(f"{n_upper} upper letters")
@@ -17,6 +18,7 @@ def count(s: str):
 
 
 def main():
+    """ Main function """
     if len(sys.argv) == 1:
         try:
             count(input("What is the text to count?\n") + "\n")
