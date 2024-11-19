@@ -21,6 +21,8 @@ commands=(\
 "python3 filterstring.py 0 0" \
 "python3 filterstring.py 0 0.0001" \
 "python3 filterstring.py '' 0" \
+"python3 filterstring.py '' 1" \
+"python3 filterstring.py '' 99999999999999999999999999999999999999999999999" \
 )
 
 for cmd in "${commands[@]}"; do
