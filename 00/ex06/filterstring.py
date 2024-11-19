@@ -2,11 +2,18 @@ import sys
 from ft_filter import ft_filter
 
 
+def isInt(number: float) -> bool:
+    """Check if a number is an integer"""
+    try:
+        int(number)
+        return True
+    except ValueError:
+        return False
+
+
 def main():
-    if len(sys.argv) == 1:
-        count(input("What is the text to count?\n") + "\n")
-        return
-    assert len(sys.argv) == 2, "more than one argument is provided"
+    assert len(sys.argv) == 3, "the argument are bad"
+    assert isInt(sys.argv[2]), "argument is not an integer"
     s = sys.argv[1]
     count(s)
 
