@@ -12,8 +12,7 @@ def isInt(number: float) -> bool:
 
 
 def main():
-    assert len(sys.argv) == 3, "the argument are bad"
-    assert isInt(sys.argv[2]), "argument is not an integer"
+    assert len(sys.argv) == 3 and isInt(sys.argv[2]), "the argument are bad"
     s = sys.argv[1]
     count(s)
 
