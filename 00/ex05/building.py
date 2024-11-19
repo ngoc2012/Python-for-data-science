@@ -18,7 +18,8 @@ def count(s: str):
 
 
 def main():
-    """Program that takes a single string as an argument and display the sums of its upper, lower, punctuation, digits and space characters."""
+    """Main function of a program that takes a single string as an argument\
+and display the sums of its upper, lower, punctuation, digits and space characters."""
     if len(sys.argv) == 1:
         try:
             count(input("What is the text to count?\n") + "\n")
@@ -34,8 +35,6 @@ def main():
 
 
 if __name__ == "__main__":
-    print(main.__doc__)
-    print(count.__doc__)
     try:
         main()
     except AssertionError as e:
