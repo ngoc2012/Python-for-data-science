@@ -18,6 +18,8 @@ commands=(\
 "python3 filterstring.py 'Hello the World' 99" \
 "python3 filterstring.py 3 'Hello the World'" \
 "python3 filterstring.py" \
+"python3 filterstring.py 0 0" \
+"python3 filterstring.py 0 0" \
 )
 
 for cmd in "${commands[@]}"; do
