@@ -14,10 +14,10 @@ setup(
     },
     author='Nguyen Minh Ngoc',
     author_email='ngoc2012@yahoo.com',
-    description='A brief description of your package',
+    description='Array operations',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/yourusername/my_package',
+    url='https://github.com/ngoc2012/Commun',
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
