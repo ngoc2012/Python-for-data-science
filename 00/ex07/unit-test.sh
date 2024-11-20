@@ -1,9 +1,8 @@
-echo "================================= ex06 ================================="
+echo "================================= ex07 ================================="
 command1="\
-python3 filterstring.py 'Hello the World' 4 && \
-python3 filterstring.py 'Hello the World' 99 && \
-python3 filterstring.py 3 'Hello the World' && \
-python3 filterstring.py"
+python sos.py 'sos' | cat -e && \
+python sos.py 'h$llo' \
+"
 echo "Command: $command1"
 output=$(eval $command1)
 echo -e "Actual Output:\n$output"
@@ -17,17 +16,17 @@ else
 fi
 rm "$output_file"
 
-commands=(\
-"python3 filterstring.py 0 0" \
-"python3 filterstring.py 0 0.0001" \
-"python3 filterstring.py '' 0" \
-"python3 filterstring.py '' 1" \
-"python3 filterstring.py '' 99999999999999999999999999999999999999999999999" \
-)
-
-for cmd in "${commands[@]}"; do
-	echo "Executing: $cmd"
-	output=$(eval $cmd)
-	echo -e "$output" | cat -e
-	echo
-done
+#commands=(\
+#"python3 filterstring.py 0 0" \
+#"python3 filterstring.py 0 0.0001" \
+#"python3 filterstring.py '' 0" \
+#"python3 filterstring.py '' 1" \
+#"python3 filterstring.py '' 99999999999999999999999999999999999999999999999" \
+#)
+#
+#for cmd in "${commands[@]}"; do
+#	echo "Executing: $cmd"
+#	output=$(eval $cmd)
+#	echo -e "$output" | cat -e
+#	echo
+#done
