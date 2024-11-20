@@ -3,5 +3,6 @@ def ft_tqdm(lst: range) -> None:
     width = 50
     for i in lst:
         yield i
-        bar = int((i + 1) * width / len(lst)) * "\u2588"
-        print(f"\r{int(i * 100 / len(lst)):3d}%|{bar}| {i}/{len(lst)}", end="", flush=True)
+        current = int((i + 1) * width / len(lst))
+        bar = current * "\u2588" + (width - current) * " "
+        print(f"\r{int((i + 1) * 100 / len(lst)):3d}%|{bar}| {i}/{len(lst)}", end="", flush=True)
