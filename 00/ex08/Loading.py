@@ -1,5 +1,7 @@
 def ft_tqdm(lst: range) -> None:
     """Display a progress bar"""
+    if not isinstance(lst, range):
+        raise TypeError
     width = 43
     for i in lst:
         yield i
