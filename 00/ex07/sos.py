@@ -2,17 +2,10 @@ import sys
 from ft_filter import ft_filter
 
 
-def isInt(number: float) -> bool:
-    """Check if a number is an integer"""
-    try:
-        int(number)
-        return True
-    except ValueError:
-        return False
-
-
 def main():
-    morse_code_dict = {
+    """Main function of the program that take the string and the number as\
+ argument and return a list of string that are longer than the number given"""
+    m = {
         'A': '.- ',
         'B': '-... ',
         'C': '-.-. ',
@@ -51,9 +44,8 @@ def main():
         '9': '----. ',
         ' ': ' / '
     }
-    """Main function of the program that take the string and the number as\
- argument and return a list of string that are longer than the number given"""
-    assert len(sys.argv) == 3 and isInt(sys.argv[2]), "the arguments are bad"
+    assert len(sys.argv) == 2, "the arguments are bad"
+    assert any(c in s for c not in m.keys()), "the arguments are bad"
     
     for char in text.upper():
         if char in morse_code_dict:
