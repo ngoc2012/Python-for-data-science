@@ -1,9 +1,10 @@
 def ft_tqdm(lst: range) -> None:
     """Display a progress bar"""
-    #if not isinstance(lst, range):
-    #    raise TypeError
+    if not isinstance(lst, range):
+        raise TypeError
     width = 43
     for i in lst:
+        yield i
         current = int((i + 1) * width / len(lst))
-        bar = current * "\u2593" + (width - current) * " "
+        bar = current * "\u2591" + (width - current) * " "
         print(f"\r{int((i + 1) * 100 / len(lst)):3d}%|{bar}| {i + 1}/{len(lst)}", end="", flush=True)
