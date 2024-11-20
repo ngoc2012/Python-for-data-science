@@ -1,6 +1,7 @@
 def ft_tqdm(lst: range) -> None:
     """Display a progress bar"""
+    width = 50
     for i in lst:
         yield i
-        bar = int((i + 1) * 100 / len(lst)) * "\u2588"
-        print(f"\r{int(i * 100 / len(lst))}%|{bar}", end="", flush=True)
+        bar = int((i + 1) * width / len(lst)) * "\u2588"
+        print(f"\r{int(i * 100 / len(lst)):2.0d}%|{bar}", end="", flush=True)
