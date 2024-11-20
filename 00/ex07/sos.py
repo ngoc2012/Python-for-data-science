@@ -46,9 +46,10 @@ def main():
     assert len(sys.argv) == 2, "the arguments are bad"
     assert any(c not in m.keys() for c in sys.argv[1]), "the arguments are bad"
     
-    for char in text.upper():
-        if char in morse_code_dict:
-            morse_code.append(morse_code_dict[char])
+    morse_code = []
+    for char in sys.argv[1].upper():
+        if char in m:
+            morse_code.append(m[char])
         else:
             morse_code.append('? ')
     print(''.join(morse_code))
