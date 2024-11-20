@@ -44,7 +44,7 @@ def main():
         ' ': ' / '
     }
     assert len(sys.argv) == 2, "the arguments are bad"
-    assert any(c in s for c not in m.keys()), "the arguments are bad"
+    assert any(c not in m.keys() for c in sys.argv[1]), "the arguments are bad"
     
     for char in text.upper():
         if char in morse_code_dict:
