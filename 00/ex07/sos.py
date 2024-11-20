@@ -2,8 +2,8 @@ import sys
 
 
 def main():
-    """Main function of the program that take the string and the number as\
- argument and return a list of string that are longer than the number given"""
+    """Main function of the program that take the string\
+ and convert it to morse code"""
     m = {
         'A': '.- ',
         'B': '-... ',
@@ -46,7 +46,6 @@ def main():
     assert len(sys.argv) == 2, "the arguments are bad"
     s = sys.argv[1].upper()
     assert not any(c not in m.keys() for c in s), "the arguments are bad"
-    
     morse_code = []
     for char in s:
         if char in m:
