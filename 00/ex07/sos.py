@@ -1,5 +1,4 @@
 import sys
-from ft_filter import ft_filter
 
 
 def main():
@@ -51,7 +50,7 @@ def main():
         if char in morse_code_dict:
             morse_code.append(morse_code_dict[char])
         else:
-            morse_code.append('? ')  # Handle unknown characters
+            morse_code.append('? ')
     print(''.join(morse_code))
 
 
