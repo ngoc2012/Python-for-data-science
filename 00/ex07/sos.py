@@ -45,13 +45,10 @@ def main():
     }
     assert len(sys.argv) == 2, "the arguments are bad"
     s = sys.argv[1].upper()
-    assert any(c not in m.keys() for c in s), "the arguments are bad"
+    assert not any(c not in m.keys() for c in s), "the arguments are bad"
     
-    print(sys.argv[1].upper())
-    print('$' in m.keys())
-    print([c not in m.keys() for c in sys.argv[1].upper()])
     morse_code = []
-    for char in sys.argv[1].upper():
+    for char in s:
         if char in m:
             morse_code.append(m[char])
         else:
