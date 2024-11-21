@@ -1,4 +1,6 @@
-def ft_tqdm(lst: range) -> None:
+from typing import iterable
+
+def count_in_list(lst: iterable) -> int:
     """Display a progress bar"""
     width = 43
     for i in lst:
