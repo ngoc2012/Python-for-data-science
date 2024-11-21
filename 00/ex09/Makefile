@@ -11,6 +11,8 @@
 # **************************************************************************** #
 
 all:
+	python3 setup.py sdist bdist_wheel
+test:
 	python3 tester.py
 	
 .PHONY: all clean fclean re test
