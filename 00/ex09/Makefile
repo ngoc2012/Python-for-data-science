@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-all:
+build:
 	python3 setup.py sdist bdist_wheel
 test:
 	python3 tester.py
@@ -25,4 +25,4 @@ clean:
 	rm -rf build
 	rm -rf *.egg-info
 	
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re tests build
