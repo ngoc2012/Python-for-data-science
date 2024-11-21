@@ -14,5 +14,10 @@ all:
 	python3 setup.py sdist bdist_wheel
 test:
 	python3 tester.py
+
+clean:
+	rm -rf dist
+	rm -rf build
+	rm -rf *.egg-info
 	
 .PHONY: all clean fclean re test
