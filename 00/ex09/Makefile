@@ -19,7 +19,7 @@ all:
 	@echo "===== Test with tar ====="
 	@make clean
 	@make build
-	@make install1
+	@make install2
 	@make test
 
 build:
@@ -48,5 +48,7 @@ clean:
 	rm -rf dist
 	rm -rf build
 	rm -rf *.egg-info
+	@echo "===== Uninstalling ft_package ====="
+	pip uninstall -y ft_package
 	
 .PHONY: all clean fclean re tests build
