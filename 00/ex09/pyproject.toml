@@ -6,7 +6,6 @@ build-backend = "setuptools.build_meta"
 name = "ft_package"
 version = "0.0.1"
 description = "A sample test package"
-home-page = "https://github.com/eagle/ft_package"
 authors = [
     { name = "eagle", email = "eagle@42.fr" }
 ]
