@@ -11,30 +11,35 @@
 # **************************************************************************** #
 
 all:
-	echo "===== Test with whl ====="
+	@echo "===== Test with whl ====="
 	@make clean
 	@make build
 	@make install
 	@make test
-	echo "===== Test with tar ====="
+	@echo "===== Test with tar ====="
 	@make clean
 	@make build
 	@make install1
 	@make test
 
 build:
+	@echo "===== Building ft_package ====="
 	python3 setup.py sdist bdist_wheel
 
 test:
-	cd tests && python3 tester.py
+	@echo "===== Testing ft_package ====="
+	@cd tests && python3 tester.py
 
 install:
+	@echo "===== Installing ft_package with whl ====="
 	pip install dist/ft_package-0.0.1-py3-none-any.whl
 
 install2:
+	@echo "===== Installing ft_package with tar ====="
 	pip install dist/ft_package-0.0.1.tar.gz
 
 re:
+	@echo "===== Reinstalling ft_package with whl ====="
 	pip install --force-reinstall dist/ft_package-0.0.1-py3-none-any.whl
 
 fclean: clean
