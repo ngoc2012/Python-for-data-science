@@ -22,15 +22,15 @@ norm:
 	flake8 ex00 ex01 ex02 ex03 ex04 ex05 ex06 ex07 ex08 ex09
 
 test:
-	cd ex00 && bash units-test.sh
-	cd ex01 && bash units-test.sh
-	cd ex02 && bash units-test.sh
-	cd ex03 && bash units-test.sh
-	cd ex04 && bash units-test.sh
-	cd ex05 && bash units-test.sh
-	cd ex06 && python3 ft_filter.py
-	cd ex07 && python3 sos.py
-	cd ex08 && python3 tester.py
+	cd ex00 && bash unit-test.sh
+	cd ex01 && bash unit-test.sh
+	cd ex02 && bash unit-test.sh
+	cd ex03 && bash unit-test.sh
+	cd ex04 && bash unit-test.sh
+	cd ex05 && bash unit-test.sh
+	cd ex06 && bash unit-test.sh
+	cd ex07 && bash unit-test.sh
+	cd ex08 && bash unit-test.sh
 	cd ex09 && make
 
 .PHONY: all clean fclean re
