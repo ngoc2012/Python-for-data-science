@@ -9,6 +9,7 @@ description = "A sample test package"
 authors = [
     { name = "eagle", email = "eagle@42.fr" }
 ]
+license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.6"
 classifiers = []
