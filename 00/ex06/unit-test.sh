@@ -19,7 +19,8 @@ rm "$output_file"
 
 commands=(\
 "python3 filterstring.py 'Hello t\$he World' 4" \
-"python3 filterstring.py \"\$(echo -e \"Hello\\u200BWorld\")\" 4" \
+"echo \"\$(echo -e \"Hello\\u200BWorld\")\"" \
+"python3 filterstring.py \"\$(echo -e \"Hello \\u200BWorld\")\" 4" \
 "python3 filterstring.py 0 0" \
 "python3 filterstring.py 0 0.0001" \
 "python3 filterstring.py '' 0" \
