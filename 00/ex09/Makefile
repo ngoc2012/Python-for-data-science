@@ -25,7 +25,6 @@ all:
 build:
 	@echo "=============== Building ft_package ==============="
 	python3 -m build
-	#python3 setup.py sdist bdist_wheel
 
 test:
 	@echo "=============== Checking ft_package ==============="
@@ -50,7 +49,7 @@ fclean: clean
 clean:
 	rm -rf dist
 	rm -rf build
-	rm -rf *.egg-info
+	rm -rf ft_package.egg-info
 	@echo "=============== Uninstalling ft_package ==============="
 	pip uninstall -y ft_package
 	
