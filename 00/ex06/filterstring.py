@@ -11,6 +11,11 @@ def isInt(number: float) -> bool:
         return False
 
 
+def isAlphaNumeric(string: str) -> bool:
+    """Check if a string is alpha numeric"""
+    return string.isalnum()
+
+
 def main():
     """Main function of the program that take the string and the number as\
  argument and return a list of string that are longer than the number given"""
