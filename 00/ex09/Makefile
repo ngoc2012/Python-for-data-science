@@ -10,6 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
+# https://github.com/pypa/packaging-problems/issues/606
+#
 all:
 	@echo "=============== Test with whl ==============="
 	@make clean
