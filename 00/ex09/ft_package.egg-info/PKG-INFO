@@ -6,7 +6,6 @@ Home-page: https://github.com/eagle/ft_package
 Author: eagle
 Author-email: eagle <eagle@42.fr>
 License: MIT
-Project-URL: Homepage, https://github.com/eagle/ft_package
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
