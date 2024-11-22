@@ -3,6 +3,7 @@ Name: ft_package
 Version: 0.0.1
 Summary: A sample test package
 Author-email: eagle <eagle@42.fr>
+License: MIT
 Project-URL: Homepage, https://github.com/eagle/ft_package
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
