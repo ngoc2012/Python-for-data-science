@@ -30,7 +30,7 @@ test:
 	cd ex05 && bash unit-test.sh
 	cd ex06 && bash unit-test.sh
 	cd ex07 && bash unit-test.sh
-	cd ex08 && bash unit-test.sh
+	cd ex08 && python3 tester.py
 	cd ex09 && make
 
 .PHONY: all clean fclean re
