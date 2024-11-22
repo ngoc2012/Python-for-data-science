@@ -7,6 +7,7 @@ def isEven(number: int) -> bool:
 
 
 def isInt(number: float) -> bool:
+    """ Checks if a number is an integer. """
     try:
         int(number)
         return True
@@ -15,6 +16,7 @@ def isInt(number: float) -> bool:
 
 
 def main():
+    """ Main function of a program that checks if a number is odd or even. """
     if len(sys.argv) == 1:
         return
     assert len(sys.argv) == 2, "more than one argument is provided"
