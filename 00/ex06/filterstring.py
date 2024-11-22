@@ -11,16 +11,11 @@ def isInt(number: float) -> bool:
         return False
 
 
-def isAlphaNumeric(string: str) -> bool:
-    """Check if a string is alpha numeric"""
-    return string.isalnum()
-
-
 def main():
     """Main function of the program that take the string and the number as\
  argument and return a list of string that are longer than the number given"""
     assert len(sys.argv) == 3 and isInt(sys.argv[2]), "the arguments are bad"
-    special_strings = [x if not isAlphaNumeric(x) for x in sys.argv[1].split()]
+    special_strings = [x  for x in sys.argv[1].split() if not x.isalnum()]
     assert len(special_strings) == 0, "the arguments are bad"
     print(ft_filter(lambda x: len(x) > int(sys.argv[2]), sys.argv[1].split()))
 
