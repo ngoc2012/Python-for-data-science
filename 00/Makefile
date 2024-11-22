@@ -18,6 +18,23 @@ git:
 	git add ex09/ft_package/__init__.py
 	git add ex09/ft_package/ft_package.py
 
+bat:
+	batcat ex00/Hello.py
+	batcat ex01/format_ft_time.py
+	batcat ex02/find_ft_type.py
+	batcat ex03/NULL_not_found.py
+	batcat ex04/whatis.py
+	batcat ex05/building.py
+	batcat ex06/ft_filter.py
+	batcat ex06/filterstring.py
+	batcat ex07/sos.py
+	batcat ex08/Loading.py
+	batcat ex09/LICENSE
+	batcat ex09/pyproject.toml
+	batcat ex09/README.md
+	batcat ex09/ft_package/__init__.py
+	batcat ex09/ft_package/ft_package.py
+
 norm:
 	flake8 ex00 ex01 ex02 ex03 ex04 ex05 ex06 ex07 ex08 ex09
 
