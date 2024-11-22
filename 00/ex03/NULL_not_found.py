@@ -1,5 +1,5 @@
 def NULL_not_found(object: any) -> int:
-    """ Find the type of the object """
+    """ Find the type of null object """
     if object is None:
         print("Nothing: None", type(object))
         return 0
