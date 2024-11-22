@@ -22,12 +22,12 @@ norm:
 	flake8 ex00 ex01 ex02 ex03 ex04 ex05 ex06 ex07 ex08 ex09
 
 test:
-	cd ex00 && python3 Hello.py
-	cd ex01 && python3 format_ft_time.py
-	cd ex02 && python3 find_ft_type.py
-	cd ex03 && python3 NULL_not_found.py
-	cd ex04 && python3 whatis.py
-	cd ex05 && python3 building.py	
+	cd ex00 && bash units-test.sh
+	cd ex01 && bash units-test.sh
+	cd ex02 && bash units-test.sh
+	cd ex03 && bash units-test.sh
+	cd ex04 && bash units-test.sh
+	cd ex05 && bash units-test.sh
 	cd ex06 && python3 ft_filter.py
 	cd ex07 && python3 sos.py
 	cd ex08 && python3 tester.py
