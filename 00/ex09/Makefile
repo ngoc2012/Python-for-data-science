@@ -11,9 +11,12 @@
 # **************************************************************************** #
 
 all:
+	echo "===== Test with whl ====="
 	@make clean
 	@make build
 	@make install
+	@make test
+	echo "===== Test with tar ====="
 	@make clean
 	@make build
 	@make install1
