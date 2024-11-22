@@ -13,5 +13,10 @@ git:
 	git add ex06/filterstring.py
 	git add ex07/sos.py
 	git add ex08/Loading.py
+	git add ex09/LICENSE
+	git add ex09/pyproject.toml
+	git add ex09/README.md
+	git add ex09/ft_package/__init__.py
+	git add ex09/ft_package/ft_package.py
 
 .PHONY: all clean fclean re
