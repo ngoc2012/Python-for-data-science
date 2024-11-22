@@ -1,6 +1,5 @@
-# https://github.com/pypa/packaging-problems/issues/606
-#
 all:
+	@make norm
 	@make git
 git:
 	git add ex00/Hello.py
@@ -19,4 +18,6 @@ git:
 	git add ex09/ft_package/__init__.py
 	git add ex09/ft_package/ft_package.py
 
+norm:
+	flake8 ex00 ex01 ex02 ex03 ex04 ex05 ex06 ex07 ex08 ex09 --ignore=E501
 .PHONY: all clean fclean re
