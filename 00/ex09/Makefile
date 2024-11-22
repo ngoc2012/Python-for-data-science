@@ -14,6 +14,9 @@ all:
 	@make clean
 	@make build
 	@make install
+	@make clean
+	@make build
+	@make install1
 	@make test
 
 build:
