@@ -1,4 +1,5 @@
 def all_thing_is_obj(object: any) -> int:
+    """ Return the type of the object """
     if isinstance(object, list):
         print("List :", type(object))
     elif isinstance(object, tuple):
