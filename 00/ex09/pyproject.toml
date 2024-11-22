@@ -16,4 +16,4 @@ classifiers = []
 dependencies = []
 
 [project.urls]
-"Homepage" = "https://github.com/eagle/ft_package"
+Homepage = "https://github.com/eagle/ft_package"
