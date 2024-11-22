@@ -1,39 +1,28 @@
+FILES :=\
+	ex00/Hello.py \
+	ex01/format_ft_time.py \
+	ex02/find_ft_type.py \
+	ex03/NULL_not_found.py \
+	ex04/whatis.py \
+	ex05/building.py \
+	ex06/ft_filter.py \
+	ex06/filterstring.py \
+	ex07/sos.py \
+	ex08/Loading.py \
+	ex09/LICENSE \
+	ex09/pyproject.toml \
+	ex09/README.md \
+	ex09/ft_package/__init__.py \
+	ex09/ft_package/ft_package.py
+
 all:
 	@make norm
 	@make git
 git:
-	git add ex00/Hello.py
-	git add ex01/format_ft_time.py
-	git add ex02/find_ft_type.py
-	git add ex03/NULL_not_found.py
-	git add ex04/whatis.py
-	git add ex05/building.py
-	git add ex06/ft_filter.py
-	git add ex06/filterstring.py
-	git add ex07/sos.py
-	git add ex08/Loading.py
-	git add ex09/LICENSE
-	git add ex09/pyproject.toml
-	git add ex09/README.md
-	git add ex09/ft_package/__init__.py
-	git add ex09/ft_package/ft_package.py
+	git add $(FILES)
 
 bat:
-	batcat ex00/Hello.py
-	batcat ex01/format_ft_time.py
-	batcat ex02/find_ft_type.py
-	batcat ex03/NULL_not_found.py
-	batcat ex04/whatis.py
-	batcat ex05/building.py
-	batcat ex06/ft_filter.py
-	batcat ex06/filterstring.py
-	batcat ex07/sos.py
-	batcat ex08/Loading.py
-	batcat ex09/LICENSE
-	batcat ex09/pyproject.toml
-	batcat ex09/README.md
-	batcat ex09/ft_package/__init__.py
-	batcat ex09/ft_package/ft_package.py
+	batcat $(FILES)
 
 norm:
 	flake8 ex00 ex01 ex02 ex03 ex04 ex05 ex06 ex07 ex08 ex09
