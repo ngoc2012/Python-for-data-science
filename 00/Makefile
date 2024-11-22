@@ -19,5 +19,6 @@ git:
 	git add ex09/ft_package/ft_package.py
 
 norm:
-	flake8 ex00 ex01 ex02 ex03 ex04 ex05 ex06 ex07 ex08 ex09 --ignore=E501
+	flake8 ex00 ex01 ex02 ex03 ex04 ex05 ex06 ex07 ex08 ex09
+
 .PHONY: all clean fclean re
