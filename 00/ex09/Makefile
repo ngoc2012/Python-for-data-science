@@ -17,6 +17,8 @@ build:
 	python3 -m build
 
 test:
+	@echo "=============== Checking pip list ==============="
+	pip list | grep ft_package
 	@echo "=============== Checking ft_package ==============="
 	pip show -v ft_package
 	@echo "=============== Testing ft_package ==============="
