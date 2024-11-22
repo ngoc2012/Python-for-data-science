@@ -18,6 +18,7 @@ fi
 rm "$output_file"
 
 commands=(\
+"python3 filterstring.py 'Hello t\$he World' 4" \
 "python3 filterstring.py 0 0" \
 "python3 filterstring.py 0 0.0001" \
 "python3 filterstring.py '' 0" \
