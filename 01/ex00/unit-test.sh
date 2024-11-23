@@ -14,10 +14,7 @@ else
 fi
 rm "$output_file"
 
-commands=(\
-"python3 tester1.py"\
-"python3 tester1.py"\
-)
+commands=( "python3 tester1.py" "python3 tester1.py")
 
 for cmd in "${commands[@]}"; do
 	echo "Executing: $cmd"
