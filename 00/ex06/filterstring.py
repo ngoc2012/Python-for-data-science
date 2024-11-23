@@ -16,7 +16,7 @@ def main():
  argument and return a list of string that are longer than the number given"""
     assert len(sys.argv) == 3 and isInt(sys.argv[2]), "the arguments are bad"
     a = sys.argv[1].split()
-    assert len([x for x in a if x.isalnum()]) == len(a), "the arguments are bad"
+    assert len([x for x in a if x.isalnum()]) == len(a), "the argument are bad"
     print(ft_filter(lambda x: len(x) > int(sys.argv[2]), a))
 
 
