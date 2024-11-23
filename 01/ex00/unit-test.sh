@@ -1,7 +1,5 @@
 echo "================================= ex07 ================================="
-command1="\
-python3 sos.py 'sos' | cat -e && \
-python3 sos.py 'h\$llo' \
+command1="python3 tester.py"
 "
 echo "Command: $command1"
 output=$(eval $command1)
