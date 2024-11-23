@@ -14,21 +14,13 @@ else
 fi
 rm "$output_file"
 
-#commands=(\
-#"python3 sos.py 'This code was first used in 1844 and was called Morse landline code'" \
-#"python3 sos.py 'Morse code i[5/188]
-#tem allowing to code a message by short and long impulsion' " \
-#"python3 sos.py '' 0" \
-#"python3 sos.py '' 1" \
-#"python3 sos.py '' 99999999999999999999999999999999999999999999999" \
-#"python3 sos.py" \
-#"python3 sos.py 1" \
-#"python3 sos.py -1" \
-#)
-#
-#for cmd in "${commands[@]}"; do
-#	echo "Executing: $cmd"
-#	output=$(eval $cmd)
-#	echo -e "$output" | cat -e
-#	echo
-#done
+commands=(\
+"python3 tester1.py"\
+)
+
+for cmd in "${commands[@]}"; do
+	echo "Executing: $cmd"
+	output=$(eval $cmd)
+	echo -e "$output" | cat -e
+	echo
+done
