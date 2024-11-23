@@ -1,6 +1,6 @@
 echo "================================= ex07 ================================="
 command1="python3 tester.py"
-"
+
 echo "Command: $command1"
 output=$(eval $command1)
 echo -e "Actual Output:\n$output"
@@ -14,7 +14,10 @@ else
 fi
 rm "$output_file"
 
-commands=( "python3 tester1.py" "python3 tester1.py")
+commands=(\
+"python3 tester1.py"\
+"python3 tester1.py"\
+)
 
 for cmd in "${commands[@]}"; do
 	echo "Executing: $cmd"
