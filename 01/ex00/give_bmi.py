@@ -14,11 +14,10 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """ Return a list of True if the BMI is greater than the limit, False otherwise. """
-    assert isinstance(limit, int), "limit must be int"
-    try:
-        b = np.array(bmi)
-    except Exception as e:
+    if not isinstance(limit, int):
+        raise TypeError("limit must be int")
+    b = np.array(bmi)
+    if not(b.dtype == np.float64 or b.dtype == np.int64):
         raise TypeError("bmi must be a list of int or float")
-    assert b.dtype == np.float64 or b.dtype == np.int64, "bmi must be a list of int or float"
     assert np.all(b > 0), "bmi must be positive"
     return (b > limit).tolist()
