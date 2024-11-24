@@ -27,6 +27,16 @@ try:
     bmi = give_bmi(height, weight)
 except Exception as e:
     print(e)
+height = None
+try:
+    bmi = give_bmi(height, weight)
+except Exception as e:
+    print(e)
+height = "smt"
+try:
+    bmi = give_bmi(height, weight)
+except Exception as e:
+    print(e)
 height = [2.71, 1.15]
 weight = [165.3]
 try:
@@ -49,6 +59,16 @@ try:
 except Exception as e:
     print(e)
 weight = [165.3,"smt"]
+try:
+    bmi = give_bmi(height, weight)
+except Exception as e:
+    print(e)
+weight = "none"
+try:
+    bmi = give_bmi(height, weight)
+except Exception as e:
+    print(e)
+weight = None
 try:
     bmi = give_bmi(height, weight)
 except Exception as e:
