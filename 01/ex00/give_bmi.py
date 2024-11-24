@@ -19,5 +19,5 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     b = np.array(bmi)
     if not(b.dtype == np.float64 or b.dtype == np.int64):
         raise TypeError("bmi must be a list of int or float")
-    assert np.all(b > 0), "bmi must be positive"
+    if np.any(b <= 0): raise ValueError("bmi must be positive")
     return (b > limit).tolist()
