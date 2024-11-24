@@ -136,3 +136,23 @@ print("Data type of the array:", data.dtype)
 data = np.array([])
 print(data)
 print("Data type of the array:", data.dtype)
+
+
+
+import unittest
+
+class TestHeight(unittest.TestCase):
+
+    def test_positive_value(self):
+        self.assertEqual(ensure_positive(5), 5)
+
+    def test_size(self):
+        with self.assertRaises(TypeError):
+            ensure_positive(0)
+
+    def test_negative_value(self):
+        with self.assertRaises(ValueError):
+            ensure_positive(-5)
+
+if __name__ == '__main__':
+    unittest.main()
