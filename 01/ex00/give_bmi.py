@@ -7,8 +7,10 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
     w = np.array(weight)
     assert h.dtype == np.float64 or h.dtype == np.int64, "height must be a list of int or float"
     assert w.dtype == np.float64 or w.dtype == np.int64, "weight must be a list of int or float"
-    assert h.size == w.size, "height and weight must have the same length"
+    if h.size != w.size: raise ValueError("height and weight must have the same length")
     assert np.all(h > 0) and np.all(w > 0), "height and weight must be positive"
+    if np.any(h <= 0): raise ValueError("height must be positive")
+    if np.any(b <= 0): raise ValueError("weight must be positive")
     return (w / h ** 2).tolist()
 
 
