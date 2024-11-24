@@ -129,10 +129,32 @@ class TestBMIHeight(unittest.TestCase):
             give_bmi(None, [165.3, 38.4])
         with self.assertRaises(TypeError):
             give_bmi("smt", [165.3, 38.4])
+        with self.assertRaises(TypeError):
+            give_bmi([2.71, None], [165.3, 38.4])
+        with self.assertRaises(TypeError):
+            give_bmi([2.71, "smt"], [165.3, 38.4])
+
+    def test_size(self):
+        with self.assertRaises(TypeError):
+            give_bmi([2.71], [165.3, 38.4])
+
+    def test_value(self):
         with self.assertRaises(ValueError):
             give_bmi([2.71, 0], [165.3, 38.4])
         with self.assertRaises(ValueError):
             give_bmi([2.71, -1], [165.3, 38.4])
+
+class TestBMIWeight(unittest.TestCase):
+
+    def test_type(self):
+        with self.assertRaises(TypeError):
+            give_bmi(None, [165.3, 38.4])
+        with self.assertRaises(TypeError):
+            give_bmi("smt", [165.3, 38.4])
+        with self.assertRaises(TypeError):
+            give_bmi([2.71, None], [165.3, 38.4])
+        with self.assertRaises(TypeError):
+            give_bmi([2.71, "smt"], [165.3, 38.4])
 
     def test_size(self):
         with self.assertRaises(TypeError):
