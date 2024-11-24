@@ -13,8 +13,10 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
     #return [weight[i] / height[i] ** 2 for i in range(len(height))]
     h = np.array(height)
     w = np.array(weight)
+    assert h.dtype == np.float64 or h.dtype == np.int64, "height must be int or float"
+    assert w.dtype == np.float64 or w.dtype == np.int64, "weight must be int or float"
     assert np.all(h > 0) and np.all(w > 0), "height and weight must be positive"
-    return list(w / h ** 2)
+    return (w / h ** 2).tolist()
 
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
