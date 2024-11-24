@@ -8,23 +8,50 @@ try:
 except Exception as e:
     print(e)
 height = [2.71, 0]
-bmi = give_bmi(height, weight)
+try:
+    bmi = give_bmi(height, weight)
+except Exception as e:
+    print(e)
 height = [2.71, -1]
-bmi = give_bmi(height, weight)
+try:
+    bmi = give_bmi(height, weight)
+except Exception as e:
+    print(e)
 height = [2.71, "smt"]
-bmi = give_bmi(height, weight)
+try:
+    bmi = give_bmi(height, weight)
+except Exception as e:
+    print(e)
 height = [2.71, None]
-bmi = give_bmi(height, weight)
+try:
+    bmi = give_bmi(height, weight)
+except Exception as e:
+    print(e)
 height = [2.71, 1.15]
 weight = [165.3]
-bmi = give_bmi(height, weight)
+try:
+    bmi = give_bmi(height, weight)
+except Exception as e:
+    print(e)
 weight = [165.3, 0]
-bmi = give_bmi(height, weight)
+try:
+    bmi = give_bmi(height, weight)
+except Exception as e:
+    print(e)
 weight = [165.3, -1]
-bmi = give_bmi(height, weight)
+try:
+    bmi = give_bmi(height, weight)
+except Exception as e:
+    print(e)
 weight = [165.3, None]
-bmi = give_bmi(height, weight)
+try:
+    bmi = give_bmi(height, weight)
+except Exception as e:
+    print(e)
 weight = [165.3,"smt"]
-bmi = give_bmi(height, weight)
+try:
+    bmi = give_bmi(height, weight)
+except Exception as e:
+    print(e)
 print(bmi, type(bmi))
 print(apply_limit(bmi, 26))
