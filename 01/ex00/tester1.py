@@ -116,9 +116,9 @@ class TestLimitOutput(unittest.TestCase):
 
     def test(self):
         self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], 26)
-        self.assertEqual(give_bmi([], []), [])
+        self.assertEqual(apply_limit([], 26))
 
-class TestBMIHeight(unittest.TestCase):
+class TesLimitBMI(unittest.TestCase):
 
     def test_type(self):
         with self.assertRaises(TypeError):
