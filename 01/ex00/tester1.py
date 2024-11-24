@@ -2,61 +2,6 @@ from give_bmi import give_bmi, apply_limit
 
 
 #print(" ========================================== ")
-#print("Checking give_bmi function: height")
-#weight = [165.3, 38.4]
-#height = [2.71]
-#height = None
-#try:
-#    bmi = give_bmi(height, weight)
-#except Exception as e:
-#    print(e)
-#height = "smt"
-#try:
-#    bmi = give_bmi(height, weight)
-#except Exception as e:
-#    print(e)
-#print(" ========================================== ")
-#print("Checking give_bmi function: weight")
-#height = [2.71, 1.15]
-#weight = [165.3]
-#try:
-#    bmi = give_bmi(height, weight)
-#except Exception as e:
-#    print(e)
-#weight = [165.3, 0]
-#try:
-#    bmi = give_bmi(height, weight)
-#except Exception as e:
-#    print(e)
-#weight = [165.3, -1]
-#try:
-#    bmi = give_bmi(height, weight)
-#except Exception as e:
-#    print(e)
-#weight = [165.3, None]
-#try:
-#    bmi = give_bmi(height, weight)
-#except Exception as e:
-#    print(e)
-#weight = [165.3,"smt"]
-#try:
-#    bmi = give_bmi(height, weight)
-#except Exception as e:
-#    print(e)
-#weight = "none"
-#try:
-#    bmi = give_bmi(height, weight)
-#except Exception as e:
-#    print(e)
-#weight = None
-#try:
-#    bmi = give_bmi(height, weight)
-#except Exception as e:
-#    print(e)
-#height = [2.71, 1.15]
-#weight = [165.3, 38.4]
-#bmi = give_bmi(height, weight)
-#print(" ========================================== ")
 #print("Checking apply_limit function: limit")
 #try:
 #    print(apply_limit(bmi, []))
@@ -149,23 +94,23 @@ class TestBMIWeight(unittest.TestCase):
 
     def test_type(self):
         with self.assertRaises(TypeError):
-            give_bmi(None, [165.3, 38.4])
+            give_bmi([2.71, 1.15], [165.3, None])
         with self.assertRaises(TypeError):
-            give_bmi("smt", [165.3, 38.4])
+            give_bmi([2.71, 1.15], [165.3, "mt"])
         with self.assertRaises(TypeError):
-            give_bmi([2.71, None], [165.3, 38.4])
+            give_bmi([2.71, 1.15], [165.3, None])
         with self.assertRaises(TypeError):
-            give_bmi([2.71, "smt"], [165.3, 38.4])
+            give_bmi([2.71, 1.15], [165.3, "smt"])
 
     def test_size(self):
         with self.assertRaises(TypeError):
-            give_bmi([2.71], [165.3, 38.4])
+            give_bmi([2.71, 1.15], [38.4])
 
     def test_value(self):
         with self.assertRaises(ValueError):
-            give_bmi([2.71, 0], [165.3, 38.4])
+            give_bmi([2.71, 1.15], [0, 38.4])
         with self.assertRaises(ValueError):
-            give_bmi([2.71, -1], [165.3, 38.4])
+            give_bmi([2.71, 1.15], [165.3, -1])
 
 if __name__ == '__main__':
     unittest.main()
