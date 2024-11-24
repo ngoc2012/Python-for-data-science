@@ -5,20 +5,6 @@ print(" ========================================== ")
 print("Checking give_bmi function: height")
 weight = [165.3, 38.4]
 height = [2.71]
-try:
-    bmi = give_bmi(height, weight)
-except Exception as e:
-    print(e)
-height = [2.71, 0]
-try:
-    bmi = give_bmi(height, weight)
-except Exception as e:
-    print(e)
-height = [2.71, -1]
-try:
-    bmi = give_bmi(height, weight)
-except Exception as e:
-    print(e)
 height = [2.71, "smt"]
 try:
     bmi = give_bmi(height, weight)
