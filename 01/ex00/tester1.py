@@ -55,9 +55,27 @@ except Exception as e:
     print(e)
 weight = [165.3, 38.4]
 bmi = give_bmi(height, weight)
-print(apply_limit(bmi, []))
-print(apply_limit(bmi, [None]))
-print(apply_limit(bmi, None))
-print(apply_limit(bmi, -1))
-print(apply_limit(bmi, 0))
-print(apply_limit(bmi, "hello"))
+try:
+    print(apply_limit(bmi, []))
+except Exception as e:
+    print(e)
+try:
+    print(apply_limit(bmi, [None]))
+except Exception as e:
+    print(e)
+try:
+    print(apply_limit(bmi, None))
+except Exception as e:
+    print(e)
+try:
+    print(apply_limit(bmi, -1))
+except Exception as e:
+    print(e)
+try:
+    print(apply_limit(bmi, 0))
+except Exception as e:
+    print(e)
+try:
+    print(apply_limit(bmi, "hello"))
+except Exception as e:
+    print(e)
