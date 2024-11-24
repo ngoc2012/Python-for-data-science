@@ -3,10 +3,11 @@ import numpy as np
 
 def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
     """ Return a list of BMI values. """
-    assert isinstance(height, list), "height must be a list"
-    assert isinstance(weight, list), "weight must be a list"
-    h = np.array(height)
-    w = np.array(weight)
+    try:
+        h = np.array(height)
+        w = np.array(weight)
+    except Exception as e:
+        raise TypeError("height and weight must be a list of int or float")
     assert h.size == w.size, "height and weight must have the same length"
     assert h.dtype == np.float64 or h.dtype == np.int64, "height must be int or float"
     assert w.dtype == np.float64 or w.dtype == np.int64, "weight must be int or float"
@@ -16,8 +17,11 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """ Return a list of True if the BMI is greater than the limit, False otherwise. """
-    assert isinstance(bmi, list), "bmi must be a list"
-    assert all(isinstance(b, (int, float)) for b in bmi), "bmi must be int or float"
     assert isinstance(limit, int), "limit must be int"
-    assert all(b > 0 for b in bmi), "bmi must be positive"
-    return [bmi[i] > limit for i in range(len(bmi))]
+    try:
+        b = np.array(bmi)
+    except Exception as e:
+        raise TypeError("bmi must be a list of int or float")
+    assert b.dtype == np.float64 or b.dtype == np.int64, "height must be int or float"
+    assert np.all(b > 0), "bmi must be positive"
+    return (bmi > limit).tolist()
