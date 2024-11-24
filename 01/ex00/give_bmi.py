@@ -1,3 +1,6 @@
+import numpy as np
+
+
 def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
     """ Return a list of BMI values. """
     assert isinstance(height, list), "height must be a list"
@@ -7,7 +10,10 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
     assert all(isinstance(w, (int, float)) for w in weight), "weight must be int or float"
     assert all(h > 0 for h in height), "height must be positive"
     assert all(w > 0 for w in weight), "weight must be positive"
-    return [weight[i] / height[i] ** 2 for i in range(len(height))]
+    h = np.array(height)
+    w = np.array(weight)
+    return list(w / h ** 2)
+    #return [weight[i] / height[i] ** 2 for i in range(len(height))]
 
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
