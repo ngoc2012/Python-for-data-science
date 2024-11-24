@@ -127,10 +127,12 @@ from give_bmi import give_bmi, apply_limit
 
 import unittest
 
-class TestHeight(unittest.TestCase):
+class TestBMIOutput(unittest.TestCase):
 
-    def test_result(self):
+    def test(self):
         self.assertEqual(give_bmi([2.71, 1.15], [165.3, 38.4]), [22.507863455018317, 29.0359168241966])
+
+class TestBMIHeight(unittest.TestCase):
 
     def test_type(self):
         with self.assertRaises(TypeError):
