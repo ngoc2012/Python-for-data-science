@@ -122,3 +122,6 @@ import numpy as np
 data = np.array(None)
 print(data)
 print("Data type of the array:", data.dtype)
+data = np.array("smt")
+print(data)
+print("Data type of the array:", data.dtype)
