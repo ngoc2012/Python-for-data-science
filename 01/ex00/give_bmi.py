@@ -2,9 +2,9 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
     """ Return a list of BMI values. """
     assert isinstance(height, list), "height must be a list"
     assert isinstance(weight, list), "weight must be a list"
+    assert len(height) == len(weight), "height and weight must have the same length"
     assert all(isinstance(h, (int, float)) for h in height), "height must be int or float"
     assert all(isinstance(w, (int, float)) for w in weight), "weight must be int or float"
-    assert len(height) == len(weight), "height and weight must have the same length"
     assert all(h > 0 for h in height), "height must be positive"
     assert all(w > 0 for w in weight), "weight must be positive"
     return [weight[i] / height[i] ** 2 for i in range(len(height))]
