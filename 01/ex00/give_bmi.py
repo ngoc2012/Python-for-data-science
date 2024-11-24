@@ -10,5 +10,6 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """ Return a list of True if the BMI is greater than the limit, False otherwise. """
+    assert all(b > 0 for b in bmi), "height must be positive"
     assert all(isinstance(b, (int, float)) for b in bmi), "bmi must be int or float"
     return [bmi[i] > limit for i in range(len(bmi))]
