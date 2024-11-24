@@ -94,9 +94,9 @@ class TestBMIWeight(unittest.TestCase):
 
     def test_type(self):
         with self.assertRaises(TypeError):
-            give_bmi([2.71, 1.15], [165.3, None])
+            give_bmi([2.71, 1.15], None)
         with self.assertRaises(TypeError):
-            give_bmi([2.71, 1.15], [165.3, "mt"])
+            give_bmi([2.71, 1.15], "smt")
         with self.assertRaises(TypeError):
             give_bmi([2.71, 1.15], [165.3, None])
         with self.assertRaises(TypeError):
@@ -112,16 +112,18 @@ class TestBMIWeight(unittest.TestCase):
         with self.assertRaises(ValueError):
             give_bmi([2.71, 1.15], [165.3, -1])
 
-class TestLimitOutput(unittest.TestCase):
+class TestApplyLimitOutput(unittest.TestCase):
 
     def test(self):
         self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], 26)
         self.assertEqual(apply_limit([], 26))
 
-class TesLimitBMI(unittest.TestCase):
+class TestApplyLimitBMI(unittest.TestCase):
 
     def test_type(self):
         with self.assertRaises(TypeError):
-            give_bmi(None, [165.3, 38.4])
+            apply_limit([22.507863455018317, 29.0359168241966], None)
+            apply_limit([22.507863455018317, 29.0359168241966], [])
+            apply_limit([22.507863455018317, 29.0359168241966], "smt")
 if __name__ == '__main__':
     unittest.main()
