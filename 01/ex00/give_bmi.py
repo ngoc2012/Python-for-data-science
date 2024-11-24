@@ -1,6 +1,3 @@
-import numpy as np
-
-
 def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
     """ Return a list of BMI values. """
     assert len(height) == len(weight), "height and weight must have the same length"
