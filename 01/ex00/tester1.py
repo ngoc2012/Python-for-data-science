@@ -1,6 +1,7 @@
 from give_bmi import give_bmi, apply_limit
 
 
+print("Checking give_bmi function: height")
 weight = [165.3, 38.4]
 height = [2.71]
 try:
@@ -37,6 +38,7 @@ try:
     bmi = give_bmi(height, weight)
 except Exception as e:
     print(e)
+print("Checking give_bmi function: weight")
 height = [2.71, 1.15]
 weight = [165.3]
 try:
@@ -76,6 +78,7 @@ except Exception as e:
 height = [2.71, 1.15]
 weight = [165.3, 38.4]
 bmi = give_bmi(height, weight)
+print("Checking apply_limit function: limit")
 try:
     print(apply_limit(bmi, []))
 except Exception as e:
@@ -100,6 +103,7 @@ try:
     print(apply_limit(bmi, "hello"))
 except Exception as e:
     print(e)
+print("Checking apply_limit function: bmi")
 try:
     print(apply_limit([], 0))
 except Exception as e:
