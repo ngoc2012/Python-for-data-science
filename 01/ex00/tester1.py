@@ -116,3 +116,14 @@ try:
     print(apply_limit([-1], 0))
 except Exception as e:
     print(e)
+
+import numpy as np
+
+data = np.array([1, 2.5, 3, 4.0])
+print("Data type of the array:", data.dtype)
+data = np.array([1, 3])
+print("Data type of the array:", data.dtype)
+data = np.array([1, 3, None])
+print("Data type of the array:", data.dtype)
+data = np.array([1, 3, "hello"])
+print("Data type of the array:", data.dtype)
