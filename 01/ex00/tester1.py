@@ -119,12 +119,6 @@ except Exception as e:
 
 import numpy as np
 
-data = np.array([1, 2.5, 3, 4.0])
-print("Data type of the array:", data.dtype)
-print(data.dtype == np.float64) 
-data = np.array([1, 3])
-print("Data type of the array:", data.dtype)
-data = np.array([1, 3, None])
-print("Data type of the array:", data.dtype)
-data = np.array([1, 3, "hello"])
+data = np.array(None)
+print(data)
 print("Data type of the array:", data.dtype)
