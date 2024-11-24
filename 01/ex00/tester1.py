@@ -148,11 +148,13 @@ class TestHeight(unittest.TestCase):
 
     def test_size(self):
         with self.assertRaises(TypeError):
-            ensure_positive(0)
+            give_bmi([2.71], [165.3, 38.4])
 
-    def test_negative_value(self):
+    def test_value(self):
         with self.assertRaises(ValueError):
-            ensure_positive(-5)
+            give_bmi([2.71, 0], [165.3, 38.4])
+        with self.assertRaises(ValueError):
+            give_bmi([2.71, -1], [165.3, 38.4])
 
 if __name__ == '__main__':
     unittest.main()
