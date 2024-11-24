@@ -131,7 +131,6 @@ class TestHeight(unittest.TestCase):
 
     def test_result(self):
         self.assertEqual(give_bmi([2.71, 1.15], [165.3, 38.4]), [22.507863455018317, 29.0359168241966])
-        self.assertEqual(give_bmi([2.71, 1.15], [165.3, 38.4]), [22.507863455018317, 25.0359168241966])
 
     def test_type(self):
         with self.assertRaises(TypeError):
