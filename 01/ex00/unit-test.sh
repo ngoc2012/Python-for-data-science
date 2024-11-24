@@ -16,7 +16,6 @@ rm "$output_file"
 
 commands=(\
 "python3 tester1.py"\
-"python3 tester1.py"\
 )
 
 for cmd in "${commands[@]}"; do
