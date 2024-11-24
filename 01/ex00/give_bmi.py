@@ -5,9 +5,9 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
     """ Return a list of BMI values. """
     h = np.array(height)
     w = np.array(weight)
-    if not(h.dtype == np.float64 or h.dtype == np.int64):
+    if h.dtype not in [np.float64, np.int64]:
         raise TypeError("height must be a list of int or float")
-    if not(w.dtype == np.float64 or w.dtype == np.int64):
+    if w.dtype not in [np.float64, np.int64]:
         raise TypeError("weight must be a list of int or float")
     if h.size != w.size:
         raise TypeError("height and weight must have the same length")
@@ -22,7 +22,7 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """ Return a list of True if the BMI is greater than the limit, False otherwise. """
     if not isinstance(limit, int): raise TypeError("limit must be int")
     b = np.array(bmi)
-    if not(b.dtype == np.float64 or b.dtype == np.int64):
+    if b.dtype not in [np.float64, np.int64]:
         raise TypeError("bmi must be a list of int or float")
     if np.any(b <= 0): raise ValueError("bmi must be positive")
     return (b > limit).tolist()
