@@ -38,21 +38,21 @@ class TestSlideFamily(ut.TestCase):
             slice_me({} , 1, -2)
         with self.assertRaises(ValueError):
             slice_me(
-                [None, 78.4],
+                [None,
                  [2.15, 102.7],
                  [2.10, 98.5],
                  [1.88, 75.2]]
             , 1, -2)
         with self.assertRaises(TypeError):
             slice_me(
-                [[{}, 78.4],
+                [{},
                  [2.15, 102.7],
                  [2.10, 98.5],
                  [1.88, 75.2]]
             , 1, -2)
         with self.assertRaises(TypeError):
             slice_me(
-                [[(), 78.4],
+                [(),
                  [2.15, 102.7],
                  [2.10, 98.5],
                  [1.88, 75.2]]

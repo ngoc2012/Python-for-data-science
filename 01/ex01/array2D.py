@@ -12,7 +12,6 @@ def slice_me(family: list, start: int, end: int) -> list:
     except ValueError as err:
         raise ValueError(err)
     shape = f.shape
-    print(f, shape, len(shape))
     if len(shape) != 2:
         raise ValueError("family must be a 2D array")
     rows = shape[0]
