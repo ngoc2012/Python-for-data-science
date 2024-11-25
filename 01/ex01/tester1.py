@@ -2,26 +2,28 @@ import unittest as ut
 from array2D import slice_me
 
 
-class TestBMIOutput(ut.TestCase):
+class TestSlideOutput(ut.TestCase):
     """Test cases for the output of the give_bmi function."""
 
     def test_output(self):
         """Test the output of the give_bmi function with valid inputs."""
         self.assertEqual(
-            give_bmi(
-                [2.71, 1.15],
-                [165.3, 38.4]
-            ),
-            [22.507863455018317, 29.0359168241966]
+            slice_me(
+                [[1.80, 78.4],
+                 [2.15, 102.7],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , 0, 2),
+            [[1.8, 78.4], [2.15, 102.7]]
         )
         self.assertEqual(give_bmi([], []), [])
 
 
-class TestBMIHeight(ut.TestCase):
+class TestSlideFamily(ut.TestCase):
     """Test cases for the height input of the give_bmi function."""
 
     def test_type(self):
-        """Test the type of the height input."""
+        """Test the type of the family input."""
         with self.assertRaises(TypeError):
             give_bmi(None, [165.3, 38.4])
         with self.assertRaises(TypeError):
