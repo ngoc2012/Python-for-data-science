@@ -14,13 +14,13 @@ else
 fi
 rm "$output_file"
 
-#commands=(\
-#"python3 tester1.py"\
-#)
-#
-#for cmd in "${commands[@]}"; do
-#	echo "Executing: $cmd"
-#	output=$(eval $cmd)
-#	echo -e "$output" | cat -e
-#	echo
-#done
+commands=(\
+"python3 tester1.py"\
+)
+
+for cmd in "${commands[@]}"; do
+	echo "Executing: $cmd"
+	output=$(eval $cmd)
+	echo -e "$output" | cat -e
+	echo
+done
