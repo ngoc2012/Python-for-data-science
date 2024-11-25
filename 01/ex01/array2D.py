@@ -6,8 +6,7 @@ def isNumber(n: int | float) -> bool:
     return isinstance(n, int) or isinstance(n, float)
 
 
-def give_bmi(height: list[int | float], weight: list[int | float])\
-        -> list[int | float]:
+def slice_me(family: list, start: int, end: int) -> list:
     """ Return a list of BMI values. """
     if not isinstance(height, list) or not isinstance(weight, list):
         raise TypeError("height, weight must be a list")
