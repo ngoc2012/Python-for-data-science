@@ -1,40 +1,5 @@
-from give_bmi import give_bmi, apply_limit
-
-
-#print(" ========================================== ")
-#print("Checking apply_limit function: bmi")
-#try:
-#    print(apply_limit([], 0))
-#except Exception as e:
-#    print(e)
-#try:
-#    print(apply_limit(None, 0))
-#except Exception as e:
-#    print(e)
-#try:
-#    print(apply_limit([None], 0))
-#except Exception as e:
-#    print(e)
-#try:
-#    print(apply_limit([-1], 0))
-#except Exception as e:
-#    print(e)
-#
-#import numpy as np
-#
-#data = np.array(None)
-#print(data)
-#print("Data type of the array:", data.dtype)
-#data = np.array("smt")
-#print(data)
-#print("Data type of the array:", data.dtype)
-#data = np.array([])
-#print(data)
-#print("Data type of the array:", data.dtype)
-
-
-
 import unittest
+from give_bmi import give_bmi, apply_limit
 
 class TestBMIOutput(unittest.TestCase):
 
@@ -89,7 +54,7 @@ class TestBMIWeight(unittest.TestCase):
 class TestApplyLimitOutput(unittest.TestCase):
 
     def test(self):
-        self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], 26), [True, False])
+        self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], 26), [False, True])
         self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], 0), [True, True])
         self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], -1), [True, True])
         self.assertEqual(apply_limit([], 26), [])
