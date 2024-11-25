@@ -7,7 +7,10 @@ def slice_me(family: list, start: int, end: int) -> list:
         raise TypeError("family must be a list")
     if not isinstance(start, int) or not isinstance(end, int):
         raise TypeError("start and end must be integers")
-    f = np.array(family)
+    try:
+        f = np.array(family)
+    except ValueError:
+        raise ValueError("family must be a 2D array")
     shape = f.shape
     rows = shape[0]
     if start < 0:

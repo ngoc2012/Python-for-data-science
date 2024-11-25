@@ -62,7 +62,7 @@ class TestSlideFamily(ut.TestCase):
 
     def test_size(self):
         """Test the size of the family input."""
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             slice_me(
                 [[1.80, 78.4],
                  [2.15],
