@@ -12,7 +12,7 @@ def give_bmi(height: list[int | float], weight: list[int | float])\
     if not isinstance(height, list) or not isinstance(weight, list):
         raise TypeError("height, weight must be a list")
     if any(not isNumber(i) for i in height):
-        raise TypeError("height must be a list of int or float") 
+        raise TypeError("height must be a list of int or float")
     if any(not isNumber(i) for i in weight):
         raise TypeError("weight must be a list of int or float")
     h = np.array(height)
@@ -35,7 +35,7 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     if not isinstance(bmi, list):
         raise TypeError("bmi must be a list")
     if any(not isNumber(i) for i in bmi):
-        raise TypeError("bmi must be a list of int or float") 
+        raise TypeError("bmi must be a list of int or float")
     b = np.array(bmi)
     if np.any(b <= 0):
         raise ValueError("bmi must be positive")

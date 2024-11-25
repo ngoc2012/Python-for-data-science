@@ -1,6 +1,7 @@
 import unittest as ut
 from give_bmi import give_bmi, apply_limit
 
+
 class TestBMIOutput(ut.TestCase):
     """Test cases for the output of the give_bmi function."""
 
@@ -14,6 +15,7 @@ class TestBMIOutput(ut.TestCase):
             [22.507863455018317, 29.0359168241966]
         )
         self.assertEqual(give_bmi([], []), [])
+
 
 class TestBMIHeight(ut.TestCase):
     """Test cases for the height input of the give_bmi function."""
@@ -47,6 +49,7 @@ class TestBMIHeight(ut.TestCase):
         with self.assertRaises(ValueError):
             give_bmi([2.71, -1], [165.3, 38.4])
 
+
 class TestBMIWeight(ut.TestCase):
     """Test cases for the weight input of the give_bmi function."""
 
@@ -77,6 +80,7 @@ class TestBMIWeight(ut.TestCase):
         with self.assertRaises(ValueError):
             give_bmi([2.71, 1.15], [165.3, -1])
 
+
 class TestApplyLimitOutput(ut.TestCase):
     """Test cases for the output of the apply_limit function."""
 
@@ -105,6 +109,7 @@ class TestApplyLimitOutput(ut.TestCase):
         )
         self.assertEqual(apply_limit([], 26), [])
 
+
 class TestApplyLimitBMI(ut.TestCase):
     """Test cases for the BMI input of the apply_limit function."""
 
@@ -129,6 +134,7 @@ class TestApplyLimitBMI(ut.TestCase):
         with self.assertRaises(ValueError):
             apply_limit([-1], 26)
 
+
 class TestApplyLimitLimit(ut.TestCase):
     """Test cases for the limit input of the apply_limit function."""
 
@@ -140,6 +146,7 @@ class TestApplyLimitLimit(ut.TestCase):
             apply_limit([22.507863455018317, 29.0359168241966], [])
         with self.assertRaises(TypeError):
             apply_limit([22.507863455018317, 29.0359168241966], "smt")
+
 
 if __name__ == '__main__':
     ut.main()
