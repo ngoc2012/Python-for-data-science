@@ -2,9 +2,11 @@ import numpy as np
 
 
 def slice_me(family: list, start: int, end: int) -> list:
-    """ Return a list of BMI values. """
+    """Slice a 2D array."""
     if not isinstance(family, list):
         raise TypeError("family must be a list")
+    if not isinstance(start, int) or not isinstance(end, int):
+        raise TypeError("start and end must be integers")
     f = np.array(family)
     shape = f.shape
     rows = shape[0]
