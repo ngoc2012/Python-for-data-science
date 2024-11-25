@@ -83,16 +83,110 @@ class TestSlideStart(ut.TestCase):
                  [2.10, 98.5],
                  [1.88, 75.2]]
             , None, -2)
+        with self.assertRaises(TypeError):
+            slice_me(
+                [[1.80, 78.4],
+                 [2.15, 102.7],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , {}, -2)
+        with self.assertRaises(TypeError):
+            slice_me(
+                [[1.80, 78.4],
+                 [2.15, 102.7],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , [], -2)
+        with self.assertRaises(TypeError):
+            slice_me(
+                [[1.80, 78.4],
+                 [2.15, 102.7],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , (), -2)
+        with self.assertRaises(TypeError):
+            slice_me(
+                [[1.80, 78.4],
+                 [2.15, 102.7],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , [0], -2)
 
     def test_value(self):
-        """Test the type of the family input."""
+        """Test the value of the family input."""
         with self.assertRaises(IndexError):
             slice_me(
                 [[1.80, 78.4],
                  [2.15, 102.7],
                  [2.10, 98.5],
                  [1.88, 75.2]]
-            , 1, -2)
+            , -10, -2)
+        with self.assertRaises(IndexError):
+            slice_me(
+                [[1.80, 78.4],
+                 [2.15, 102.7],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , 10, -2)
+
+
+class TestSlideEnd(ut.TestCase):
+    """Test cases for the family input."""
+
+    def test_type(self):
+        """Test the type of the family input."""
+        with self.assertRaises(TypeError):
+            slice_me(
+                [[1.80, 78.4],
+                 [2.15, 102.7],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , None, -2)
+        with self.assertRaises(TypeError):
+            slice_me(
+                [[1.80, 78.4],
+                 [2.15, 102.7],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , {}, -2)
+        with self.assertRaises(TypeError):
+            slice_me(
+                [[1.80, 78.4],
+                 [2.15, 102.7],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , [], -2)
+        with self.assertRaises(TypeError):
+            slice_me(
+                [[1.80, 78.4],
+                 [2.15, 102.7],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , (), -2)
+        with self.assertRaises(TypeError):
+            slice_me(
+                [[1.80, 78.4],
+                 [2.15, 102.7],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , [0], -2)
+
+    def test_value(self):
+        """Test the value of the family input."""
+        with self.assertRaises(IndexError):
+            slice_me(
+                [[1.80, 78.4],
+                 [2.15, 102.7],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , -10, -2)
+        with self.assertRaises(IndexError):
+            slice_me(
+                [[1.80, 78.4],
+                 [2.15, 102.7],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , 10, -2)
 
 
 if __name__ == '__main__':
