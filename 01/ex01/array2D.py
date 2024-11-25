@@ -8,8 +8,10 @@ def isNumber(n: int | float) -> bool:
 
 def slice_me(family: list, start: int, end: int) -> list:
     """ Return a list of BMI values. """
-    if not isinstance(height, list) or not isinstance(weight, list):
-        raise TypeError("height, weight must be a list")
+    if not isinstance(family, list):
+        raise TypeError("family must be a list")
+    f = np.array(family)
+    print(f.shape)
     if any(not isNumber(i) for i in height):
         raise TypeError("height must be a list of int or float")
     if any(not isNumber(i) for i in weight):
