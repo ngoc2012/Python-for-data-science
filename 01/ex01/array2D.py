@@ -7,4 +7,4 @@ def slice_me(family: list, start: int, end: int) -> list:
         raise TypeError("family must be a list")
     f = np.array(family)
     print(f"My shape is : {f.shape}")
-    return (w / h ** 2).tolist()
+    return f
