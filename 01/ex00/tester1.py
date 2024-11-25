@@ -124,7 +124,7 @@ class TestApplyLimitBMI(ut.TestCase):
             apply_limit([{}], 26)
         #with self.assertRaises(TypeError):
         #    apply_limit([()], 26)
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             apply_limit([-1], 26)
 
 class TestApplyLimitLimit(ut.TestCase):
