@@ -34,6 +34,31 @@ class TestSlideFamily(ut.TestCase):
         """Test the type of the family input."""
         with self.assertRaises(TypeError):
             slice_me(None , 1, -2)
+        with self.assertRaises(TypeError):
+            slice_me({} , 1, -2)
+        with self.assertRaises(TypeError):
+            slice_me([] , 1, -2)
+        with self.assertRaises(TypeError):
+            slice_me(
+                [None, 78.4],
+                 [2.15],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , 1, -2)
+        with self.assertRaises(TypeError):
+            slice_me(
+                [{}, 78.4],
+                 [2.15],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , 1, -2)
+        with self.assertRaises(TypeError):
+            slice_me(
+                [(), 78.4],
+                 [2.15],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , 1, -2)
 
     def test_size(self):
         """Test the size of the family input."""
