@@ -125,5 +125,7 @@ class TestApplyLimitBMI(unittest.TestCase):
             apply_limit([22.507863455018317, 29.0359168241966], None)
             apply_limit([22.507863455018317, 29.0359168241966], [])
             apply_limit([22.507863455018317, 29.0359168241966], "smt")
+
+
 if __name__ == '__main__':
     unittest.main()
