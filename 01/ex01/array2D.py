@@ -11,6 +11,8 @@ def slice_me(family: list, start: int, end: int) -> list:
         f = np.array(family)
     except ValueError as err:
         raise ValueError(err)
+    except AssertionError as err:
+        raise AssertionError(err)
     shape = f.shape
     rows = shape[0]
     if start < 0:
