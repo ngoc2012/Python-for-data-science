@@ -55,6 +55,10 @@ class TestBMIWeight(ut.TestCase):
         with self.assertRaises(TypeError):
             give_bmi([2.71, 1.15], "smt")
         with self.assertRaises(TypeError):
+            give_bmi([2.71, 1.15], {})
+        with self.assertRaises(TypeError):
+            give_bmi([2.71, 1.15], [])
+        with self.assertRaises(TypeError):
             give_bmi([2.71, 1.15], [165.3, None])
         with self.assertRaises(TypeError):
             give_bmi([2.71, 1.15], [165.3, "smt"])
