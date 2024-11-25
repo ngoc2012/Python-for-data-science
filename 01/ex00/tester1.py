@@ -98,6 +98,17 @@ class TestApplyLimitBMI(unittest.TestCase):
 
     def test_type(self):
         with self.assertRaises(TypeError):
+            self.assertEqual(apply_limit(None, 26)
+            self.assertEqual(apply_limit("smt", 26)
+            self.assertEqual(apply_limit({}, 26)
+            self.assertEqual(apply_limit((), 26)
+            self.assertEqual(apply_limit([None], 26)
+            self.assertEqual(apply_limit([-1], 26)
+
+class TestApplyLimitLimit(unittest.TestCase):
+
+    def test_type(self):
+        with self.assertRaises(TypeError):
             apply_limit([22.507863455018317, 29.0359168241966], None)
             apply_limit([22.507863455018317, 29.0359168241966], [])
             apply_limit([22.507863455018317, 29.0359168241966], "smt")
