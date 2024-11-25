@@ -1,6 +1,11 @@
 import numpy as np
 
 
+def isNumber(n: int | float) -> bool:
+    """ Return True if n is int or float. """
+    return isinstance(n, int) or isinstance(n, float)
+
+
 def give_bmi(height: list[int | float], weight: list[int | float])\
         -> list[int | float]:
     """ Return a list of BMI values. """
@@ -8,9 +13,9 @@ def give_bmi(height: list[int | float], weight: list[int | float])\
         raise TypeError("height, weight must be a list")
     h = np.array(height)
     w = np.array(weight)
-    if h.dtype not in [np.float64, np.int64]:
+    if h.dtype not in [np.float64, np.int64] or len(h.shape) != 1:
         raise TypeError("height must be a list of int or float")
-    if w.dtype not in [np.float64, np.int64]:
+    if w.dtype not in [np.float64, np.int64] or len(w.shape) != 1:
         raise TypeError("weight must be a list of int or float")
     if h.size != w.size:
         raise TypeError("height and weight must have the same length")
