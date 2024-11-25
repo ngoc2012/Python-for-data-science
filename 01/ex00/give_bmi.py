@@ -11,12 +11,10 @@ def give_bmi(height: list[int | float], weight: list[int | float])\
     """ Return a list of BMI values. """
     if not isinstance(height, list) or not isinstance(weight, list):
         raise TypeError("height, weight must be a list")
+    if any(not isNumber(i) for i in height) or any(not isNumber(i) for i in weight):
+        raise TypeError("height, weight must be a list of int or float")
     h = np.array(height)
     w = np.array(weight)
-    if h.dtype not in [np.float64, np.int64] or len(h.shape) != 1:
-        raise TypeError("height must be a list of int or float")
-    if w.dtype not in [np.float64, np.int64] or len(w.shape) != 1:
-        raise TypeError("weight must be a list of int or float")
     if h.size != w.size:
         raise TypeError("height and weight must have the same length")
     if np.any(h <= 0) or np.any(w <= 0):
