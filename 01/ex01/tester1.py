@@ -36,7 +36,7 @@ class TestSlideFamily(ut.TestCase):
             slice_me(None , 1, -2)
         with self.assertRaises(TypeError):
             slice_me({} , 1, -2)
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(ValueError):
             slice_me(
                 [[None, 78.4],
                  [2.15, 102.7],

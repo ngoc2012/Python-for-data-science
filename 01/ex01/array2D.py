@@ -11,9 +11,9 @@ def slice_me(family: list, start: int, end: int) -> list:
         f = np.array(family)
     except ValueError as err:
         raise ValueError(err)
-    except AssertionError as err:
-        raise AssertionError(err)
     shape = f.shape
+    if len(shape) != 2:
+        raise ValueError("family must be a 2D array")
     rows = shape[0]
     if start < 0:
         start = rows + start
