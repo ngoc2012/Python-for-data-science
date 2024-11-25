@@ -30,7 +30,7 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     if not isinstance(bmi, list):
         raise TypeError("bmi must be a list")
     b = np.array(bmi)
-    if b.dtype not in [np.float64, np.int64]:
+    if b.dtype not in [np.float64, np.int64] or len(b.shape) != 1:
         raise TypeError("bmi must be a list of int or float")
     if np.any(b <= 0):
         raise ValueError("bmi must be positive")
