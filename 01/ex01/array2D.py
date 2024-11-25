@@ -17,6 +17,6 @@ def slice_me(family: list, start: int, end: int) -> list:
     if start < rows or end > rows:
         raise IndexError("Index out of range")
     new_shape = (end - start, shape[1])
-    print(f"My shape is : {f.shape}")
-    print(f"My new shape is : {f.shape}")
+    print(f"My shape is : {shape}")
+    print(f"My new shape is : {new_shape}")
     return f[start:end]
