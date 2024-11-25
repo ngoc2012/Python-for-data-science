@@ -16,7 +16,15 @@ class TestSlideOutput(ut.TestCase):
             , 0, 2),
             [[1.8, 78.4], [2.15, 102.7]]
         )
-        self.assertEqual(give_bmi([], []), [])
+        self.assertEqual(
+            slice_me(
+                [[1.80, 78.4],
+                 [2.15, 102.7],
+                 [2.10, 98.5],
+                 [1.88, 75.2]]
+            , 1, -2),
+            [[2.15, 102.7]]
+        )
 
 
 class TestSlideFamily(ut.TestCase):
