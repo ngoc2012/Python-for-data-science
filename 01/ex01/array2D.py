@@ -12,8 +12,9 @@ def slice_me(family: list, start: int, end: int) -> list:
         start = rows + start
     if end < 0:
         end = rows + end
-    if start > end:
+    if start >= end:
         raise ValueError("start must be less than end")
+    print(rows, start, end)
     if start < rows or end > rows:
         raise IndexError("Index out of range")
     new_shape = (end - start, shape[1])
