@@ -89,10 +89,10 @@ class TestBMIWeight(unittest.TestCase):
 class TestApplyLimitOutput(unittest.TestCase):
 
     def test(self):
-        self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], 26))
-        self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], 0))
-        self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], -1))
-        self.assertEqual(apply_limit([], 26))
+        self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], 26), [True, False])
+        self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], 0), [True, True])
+        self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], -1), [True, True])
+        self.assertEqual(apply_limit([], 26), [])
 
 class TestApplyLimitBMI(unittest.TestCase):
 
