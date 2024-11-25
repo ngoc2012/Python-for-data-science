@@ -2,32 +2,6 @@ from give_bmi import give_bmi, apply_limit
 
 
 #print(" ========================================== ")
-#print("Checking apply_limit function: limit")
-#try:
-#    print(apply_limit(bmi, []))
-#except Exception as e:
-#    print(e)
-#try:
-#    print(apply_limit(bmi, [None]))
-#except Exception as e:
-#    print(e)
-#try:
-#    print(apply_limit(bmi, None))
-#except Exception as e:
-#    print(e)
-#try:
-#    print(apply_limit(bmi, -1))
-#except Exception as e:
-#    print(e)
-#try:
-#    print(apply_limit(bmi, 0))
-#except Exception as e:
-#    print(e)
-#try:
-#    print(apply_limit(bmi, "hello"))
-#except Exception as e:
-#    print(e)
-#print(" ========================================== ")
 #print("Checking apply_limit function: bmi")
 #try:
 #    print(apply_limit([], 0))
@@ -116,6 +90,8 @@ class TestApplyLimitOutput(unittest.TestCase):
 
     def test(self):
         self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], 26)
+        self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], 0
+        self.assertEqual(apply_limit([22.507863455018317, 29.0359168241966], -1)
         self.assertEqual(apply_limit([], 26))
 
 class TestApplyLimitBMI(unittest.TestCase):
