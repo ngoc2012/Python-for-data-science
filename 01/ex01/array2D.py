@@ -9,8 +9,8 @@ def slice_me(family: list, start: int, end: int) -> list:
         raise TypeError("start and end must be integers")
     try:
         f = np.array(family)
-    except ValueError:
-        raise ValueError("family must be a 2D array")
+    except ValueError as err:
+        raise ValueError(err)
     shape = f.shape
     rows = shape[0]
     if start < 0:
