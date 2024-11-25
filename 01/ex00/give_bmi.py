@@ -4,6 +4,8 @@ import numpy as np
 def give_bmi(height: list[int | float], weight: list[int | float])\
         -> list[int | float]:
     """ Return a list of BMI values. """
+    if not isinstance(height, list) or not isinstance(weight, list):
+        raise TypeError("height, weight must be a list")
     h = np.array(height)
     w = np.array(weight)
     if h.dtype not in [np.float64, np.int64]:
@@ -25,6 +27,8 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """ Return a list of True if the BMI is greater than the limit."""
     if not isinstance(limit, int):
         raise TypeError("limit must be int")
+    if not isinstance(bmi, list):
+        raise TypeError("bmi must be a list")
     b = np.array(bmi)
     if b.dtype not in [np.float64, np.int64]:
         raise TypeError("bmi must be a list of int or float")
