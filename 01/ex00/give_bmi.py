@@ -1,7 +1,8 @@
 import numpy as np
 
 
-def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
+def give_bmi(height: list[int | float], weight: list[int | float])\
+        -> list[int | float]:
     """ Return a list of BMI values. """
     h = np.array(height)
     w = np.array(weight)
