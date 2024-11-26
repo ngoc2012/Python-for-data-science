@@ -7,7 +7,7 @@ class TestLoadPath(ut.TestCase):
 
     def test_value(self):
         """Test the value of the path input."""
-        with self.assertRaises(ValueError):
+        with self.assertRaises(FileNotFoundError):
             ft_load("dsfsadfdsfsd")
         with self.assertRaises(ValueError):
             ft_load("/home/ngoc/Downloads/meotravaux.mp4")
