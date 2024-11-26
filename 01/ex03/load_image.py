@@ -47,9 +47,11 @@ def dislay_img(image_array: np.array) -> None:
     """Display an image from a numpy array."""
     image = Image.fromarray(image_array, 'RGB')
     plt.imshow(image)
-    plt.xlabel('X Axis')
-    plt.ylabel('Y Axis')
-    plt.title('Image with Axes')
-    plt.savefig('/tmp/00.png')
+    #plt.xlabel('X Axis')
+    #plt.ylabel('Y Axis')
+    #plt.title('Image with Axes')
+    image_path = '/tmp/00.png'
+    plt.savefig(image_path)
     plt.close()
-    plt.show()
+    image = Image.open(image_path)
+    image.show()
