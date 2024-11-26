@@ -4,6 +4,8 @@ import numpy as np
 
 def ft_load(path: str) -> np.array:
     """Load an image from a file and convert it to a numpy array."""
+    if not isinstance(path, str):
+        raise TypeError("path must be a string")
     image = Image.open(path)
     if image.mode != 'RGB':
         image = image.convert('RGB')
