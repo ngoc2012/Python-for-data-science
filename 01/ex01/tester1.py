@@ -12,7 +12,7 @@ class TestSlideOutput(ut.TestCase):
                 [[1.80, 78.4],
                  [2.15, 102.7],
                  [2.10, 98.5],
-                 [1.88, 75.2]] , 0, 2
+                 [1.88, 75.2]], 0, 2
             ),
             [[1.8, 78.4], [2.15, 102.7]]
         )
@@ -21,8 +21,7 @@ class TestSlideOutput(ut.TestCase):
                 [[1.80, 78.4],
                  [2.15, 102.7],
                  [2.10, 98.5],
-                 [1.88, 75.2]]
-            , 1, -2),
+                 [1.88, 75.2]], 1, -2),
             [[2.15, 102.7]]
         )
 
@@ -41,36 +40,31 @@ class TestSlideFamily(ut.TestCase):
                 [None,
                  [2.15, 102.7],
                  [2.10, 98.5],
-                 [1.88, 75.2]]
-            , 1, -2)
+                 [1.88, 75.2]], 1, -2)
         with self.assertRaises(TypeError):
             slice_me(
                 [{},
                  [2.15, 102.7],
                  [2.10, 98.5],
-                 [1.88, 75.2]]
-            , 1, -2)
+                 [1.88, 75.2]], 1, -2)
         with self.assertRaises(TypeError):
             slice_me(
                 [(),
                  [2.15, 102.7],
                  [2.10, 98.5],
-                 [1.88, 75.2]]
-            , 1, -2)
+                 [1.88, 75.2]], 1, -2)
         with self.assertRaises(TypeError):
             slice_me(
                 [[[1.80], 78.4],
                  [2.15, 102.7],
                  [2.10, 98.5],
-                 [1.88, 75.2]]
-            , 1, -2)
+                 [1.88, 75.2]], 1, -2)
         with self.assertRaises(TypeError):
             slice_me(
                 [[None, 78.4],
                  [2.15, 102.7],
                  [2.10, 98.5],
-                 [1.88, 75.2]]
-            , 1, -2)
+                 [1.88, 75.2]], 1, -2)
         with self.assertRaises(TypeError):
             slice_me(
                 [[{}, 78.4],
