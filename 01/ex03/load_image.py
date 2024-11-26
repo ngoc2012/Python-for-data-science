@@ -46,8 +46,8 @@ def dislay_img(image_array: np.ndarray) -> None:
     """Display an image from a numpy array."""
     image_path = "/tmp/00.png"
     image = Image.fromarray(image_array, 'RGB')
-    margin_left = 50  # Space for axes (in pixels)
-    margin_bottom = 20  # Space for axes (in pixels)
+    margin_left = 50
+    margin_bottom = 20
     width, height = image.size
     new_width = width + margin_left
     new_height = height + margin_bottom
@@ -55,5 +55,5 @@ def dislay_img(image_array: np.ndarray) -> None:
     enlarged_image.paste(image, (margin_left, 0))
     enlarged_image.save(image_path)
     enlarged_image.show()
-    print(f"The shape of image is: {image_array.shape}")
+    #print(f"The shape of image is: {image_array.shape}")
 
