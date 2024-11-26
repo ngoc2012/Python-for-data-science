@@ -48,5 +48,5 @@ def dislay_img(image_array: np.ndarray) -> None:
     margin_left = 50  # Space for axes (in pixels)
     margin_bottom = 20  # Space for axes (in pixels)
     width, height = image.size
-    new_width = width + margin
-    new_height = height + margin
+    new_width = width + margin_left
+    new_height = height + margin_bottom
