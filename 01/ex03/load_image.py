@@ -47,7 +47,7 @@ def dislay_img(image_array: np.ndarray) -> None:
     """Display an image from a numpy array."""
     image = Image.fromarray(image_array, 'RGB')
     dpi = 300
-    ratio = 1.1
+    ratio = 1.2
     image_path = '/tmp/00.png'
     plt.figure(figsize=(ratio * image_array.shape[1] / dpi, ratio * image_array.shape[0] / dpi))
     plt.imshow(image, interpolation='none')
