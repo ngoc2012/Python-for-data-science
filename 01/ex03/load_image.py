@@ -48,13 +48,10 @@ def dislay_img(image_array: np.ndarray) -> None:
     image = Image.fromarray(image_array, 'RGB')
     dpi = 300
     ratio = 1.1
-    plt.figure(figsize=(ratio * image.shape[1] / dpi, ratio * image.shape[0] / dpi))
-    plt.imshow(image)
-    #plt.xlabel('X Axis')
-    #plt.ylabel('Y Axis')
-    #plt.title('Image with Axes')
     image_path = '/tmp/00.png'
-    plt.savefig(image_path)
+    plt.figure(figsize=(ratio * image.shape[1] / dpi, ratio * image.shape[0] / dpi))
+    plt.imshow(image, interpolation='none')
+    plt.savefig(image_path, dpi=dpi, bbox_inches='tight', pad_inches=0)
     plt.close()
     image = Image.open(image_path)
     image.show()
