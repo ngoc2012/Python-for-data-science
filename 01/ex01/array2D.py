@@ -9,6 +9,9 @@ def slice_me(family: list, start: int, end: int) -> list:
         raise TypeError("start and end must be integers")
     if not all(isinstance(row, list) for row in family):
         raise TypeError("family must be a 2D array")
+    for row in family:
+        if any(isinstance(x, (list, tuple)) for x in row):
+            raise TypeError("family must be a 2D array of numbers")
     if len(set([len(row) for row in family])) != 1:
         raise ValueError("All sublists in family must have the same length")
     f = np.array(family)
