@@ -44,6 +44,7 @@ def slice_me(f: np.ndarray, start: int, end: int) -> np.ndarray:
 
 def dislay_img(image_array: np.ndarray) -> None:
     """Display an image from a numpy array."""
+    image_path = "/tmp/00.png"
     image = Image.fromarray(image_array, 'RGB')
     margin_left = 50  # Space for axes (in pixels)
     margin_bottom = 20  # Space for axes (in pixels)
