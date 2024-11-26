@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def ft_load(path: str) -> np.array:
+def ft_load(path: str) -> np.ndarray:
     """Load an image from a file and convert it to a numpy array."""
     if not isinstance(path, str):
         raise TypeError("Path must be a string.")
@@ -16,12 +16,12 @@ def ft_load(path: str) -> np.array:
     image = Image.open(path)
     if image.mode != 'RGB':
         image = image.convert('RGB')
-    image_array = np.array(image)
+    image_array = np.ndarray(image)
     print(f"The shape of image is: {image_array.shape}")
     return image_array
 
 
-def slice_me(f: np.array, start: int, end: int) -> np.array:
+def slice_me(f: np.ndarray, start: int, end: int) -> np.ndarray:
     """Slice a 2D numpy array."""
     if not isinstance(start, int) or not isinstance(end, int):
         raise TypeError("Start and end must be integers.")
@@ -43,7 +43,7 @@ def slice_me(f: np.array, start: int, end: int) -> np.array:
     return f[start:end]
 
 
-def dislay_img(image_array: np.array) -> None:
+def dislay_img(image_array: np.ndarray) -> None:
     """Display an image from a numpy array."""
     image = Image.fromarray(image_array, 'RGB')
     plt.imshow(image)
