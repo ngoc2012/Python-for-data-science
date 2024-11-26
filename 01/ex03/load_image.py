@@ -58,8 +58,8 @@ def dislay_img(image_array: np.ndarray) -> None:
     image_path = "/tmp/00.png"
     image = Image.fromarray(image_array, 'RGB')
     width, height = image.size
-    margin_left = width / 10
-    margin_bottom = height / 10
+    margin_left = int(width / 10)
+    margin_bottom = int(height / 10)
     new_width = width + margin_left
     new_height = height + margin_bottom
     enlarged_image = Image.new("RGB", (new_width, new_height), color=(255, 255, 255))
@@ -73,14 +73,14 @@ def dislay_img(image_array: np.ndarray) -> None:
 
     # Draw X-axis scale (along the bottom margin)
     for x in range(0, width + 1, x_interval):  # Use calculated interval
-        pos_x = left_margin + x
+        pos_x = margin_left + x
         draw.line([(pos_x, height), (pos_x, height + 5)], fill="black", width=1)
         draw.text((pos_x - 10, height + 10), str(x), fill="black")
     
     for y in range(0, height + 1, y_interval):
         pos_y = height - y
-        draw.line([(left_margin - 5, pos_y), (left_margin, pos_y)], fill="black", width=1)
-        draw.text((left_margin - 40, pos_y - 5), str(y), fill="black")
+        draw.line([(margin_left - 5, pos_y), (margin_left, pos_y)], fill="black", width=1)
+        draw.text((margin_left - 40, pos_y - 5), str(y), fill="black")
 
 
     enlarged_image.save(image_path)
