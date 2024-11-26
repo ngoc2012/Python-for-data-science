@@ -12,8 +12,7 @@ def slice_me(family: list, start: int, end: int) -> list:
     for row in family:
         if not all(isinstance(x, (int, float)) for x in row):
             raise TypeError("family must be a 2D array of numbers")
-    lengths = [len(row) for row in family]
-    if len(set(lengths)) != 1:
+    if len(set([len(row) for row in family])) != 1:
         raise ValueError("All sublists in family must have the same length")
     f = np.array(family)
     shape = f.shape
