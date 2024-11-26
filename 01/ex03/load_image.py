@@ -50,4 +50,6 @@ def dislay_img(image_array: np.array) -> None:
     plt.xlabel('X Axis')
     plt.ylabel('Y Axis')
     plt.title('Image with Axes')
+    plt.savefig('/tmp/00.png')
+    plt.close()
     plt.show()
