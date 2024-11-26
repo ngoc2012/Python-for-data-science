@@ -7,10 +7,10 @@ def slice_me(family: list, start: int, end: int) -> list:
         raise TypeError("family must be a list")
     if not isinstance(start, int) or not isinstance(end, int):
         raise TypeError("start and end must be integers")
-    ## Check if all sublists have the same length
-    #lengths = [len(sublist) for sublist in family]
-    #if len(set(lengths)) != 1:
-    #    raise ValueError("All sublists in family must have the same length")
+    # Check if all sublists have the same length
+    lengths = [len(sublist) for sublist in family]
+    if len(set(lengths)) != 1:
+        raise ValueError("All sublists in family must have the same length")
     try:
         f = np.array(family)
     except ValueError as err:
