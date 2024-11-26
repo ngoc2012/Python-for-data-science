@@ -7,10 +7,9 @@ def slice_me(family: list, start: int, end: int) -> list:
         raise TypeError("family must be a list")
     if not isinstance(start, int) or not isinstance(end, int):
         raise TypeError("start and end must be integers")
-    # Check if family is a list of lists and all sublists are valid
     if not all(isinstance(row, list) for row in family):
         raise ValueError("family must be a 2D array of numbers")
-    lengths = [len(sublist) for sublist in family]
+    lengths = [len(row) for row in family]
     if len(set(lengths)) != 1:
         raise ValueError("All sublists in family must have the same length")
     try:
