@@ -46,7 +46,9 @@ def slice_me(f: np.ndarray, start: int, end: int) -> np.ndarray:
 def dislay_img(image_array: np.ndarray) -> None:
     """Display an image from a numpy array."""
     image = Image.fromarray(image_array, 'RGB')
-    plt.figure(figsize=(10, 10))
+    dpi = 300
+    ratio = 1.1
+    plt.figure(figsize=(ratio * image.shape[1] / dpi, ratio * image.shape[0] / dpi))
     plt.imshow(image)
     #plt.xlabel('X Axis')
     #plt.ylabel('Y Axis')
