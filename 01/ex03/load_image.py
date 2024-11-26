@@ -42,6 +42,17 @@ def slice_me(f: np.ndarray, start: int, end: int) -> np.ndarray:
     return f[start:end]
 
 
+def calculate_interval(size, target_intervals=10):
+    raw_interval = size / target_intervals
+    # Round to a "nice" number
+    if raw_interval <= 10:
+        return max(1, int(raw_interval))  # Round down for smaller sizes
+    elif raw_interval <= 50:
+        return int(raw_interval // 5) * 5  # Nearest multiple of 5
+    else:
+        return int(raw_interval // 10) * 10  # Nearest multiple of 10
+
+
 def dislay_img(image_array: np.ndarray) -> None:
     """Display an image from a numpy array."""
     image_path = "/tmp/00.png"
@@ -53,6 +64,25 @@ def dislay_img(image_array: np.ndarray) -> None:
     new_height = height + margin_bottom
     enlarged_image = Image.new("RGB", (new_width, new_height), color=(255, 255, 255))
     enlarged_image.paste(image, (margin_left, 0))
+
+    x_interval = calculate_interval(width)
+    y_interval = calculate_interval(height)
+    
+    # Draw scales on the axes
+    draw = ImageDraw.Draw(enlarged_image)
+
+    # Draw X-axis scale (along the bottom margin)
+    for x in range(0, width + 1, x_interval):  # Use calculated interval
+        pos_x = left_margin + x
+        draw.line([(pos_x, height), (pos_x, height + 5)], fill="black", width=1)
+        draw.text((pos_x - 10, height + 10), str(x), fill="black")
+    
+    for y in range(0, height + 1, y_interval):
+        pos_y = height - y
+        draw.line([(left_margin - 5, pos_y), (left_margin, pos_y)], fill="black", width=1)
+        draw.text((left_margin - 40, pos_y - 5), str(y), fill="black")
+
+
     enlarged_image.save(image_path)
     enlarged_image.show()
     #print(f"The shape of image is: {image_array.shape}")
