@@ -2,7 +2,6 @@ import os
 import imghdr
 from PIL import Image
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 def ft_load(path: str) -> np.ndarray:
@@ -46,16 +45,8 @@ def slice_me(f: np.ndarray, start: int, end: int) -> np.ndarray:
 def dislay_img(image_array: np.ndarray) -> None:
     """Display an image from a numpy array."""
     image = Image.fromarray(image_array, 'RGB')
-    dpi = 300
-    #ratio = 1.2
-    image_path = '/tmp/00.png'
-    figsize = image_array.shape[1] / dpi, image_array.shape[0] / dpi
-    print(f"Figsize is: {figsize}")
-    #plt.figure(figsize=(ratio * image_array.shape[1] / dpi, ratio * image_array.shape[0] / dpi))
-    plt.figure(figsize=figsize, dpi=dpi)
-    plt.imshow(image, interpolation='none')
-    plt.axis('off')
-    plt.savefig(image_path, dpi=dpi, bbox_inches='tight', pad_inches=0)
-    plt.close()
-    image = Image.open(image_path)
-    image.show()
+    margin_left = 50  # Space for axes (in pixels)
+    margin_bottom = 20  # Space for axes (in pixels)
+    width, height = image.size
+    new_width = width + margin
+    new_height = height + margin
