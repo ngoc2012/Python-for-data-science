@@ -3,9 +3,8 @@ import numpy as np
 
 def ft_load(path: str) -> np.array:
     image = Image.open(path)
-    print(f"Image format: {image.format}")
     if image.mode != 'RGB':
         image = image.convert('RGB')
     image_array = np.array(image)
-    print("Pixel content in RGB format:")
+    print(f"The shape of image is: {image_array.shape}")
     return image_array
