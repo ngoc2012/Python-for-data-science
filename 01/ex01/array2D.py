@@ -8,8 +8,6 @@ def slice_me(family: list, start: int, end: int) -> list:
     if not isinstance(start, int) or not isinstance(end, int):
         raise TypeError("start and end must be integers")
     if not all(isinstance(row, list) for row in family):
-        raise TypeError("family must be a 2D array of numbers")
-    if not all(isinstance(row, list) for row in family):
         raise TypeError("family must be a 2D array")
     for row in family:
         if not all(isinstance(x, (int, float)) for x in row):
