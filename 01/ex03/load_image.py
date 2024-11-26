@@ -50,3 +50,6 @@ def dislay_img(image_array: np.ndarray) -> None:
     width, height = image.size
     new_width = width + margin_left
     new_height = height + margin_bottom
+    enlarged_image = Image.new("RGB", (new_width, new_height), color=(255, 255, 255))
+    enlarged_image.paste(image, (margin, 0))
+
