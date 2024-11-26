@@ -48,3 +48,9 @@ def slice_me(family: list, start: int, end: int) -> list:
     print(f"My shape is : {shape}")
     print(f"My new shape is : {new_shape}")
     return f[start:end].tolist()
+
+
+def dislay_img(image_array: np.array) -> None:
+    """Display an image from a numpy array."""
+    image = Image.fromarray(image_array, 'RGB')
+    image.show()
