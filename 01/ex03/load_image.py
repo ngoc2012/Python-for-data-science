@@ -49,7 +49,7 @@ def dislay_img(image_array: np.ndarray) -> None:
     dpi = 300
     ratio = 1.1
     image_path = '/tmp/00.png'
-    plt.figure(figsize=(ratio * image.shape[1] / dpi, ratio * image.shape[0] / dpi))
+    plt.figure(figsize=(ratio * image_array.shape[1] / dpi, ratio * image_array.shape[0] / dpi))
     plt.imshow(image, interpolation='none')
     plt.savefig(image_path, dpi=dpi, bbox_inches='tight', pad_inches=0)
     plt.close()
