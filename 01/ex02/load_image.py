@@ -9,7 +9,8 @@ def ft_load(path: str) -> np.array:
     try:
         image = Image.open(path)
     except FileNotFoundError:
-        raise FileNotFoundError("File not found")
+        raise ValueError("File not found")
+    except PIL.UnidentifiedImageError:
     if image.mode != 'RGB':
         image = image.convert('RGB')
     image_array = np.array(image)
