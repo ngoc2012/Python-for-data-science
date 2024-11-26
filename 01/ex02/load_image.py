@@ -1,4 +1,6 @@
-from PIL import Image, UnidentifiedImageError
+import os
+import imghdr
+from PIL import Image
 import numpy as np
 
 
