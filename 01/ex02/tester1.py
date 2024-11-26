@@ -5,10 +5,12 @@ from load_image import ft_load
 class TestLoadPath(ut.TestCase):
     """Test cases for the family input."""
 
-    def test_type(self):
+    def test_value(self):
         """Test the type of the family input."""
         with self.assertRaises(ValueError):
-            slice_me(None, 1, -2)
+            ft_load("dsfsadfdsfsd")
+        with self.assertRaises(ValueError):
+            ft_load("/home/ngoc/Downloads/meotravaux.mp4")
 
     def test_type(self):
         """Test the type of the family input."""
