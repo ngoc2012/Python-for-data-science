@@ -8,6 +8,8 @@ def ft_load(path: str) -> np.array:
     """Load an image from a file and convert it to a numpy array."""
     if not isinstance(path, str):
         raise TypeError("path must be a string")
+    if not os.path.exists(image_path):
+        raise FileNotFoundError("File not found")
     try:
         image = Image.open(path)
     except FileNotFoundError:
