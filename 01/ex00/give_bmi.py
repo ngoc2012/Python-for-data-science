@@ -3,7 +3,7 @@ import numpy as np
 
 def isNumber(n: int | float) -> bool:
     """ Return True if n is int or float. """
-    return isinstance(n, int) or isinstance(n, float)
+    return isinstance(n, (int, float))
 
 
 def give_bmi(height: list[int | float], weight: list[int | float])\
