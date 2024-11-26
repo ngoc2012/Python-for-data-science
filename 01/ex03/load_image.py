@@ -2,6 +2,7 @@ import os
 import imghdr
 from PIL import Image
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def ft_load(path: str) -> np.array:
@@ -45,4 +46,8 @@ def slice_me(f: np.array, start: int, end: int) -> np.array:
 def dislay_img(image_array: np.array) -> None:
     """Display an image from a numpy array."""
     image = Image.fromarray(image_array, 'RGB')
-    image.show()
+    plt.imshow(image)
+    plt.xlabel('X Axis')
+    plt.ylabel('Y Axis')
+    plt.title('Image with Axes')
+    plt.show()
