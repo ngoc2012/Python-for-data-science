@@ -58,6 +58,7 @@ def dislay_img(image_array: np.ndarray) -> None:
     image_path = "/tmp/00.png"
     image = Image.fromarray(image_array, 'RGB')
     width, height = image.size
+    margin = min(width, height) / 
     margin_left = int(width / 10)
     margin_bottom = int(height / 10)
     new_width = width + margin_left
@@ -70,6 +71,9 @@ def dislay_img(image_array: np.ndarray) -> None:
     
     # Draw scales on the axes
     draw = ImageDraw.Draw(enlarged_image)
+
+    default_font = ImageFont.load_default()
+    text_width, text_height = draw_main.textsize(text, font=default_font)
 
     # Draw X-axis scale (along the bottom margin)
     for x in range(0, width + 1, x_interval):  # Use calculated interval
