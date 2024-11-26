@@ -24,6 +24,8 @@ def slice_me(f: np.array, start: int, end: int) -> np.array:
     """Slice a 2D numpy array."""
     if not isinstance(start, int) or not isinstance(end, int):
         raise TypeError("Start and end must be integers.")
+    if not isinstance(f, np.ndarray):
+        raise TypeError("Family must be a numpy array.")
     shape = f.shape
     if len(shape) != 2:
         raise ValueError("Family must be a 2D array.")
