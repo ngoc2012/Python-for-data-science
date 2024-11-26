@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 import numpy as np
 
 
@@ -10,8 +10,8 @@ def ft_load(path: str) -> np.array:
         image = Image.open(path)
     except FileNotFoundError:
         raise FileNotFoundError("File not found")
-    except PIL.UnidentifiedImageError:
-        raise PIL.UnidentifiedImageError("Invalid image format")
+    except UnidentifiedImageError:
+        raise UnidentifiedImageError("Invalid image format")
     if image.mode != 'RGB':
         image = image.convert('RGB')
     image_array = np.array(image)

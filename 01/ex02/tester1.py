@@ -1,5 +1,6 @@
 import unittest as ut
 from load_image import ft_load
+from PIL import Image, UnidentifiedImageError
 
 
 class TestLoadPath(ut.TestCase):
@@ -9,7 +10,7 @@ class TestLoadPath(ut.TestCase):
         """Test the value of the path input."""
         with self.assertRaises(FileNotFoundError):
             ft_load("dsfsadfdsfsd")
-        with self.assertRaises(TypeError):
+        with self.assertRaises(UnidentifiedImageError):
             ft_load("/home/ngoc/Downloads/meotravaux.mp4")
 
     def test_type(self):
