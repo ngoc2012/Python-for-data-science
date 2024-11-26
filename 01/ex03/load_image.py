@@ -46,9 +46,9 @@ def dislay_img(image_array: np.ndarray) -> None:
     """Display an image from a numpy array."""
     image_path = "/tmp/00.png"
     image = Image.fromarray(image_array, 'RGB')
-    margin_left = 50
-    margin_bottom = 20
     width, height = image.size
+    margin_left = width / 10
+    margin_bottom = height / 10
     new_width = width + margin_left
     new_height = height + margin_bottom
     enlarged_image = Image.new("RGB", (new_width, new_height), color=(255, 255, 255))
