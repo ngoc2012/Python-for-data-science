@@ -145,7 +145,8 @@ def dislay_img(image_array: np.ndarray) -> None:
     for x in range(0, width + 1, x_interval):  # Use calculated interval
         pos_x = margin_left + x
         draw.line([(pos_x, height), (pos_x, height + margin / 3)], fill="black", width=line_width)
-        draw.text((pos_x - 10, height + margin / 3), str(x), fill="black")
+        draw_text_with_height(str(x), pos_x, height + margin / 3, 10, "left", "top")
+        #draw.text((pos_x - 10, height + margin / 3), str(x), fill="black")
     # Draw Y-axis scale (along the left margin)
     for y in range(0, height + 1, y_interval):
         pos_y = height - y
