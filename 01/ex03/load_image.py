@@ -1,6 +1,6 @@
 import os
 import imghdr
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 
 
@@ -51,6 +51,37 @@ def calculate_interval(size, target_intervals=10):
         return int(raw_interval // 5) * 5  # Nearest multiple of 5
     else:
         return int(raw_interval // 10) * 10  # Nearest multiple of 10
+from PIL import Image, ImageDraw, ImageFont
+
+
+def draw_text_with_height(image, text, x, y, desired_height, font_path="arial.ttf"):
+    """
+    Draws text on an image with the specified height in pixels.
+    
+    Parameters:
+        image (PIL.Image.Image): The image to draw on.
+        text (str): The text to draw.
+        x (int): X-coordinate of the text's top-left corner.
+        y (int): Y-coordinate of the text's top-left corner.
+        desired_height (int): The desired height of the text in pixels.
+        font_path (str): Path to the TrueType font file (default is Arial).
+    """
+    draw = ImageDraw.Draw(image)
+    
+    # Start with an approximate font size and adjust dynamically
+    font_size = desired_height
+    font = ImageFont.truetype(font_path, font_size)
+    
+    # Adjust font size until the height matches the desired height
+    while True:
+        text_width, text_height = draw.textsize(text, font=font)
+        if text_height >= desired_height:
+            break
+        font_size += 1
+        font = ImageFont.truetype(font_path, font_size)
+    
+    # Draw the text centered vertically at the desired height
+    draw.text((x, y - (text_height - desired_height) // 2), text, fill="black", font=font)
 
 
 def dislay_img(image_array: np.ndarray) -> None:
