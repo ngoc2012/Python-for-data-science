@@ -1,7 +1,7 @@
 from load_image import ft_load, slice_me, dislay_img
 
 
-img = dislay_img(ft_load("/home/ngoc/Downloads/eyes-sparkled-with-vibrant-colors-autumn-leaves-generative-ai.jpg"))
+#img = dislay_img(ft_load("/home/ngoc/Downloads/eyes-sparkled-with-vibrant-colors-autumn-leaves-generative-ai.jpg"))
 #img = dislay_img(ft_load("/home/ngoc/Downloads/Nature-Wallpaper-with-Trees-and-Lake.jpg"))
 
 from PIL import Image
@@ -26,4 +26,10 @@ def create_random_image(width, height, filename):
     image.save(filename)
 
 # Example usage:
-create_random_image(5, 5, "/home/ngoc/Downloads/5x5.png")
+images = [
+        [5, 5],
+        [1000, 5],
+        [5, 1000],
+        [1000, 1000]]
+for i in images:
+    create_random_image(i[0], i[1], f"/home/ngoc/Downloads/{i[0]}x{i[1]}.png")
