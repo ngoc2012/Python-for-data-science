@@ -7,12 +7,23 @@ img = dislay_img(ft_load("/home/ngoc/Downloads/eyes-sparkled-with-vibrant-colors
 from PIL import Image
 import numpy as np
 
-# Generate random pixel data
-random_data = np.random.randint(0, 256, (height, width, 3), dtype=np.uint8)
+def create_random_image(width, height, filename):
+    """
+    Create a random image with fixed dimensions and save it to a file.
 
-# Create an image from the random data
-image = Image.fromarray(random_data)
+    Args:
+        width (int): Width of the image.
+        height (int): Height of the image.
+        filename (str): Name of the output image file.
+    """
+    # Generate random pixel data
+    random_data = np.random.randint(0, 256, (height, width, 3), dtype=np.uint8)
 
-# Save the image to the specified filename
-image.save("/home/ngoc/Downloads/00.png")
+    # Create an image from the random data
+    image = Image.fromarray(random_data)
 
+    # Save the image to the specified filename
+    image.save(filename)
+
+# Example usage:
+create_random_image(5, 5, "/home/ngoc/Downloads/5x5.png")
