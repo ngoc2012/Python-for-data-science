@@ -58,7 +58,7 @@ def dislay_img(image_array: np.ndarray) -> None:
     image_path = "/tmp/00.png"
     image = Image.fromarray(image_array, 'RGB')
     width, height = image.size
-    margin = min(width, height) / 
+    margin = int(min(width, height) / 10)
     margin_left = int(width / 10)
     margin_bottom = int(height / 10)
     new_width = width + margin_left
@@ -72,8 +72,24 @@ def dislay_img(image_array: np.ndarray) -> None:
     # Draw scales on the axes
     draw = ImageDraw.Draw(enlarged_image)
 
-    default_font = ImageFont.load_default()
-    text_width, text_height = draw_main.textsize(text, font=default_font)
+    #text = "0000"
+    #default_font = ImageFont.load_default()
+
+    ## Create a separate image for the text
+    #text_width, text_height = draw_main.textsize(text, font=default_font)
+    #text_image = Image.new("RGB", (text_width, text_height), color="white")
+    #draw_text = ImageDraw.Draw(text_image)
+    #draw_text.text((0, 0), text, fill="black", font=default_font)
+    #
+    ## Scale the text image to simulate font size
+    #scale_factor = 3  # Adjust this to change the font size
+    #scaled_width = int(text_width * scale_factor)
+    #scaled_height = int(text_height * scale_factor)
+    #scaled_text_image = text_image.resize((scaled_width, scaled_height), resample=Image.Resampling.NEAREST)
+    #
+    ## Paste the scaled text back onto the main image
+    #main_image.paste(scaled_text_image, (50, 20))
+
 
     # Draw X-axis scale (along the bottom margin)
     for x in range(0, width + 1, x_interval):  # Use calculated interval
