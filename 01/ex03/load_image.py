@@ -91,6 +91,8 @@ def dislay_img(image_array: np.ndarray) -> None:
     ## Paste the scaled text back onto the main image
     #main_image.paste(scaled_text_image, (50, 20))
 
+    # Draw border
+    draw.rectangle([(margin_left, 0), (margin_left + width, height)], outline="black", width=line_width)
 
     # Draw X-axis scale (along the bottom margin)
     for x in range(0, width + 1, x_interval):  # Use calculated interval
