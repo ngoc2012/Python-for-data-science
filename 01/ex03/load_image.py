@@ -93,20 +93,17 @@ def dislay_img(image_array: np.ndarray) -> None:
 
     # Draw border
     draw.rectangle([(margin_left, 0), (margin_left + width, height)], outline="black", width=line_width)
-
     # Draw X-axis scale (along the bottom margin)
     for x in range(0, width + 1, x_interval):  # Use calculated interval
         pos_x = margin_left + x
         draw.line([(pos_x, height), (pos_x, height + margin / 3)], fill="black", width=line_width)
         draw.text((pos_x - 10, height + margin / 3), str(x), fill="black")
-    
+    # Draw Y-axis scale (along the left margin)
     for y in range(0, height + 1, y_interval):
         pos_y = height - y
         draw.line([(margin_left - margin / 3, pos_y), (margin_left, pos_y)], fill="black", width=line_width)
         #draw.text((margin_left - 40, pos_y - 5), str(y), fill="black")
         draw.text((0, pos_y - 5), str(y), fill="black")
-
-
     enlarged_image.save(image_path)
     enlarged_image.show()
     #print(f"The shape of image is: {image_array.shape}")
