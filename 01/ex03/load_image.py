@@ -58,7 +58,7 @@ def dislay_img(image_array: np.ndarray) -> None:
     image_path = "/tmp/00.png"
     image = Image.fromarray(image_array, 'RGB')
     width, height = image.size
-    margin = int(min(width, height) / 10)
+    margin = max(10, int(min(width, height) / 10))
     margin_left = margin
     margin_bottom = margin
     new_width = width + margin_left
