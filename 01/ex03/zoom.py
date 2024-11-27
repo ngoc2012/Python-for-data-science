@@ -3,7 +3,8 @@ from load_image import ft_load, slice_me, dislay_img
 
 #img = dislay_img(ft_load("/home/ngoc/Downloads/eyes-sparkled-with-vibrant-colors-autumn-leaves-generative-ai.jpg"))
 #img = dislay_img(ft_load("/home/ngoc/Downloads/Nature-Wallpaper-with-Trees-and-Lake.jpg"))
-img = dislay_img(ft_load("/home/ngoc/Downloads/1000x200.png"))
+#img = dislay_img(ft_load("/home/ngoc/Downloads/1000x200.png"))
+img = dislay_img(ft_load("/home/ngoc/Downloads/5x5.png"))
 
 #from PIL import Image
 #import numpy as np
