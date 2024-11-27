@@ -53,16 +53,18 @@ def calculate_interval(size, target_intervals=10):
         return int(raw_interval // 10) * 10  # Nearest multiple of 10
 
 
-def draw_text_with_height(draw, text, x, y, desired_height):
+def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_align="top"):
     """
-    Draw text at a specified height using the default font.
+    Draw text at a specified height using the default font with justification.
 
     Parameters:
         draw (ImageDraw.Draw): The drawing object.
         text (str): The text to draw.
-        x (int): The x-coordinate for the text placement.
-        y (int): The y-coordinate for the text placement.
+        x (int): The x-coordinate for text placement.
+        y (int): The y-coordinate for text placement.
         desired_height (int): The desired height of the text in pixels.
+        h_align (str): Horizontal alignment ('left', 'center', 'right').
+        v_align (str): Vertical alignment ('top', 'center', 'bottom').
     """
     # Load default font
     default_font = ImageFont.load_default()
@@ -72,7 +74,7 @@ def draw_text_with_height(draw, text, x, y, desired_height):
     temp_draw = ImageDraw.Draw(temp_image)
     text_width, text_height = temp_draw.textsize(text, font=default_font)
 
-    # Calculate the scale factor to match the desired height
+    # Calculate the scale factor
     scale_factor = desired_height / text_height
     scaled_width = int(text_width * scale_factor)
     scaled_height = int(text_height * scale_factor)
@@ -82,12 +84,22 @@ def draw_text_with_height(draw, text, x, y, desired_height):
     text_draw = ImageDraw.Draw(text_image)
     text_draw.text((0, 0), text, fill="black", font=default_font)
 
-    # Resize the text image to the desired height
+    # Resize the text image
     scaled_text_image = text_image.resize((scaled_width, scaled_height), resample=Image.Resampling.NEAREST)
 
-    # Paste the scaled text image onto the main drawing canvas
-    draw.bitmap((x, y), scaled_text_image)
+    # Adjust position based on alignment
+    if h_align == "center":
+        x -= scaled_width // 2
+    elif h_align == "right":
+        x -= scaled_width
 
+    if v_align == "center":
+        y -= scaled_height // 2
+    elif v_align == "bottom":
+        y -= scaled_height
+
+    # Paste the scaled text onto the main image
+    draw.bitmap((x, y), scaled_text_image)
 
 def dislay_img(image_array: np.ndarray) -> None:
     """Display an image from a numpy array."""
