@@ -20,7 +20,7 @@ def ft_load(path: str) -> np.ndarray:
     return image_array
 
 
-def zoom(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.ndarray:
+def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.ndarray:
     """Slice a 2D numpy array."""
     if not isinstance(left, int) or not isinstance(right, int) or not isinstance(top, int) or not isinstance(bottom, int):
         raise TypeError("Positions must be integers.")
@@ -44,10 +44,10 @@ def zoom(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.ndar
         bottom = height + bottom
     if top < 0 or top >= bottom or bottom > height:
         raise IndexError("Index out of range.")
-    new_shape = (end - start, shape[1])
+    new_shape = (right - left, bottom - top)
     print(f"My shape is : {shape}")
     print(f"My new shape is : {new_shape}")
-    return f[start:end]
+    return f[left:right]
 
 
 def get_text_ratio(n: int) -> float:
