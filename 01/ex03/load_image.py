@@ -56,18 +56,7 @@ def calculate_interval(size, target_intervals=10):
 from PIL import Image, ImageDraw, ImageFont
 
 def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_align="top"):
-    """
-    Draw text at a specified height using the default font with justification.
-
-    Parameters:
-        draw (ImageDraw.Draw): The drawing object.
-        text (str): The text to draw.
-        x (int): The x-coordinate for text placement.
-        y (int): The y-coordinate for text placement.
-        desired_height (int): The desired height of the text in pixels.
-        h_align (str): Horizontal alignment ('left', 'center', 'right').
-        v_align (str): Vertical alignment ('top', 'center', 'bottom').
-    """
+    """ Draw text at a specified height using the default font with justification.  """
     # Load default font
     default_font = ImageFont.load_default()
 
