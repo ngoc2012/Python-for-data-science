@@ -58,15 +58,6 @@ from PIL import Image, ImageDraw, ImageFont
 def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_align="top"):
     """
     Draw text at a specified height using the default font with justification.
-
-    Parameters:
-        draw (ImageDraw.Draw): The drawing object.
-        text (str): The text to draw.
-        x (int): The x-coordinate for text placement.
-        y (int): The y-coordinate for text placement.
-        desired_height (int): The desired height of the text in pixels.
-        h_align (str): Horizontal alignment ('left', 'center', 'right').
-        v_align (str): Vertical alignment ('top', 'center', 'bottom').
     """
     # Load default font
     default_font = ImageFont.load_default()
@@ -78,15 +69,16 @@ def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_al
 
     # Calculate the scale factor
     scale_factor = desired_height / text_height
+    scaled_width = int(text_width * scale_factor)
+    scaled_height = int(text_height * scale_factor)
 
-    # Create a new font with the desired size
-    scaled_font_size = int(default_font.size * scale_factor)
-    scaled_font = ImageFont.truetype("arial.ttf", scaled_font_size)
+    # Render the text onto a temporary image
+    text_image = Image.new("RGBA", (text_width, text_height), (255, 255, 255, 0))  # Transparent background
+    text_draw = ImageDraw.Draw(text_image)
+    text_draw.text((0, 0), text, fill="black", font=default_font)
 
-    # Calculate the size of the text using the scaled font
-    scaled_text_bbox = scaled_font.getbbox(text)
-    scaled_width = scaled_text_bbox[2]
-    scaled_height = scaled_text_bbox[3]
+    # Resize the text image
+    scaled_text_image = text_image.resize((scaled_width, scaled_height), resample=Image.Resampling.NEAREST)
 
     # Adjust position based on alignment
     if h_align == "center":
@@ -99,8 +91,8 @@ def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_al
     elif v_align == "bottom":
         y -= scaled_height
 
-    # Draw the text directly onto the main image
-    draw.text((x, y), text, fill="black", font=scaled_font)
+    # Paste the scaled text onto the main image
+    draw.bitmap((x, y), scaled_text_image)
 
 def dislay_img(image_array: np.ndarray) -> None:
     """Display an image from a numpy array."""
@@ -114,7 +106,7 @@ def dislay_img(image_array: np.ndarray) -> None:
     new_height = height + margin_bottom
     enlarged_image = Image.new("RGB", (new_width, new_height), color=(255, 255, 255))
     enlarged_image.paste(image, (margin_left, 0))
-    line_width = max(1, margin / 20)
+    line_width = max(1, int(margin / 20))
 
     x_interval = calculate_interval(width)
     y_interval = calculate_interval(height)
@@ -142,12 +134,11 @@ def dislay_img(image_array: np.ndarray) -> None:
 
     # Draw border
     draw.rectangle([(margin_left, 0), (margin_left + width, height)], outline="black", width=line_width)
-    draw_text_with_height(draw, "X", x=100, y=100, desired_height=10, h_align="center", v_align="center")
     # Draw X-axis scale (along the bottom margin)
     for x in range(0, width + 1, x_interval):  # Use calculated interval
         pos_x = margin_left + x
         draw.line([(pos_x, height), (pos_x, height + margin / 3)], fill="black", width=line_width)
-        #draw_text_with_height(draw, str(x), x=pos_x, y=height + margin / 3, desired_height=10, h_align="center", v_align="center")
+        draw_text_with_height(draw, str(x), x=pos_x, y=height + margin / 3, desired_height=10, h_align="center", v_align="center")
         #draw.text((pos_x - 10, height + margin / 3), str(x), fill="black")
     # Draw Y-axis scale (along the left margin)
     for y in range(0, height + 1, y_interval):
