@@ -79,7 +79,7 @@ def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_al
 
     # Resize the text image
     scaled_text_image = text_image.resize((scaled_width, scaled_height), resample=Image.Resampling.NEAREST)
-    text_image.save(f"/tmp/{text}.png")
+    scaled_text_image.save(f"/tmp/{text}.png")
 
     # Adjust position based on alignment
     if h_align == "center":
