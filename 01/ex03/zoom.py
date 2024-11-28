@@ -7,9 +7,8 @@ from load_image import ft_load, slice_me, dislay_img
 #img = dislay_img(ft_load("/home/ngoc/Downloads/5x5.png"))
 #img = dislay_img(ft_load("/home/ngoc/Downloads/100x100.png"))
 #img = dislay_img(ft_load("/home/ngoc/Downloads/200x200.png"))
-img = dislay_img(ft_load("/home/ngoc/Downloads/1000x1000.png"))
+#img = dislay_img(ft_load("/home/ngoc/Downloads/1000x1000.png"))
 
-"""
 from PIL import Image
 import numpy as np
 
@@ -30,9 +29,9 @@ images = [
         [5, 1000],
         [100, 100],
         [200, 200],
+        [400, 400],
         [1000, 200],
         [200, 1000],
         [1000, 1000]]
 for i in images:
     create_random_image(i[0], i[1], f"/home/ngoc/Downloads/{i[0]}x{i[1]}.png")
-"""
