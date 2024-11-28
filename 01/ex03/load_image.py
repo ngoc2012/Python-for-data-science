@@ -52,6 +52,13 @@ def calculate_interval(size, target_intervals=10):
     else:
         return int(raw_interval // 10) * 10  # Nearest multiple of 10
 
+def get_text_ratio() -> float:
+    default_font = ImageFont.load_default()
+    text_bbox = default_font.getbbox("0000000000")
+    text_width = text_bbox[2]
+    text_height = text_bbox[3]
+    return text_width / text_height
+
 
 def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_align="top"):
     """
