@@ -38,6 +38,12 @@ def zoom(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.ndar
         right = width + right
     if left < 0 or left >= right or right > width:
         raise IndexError("Index out of range.")
+    if top < 0:
+        top = height + top
+    if bottom < 0:
+        bottom = height + bottom
+    if top < 0 or top >= bottom or bottom > height:
+        raise IndexError("Index out of range.")
     new_shape = (end - start, shape[1])
     print(f"My shape is : {shape}")
     print(f"My new shape is : {new_shape}")
