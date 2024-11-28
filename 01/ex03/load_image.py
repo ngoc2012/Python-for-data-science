@@ -103,8 +103,8 @@ def dislay_img(image_array: np.ndarray) -> None:
     margin = max(20, int(min(width, height) / 10))
     margin_left = margin
     margin_bottom = margin
-    text_height = margin / 3
-    margin_top = text_height / 2 + 1
+    text_height = int(margin / 3)
+    margin_top = int(text_height / 2) + 1
     new_width = width + margin_left
     new_height = height + margin_bottom + margin_top
     enlarged_image = Image.new("RGB", (new_width, new_height), color=(255, 255, 255))
@@ -127,7 +127,7 @@ def dislay_img(image_array: np.ndarray) -> None:
     # Draw Y-axis scale (along the left margin)
     for y in range(0, height, y_interval):
         pos_y = height - y
-        draw.line([(margin_left - margin / 3, pos_y + margin_top), (margin_left, pos_y + margin_top)], fill="black", width=line_width)
+        draw.line([(margin_left - margin / 3, pos_y + margin_top - y_interval), (margin_left, pos_y + margin_top - y_interval)], fill="black", width=line_width)
         draw_text_with_height(draw, str(y), x=margin_left - margin / 3, y=y + margin_top, desired_height=margin / 3, h_align="right", v_align="center")
     enlarged_image.save(image_path)
     enlarged_image.show()
