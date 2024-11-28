@@ -119,8 +119,11 @@ def dislay_img(image_array: np.ndarray) -> None:
     enlarged_image = Image.new("RGB", (new_width, new_height), color=(255, 255, 255))
     enlarged_image.paste(image, (margin_left, margin_top))
 
-    x_interval = calculate_interval(width, pow(10, max(n_digits - 2, 0)) * 5)
-    y_interval = calculate_interval(height)
+    x_interval = pow(10, max(len(str(width)) - 2, 0)) * 5
+    y_interval = pow(10, max(n_digits - 2, 0)) * 5
+    #print(f"x_target_intervals: {x_target_intervals}")
+    #x_interval = calculate_interval(width, x_target_intervals)
+    #y_interval = calculate_interval(height)
     draw = ImageDraw.Draw(enlarged_image)
 
     draw.rectangle([(margin_left - line_width / 2 + 1, margin_top - line_width / 2 + 1), (margin_left + width + line_width / 2, height + margin_top + line_width / 2)], outline="black", width=line_width)
