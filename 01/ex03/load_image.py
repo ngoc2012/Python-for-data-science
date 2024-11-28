@@ -60,7 +60,7 @@ def get_text_ratio() -> float:
     return text_width / text_height
 
 
-def draw_text_with_height(draw: ImageDraw, text: str, x: int, y: int, desired_height: int, h_align="left" | "center" | "right", v_align="top" | "center" | "bottom"):
+def draw_text_with_height(draw: ImageDraw, text: str, x: int, y: int, desired_height: int, h_align="left", v_align="top"):
     """
     Draw text at a specified height using the default font with justification.
     """
