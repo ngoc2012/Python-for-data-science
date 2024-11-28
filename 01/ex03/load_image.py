@@ -115,16 +115,16 @@ def dislay_img(image_array: np.ndarray) -> None:
         )], outline="black", width=line_width)
     # Draw X-axis scale (along the bottom margin)
     x_interval = pow(10, max(len(str(width)) - 2, 0)) * 5
-    for x in range(0, width, x_interval):  # Use calculated interval
+    for x in range(0, width, x_interval):
         pos_x = margin_left + x
         draw.line([
-            (pos_x, height + margin_top)
+            (pos_x, height + margin_top),
             (pos_x, height + margin_top + line_height)
             ], fill="black", width=line_width)
         draw_text_with_height(draw, str(x),
             x=pos_x,
             y=height + margin_top + line_height,
-            text_height,
+            desired_height=text_height,
             h_align="center",
             v_align="top")
     # Draw Y-axis scale (along the left margin)
@@ -132,13 +132,13 @@ def dislay_img(image_array: np.ndarray) -> None:
     for y in range(0, height, y_interval):
         pos_y = height - y
         draw.line([
-            (margin_left - line_height, pos_y + margin_top - y_interval),s
+            (margin_left - line_height, pos_y + margin_top - y_interval),
             (margin_left, pos_y + margin_top - y_interval)
             ], fill="black", width=line_width)
         draw_text_with_height(draw, str(y),
             x=margin_left - line_height,
             y=y + margin_top,
-            text_height,
+            desired_height=text_height,
             h_align="right",
             v_align="center")
 
