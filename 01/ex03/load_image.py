@@ -47,7 +47,7 @@ def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.
     new_shape = (right - left, bottom - top)
     print(f"My shape is : {shape}")
     print(f"My new shape is : {new_shape}")
-    return f[left:right]
+    return f[top:bottom, left:right]
 
 
 def get_text_ratio(n: int) -> float:
