@@ -52,12 +52,11 @@ def calculate_interval(size, target_intervals=10):
     else:
         return int(raw_interval // 10) * 10  # Nearest multiple of 10
 
-def get_text_ratio(n: int) -> float:
+
+def get_text_width(n: int) -> int:
     default_font = ImageFont.load_default()
     text_bbox = default_font.getbbox(n * "0")
-    text_width = text_bbox[2]
-    text_height = text_bbox[3]
-    return text_width / n / text_height
+    return text_bbox[2]
 
 
 def draw_text_with_height(draw: ImageDraw, text: str, x: int, y: int, desired_height: int, h_align="left", v_align="top"):
@@ -99,6 +98,9 @@ def dislay_img(image_array: np.ndarray) -> None:
     image_path = "/tmp/00.png"
     image = Image.fromarray(image_array, 'RGB')
     width, height = image.size
+
+    n_digits = len(str(height))
+    ratio = get_text_ratio(n_digits)
 
     margin = max(20, int(min(width, height) / 10))
     margin_left = margin
