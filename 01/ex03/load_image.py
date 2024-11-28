@@ -108,7 +108,7 @@ def dislay_img(image_array: np.ndarray) -> None:
     text_height = int(margin / 3)
     text_width = int(n_digits * ratio * text_height)
     line_width = max(1, int(margin / 40))
-    line_height = int(margin / 5)
+    line_height = int(margin / 10)
 
     margin_top = int(text_height / 2) + 1
     margin_left = line_height + text_width
