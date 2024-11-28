@@ -60,7 +60,6 @@ def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_al
     # Load default font
     default_font = ImageFont.load_default()
 
-    # Calculate the size of the text using the default font
     text_bbox = default_font.getbbox(text)  # Get the bounding box of the text
     text_width = text_bbox[2]  # The width of the text (xmax - xmin)
     text_height = text_bbox[3]  # The height of the text (ymax - ymin)
@@ -71,23 +70,20 @@ def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_al
     scaled_height = int(text_height * scale_factor)
 
     # Render the text onto a temporary image
-    text_image = Image.new("RGBA", (text_width, text_height), (255, 255, 255, 0))  # Transparent background
+    text_image = Image.new("RGBA", (text_width, text_height), (255, 255, 255, 0))
     text_draw = ImageDraw.Draw(text_image)
     text_draw.text((0, 0), text, fill="black", font=default_font)
-
-    # Resize the text image
     scaled_text_image = text_image.resize((scaled_width, scaled_height), resample=Image.Resampling.NEAREST)
 
-    # Adjust position based on alignment
-    if h_align == "center":
-        x -= scaled_width // 2
-    elif h_align == "right":
-        x -= scaled_width
+    #if h_align == "center":
+    #    x -= scaled_width // 2
+    #elif h_align == "right":
+    #    x -= scaled_width
 
-    if v_align == "center":
-        y -= scaled_height // 2
-    elif v_align == "bottom":
-        y -= scaled_height
+    #if v_align == "center":
+    #    y -= scaled_height // 2
+    #elif v_align == "bottom":
+    #    y -= scaled_height
 
     # Paste the scaled text onto the main image
     draw.bitmap((x, y), scaled_text_image)
