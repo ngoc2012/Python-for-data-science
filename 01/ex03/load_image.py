@@ -29,7 +29,7 @@ def zoom(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.ndar
     shape = f.shape
     if len(shape) != 2:
         raise ValueError("Family must be a 2D array.")
-
+                raise TypeError("Family must be an array of integers.")
     rows = shape[0]
     if start < 0:
         start = rows + start
