@@ -53,8 +53,6 @@ def calculate_interval(size, target_intervals=10):
         return int(raw_interval // 10) * 10  # Nearest multiple of 10
 
 
-from PIL import Image, ImageDraw, ImageFont
-
 def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_align="top"):
     """
     Draw text at a specified height using the default font with justification.
@@ -66,6 +64,7 @@ def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_al
     text_bbox = default_font.getbbox(text)  # Get the bounding box of the text
     text_width = text_bbox[2]  # The width of the text (xmax - xmin)
     text_height = text_bbox[3]  # The height of the text (ymax - ymin)
+    print(f"Text width: {text_width}, Text height: {text_height}, {text_height / text_width}")
 
     # Calculate the scale factor
     scale_factor = desired_height / text_height
