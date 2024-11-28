@@ -107,7 +107,7 @@ def dislay_img(image_array: np.ndarray) -> None:
     margin = max(20, int(min(width, height) / 10))
     text_height = int(margin / 3)
     text_width = int(n_digits * ratio * text_height)
-    line_width = max(1, int(margin / 20))
+    line_width = max(1, int(margin / 40))
     line_height = int(margin / 5)
 
     margin_top = int(text_height / 2) + 1
@@ -126,7 +126,13 @@ def dislay_img(image_array: np.ndarray) -> None:
     #y_interval = calculate_interval(height)
     draw = ImageDraw.Draw(enlarged_image)
 
-    draw.rectangle([(margin_left - line_width / 2 + 1, margin_top - line_width / 2 + 1), (margin_left + width + line_width / 2, height + margin_top + line_width / 2)], outline="black", width=line_width)
+    draw.rectangle([(
+        margin_left - line_width / 2 + 1,
+        margin_top - line_width / 2 + 1
+        ), (
+        margin_left + width + line_width / 2,
+        height + margin_top + line_width / 2
+        )], outline="black", width=line_width)
     # Draw X-axis scale (along the bottom margin)
     for x in range(0, width, x_interval):  # Use calculated interval
         pos_x = margin_left + x
