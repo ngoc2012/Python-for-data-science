@@ -129,11 +129,12 @@ def dislay_img(image_array: np.ndarray) -> None:
 
     # Draw border
     draw.rectangle([(margin_left, 0), (margin_left + width, height)], outline="black", width=line_width)
+    draw_text_with_height(draw, "X", x=100, y=100, desired_height=10, h_align="center", v_align="center")
     # Draw X-axis scale (along the bottom margin)
     for x in range(0, width + 1, x_interval):  # Use calculated interval
         pos_x = margin_left + x
         draw.line([(pos_x, height), (pos_x, height + margin / 3)], fill="black", width=line_width)
-        draw_text_with_height(draw, str(x), x=pos_x, y=height + margin / 3, desired_height=10, h_align="center", v_align="center")
+        #draw_text_with_height(draw, str(x), x=pos_x, y=height + margin / 3, desired_height=10, h_align="center", v_align="center")
         #draw.text((pos_x - 10, height + margin / 3), str(x), fill="black")
     # Draw Y-axis scale (along the left margin)
     for y in range(0, height + 1, y_interval):
