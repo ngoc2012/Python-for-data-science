@@ -20,10 +20,10 @@ def ft_load(path: str) -> np.ndarray:
     return image_array
 
 
-def slice_me(f: np.ndarray, start: int, end: int) -> np.ndarray:
+def zoom(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.ndarray:
     """Slice a 2D numpy array."""
-    if not isinstance(start, int) or not isinstance(end, int):
-        raise TypeError("Start and end must be integers.")
+    if not isinstance(left, int) or not isinstance(right, int) or not isinstance(top, int) or not isinstance(bottom, int):
+        raise TypeError("Positions must be integers.")
     if not isinstance(f, np.ndarray):
         raise TypeError("Family must be a numpy array.")
     shape = f.shape
