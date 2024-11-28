@@ -121,13 +121,14 @@ def dislay_img(image_array: np.ndarray) -> None:
     for x in range(0, width + 1, x_interval):  # Use calculated interval
         pos_x = margin_left + x
         draw.line([(pos_x, height), (pos_x, height + margin / 3)], fill="black", width=line_width)
-        draw_text_with_height(draw, str(x), x=pos_x, y=height + margin / 3, desired_height=margin/3, h_align="center", v_align="center")
+        draw_text_with_height(draw, str(x), x=pos_x, y=height + margin / 3, desired_height=margin / 3, h_align="center", v_align="top")
     # Draw Y-axis scale (along the left margin)
     for y in range(0, height + 1, y_interval):
         pos_y = height - y
         draw.line([(margin_left - margin / 3, pos_y), (margin_left, pos_y)], fill="black", width=line_width)
         #draw.text((margin_left - 40, pos_y - 5), str(y), fill="black")
-        draw.text((0, pos_y - 5), str(y), fill="black")
+        #draw.text((0, pos_y - 5), str(y), fill="black")
+        draw_text_with_height(draw, str(y), x=0, y=pos_y, desired_height=margin / 3, h_align="right", v_align="center")
     enlarged_image.save(image_path)
     enlarged_image.show()
     #print(f"The shape of image is: {image_array.shape}")
