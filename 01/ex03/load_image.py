@@ -100,16 +100,18 @@ def dislay_img(image_array: np.ndarray) -> None:
     image_path = "/tmp/00.png"
     image = Image.fromarray(image_array, 'RGB')
     width, height = image.size
+
     margin = max(20, int(min(width, height) / 10))
     margin_left = margin
     margin_bottom = margin
     text_height = int(margin / 3)
     margin_top = int(text_height / 2) + 1
+    line_width = max(1, int(margin / 20))
+
     new_width = width + margin_left
     new_height = height + margin_bottom + margin_top
     enlarged_image = Image.new("RGB", (new_width, new_height), color=(255, 255, 255))
-    enlarged_image.paste(image, (margin_left, 0))
-    line_width = max(1, int(margin / 20))
+    enlarged_image.paste(image, (margin_left, margin_top))
 
     x_interval = calculate_interval(width)
     y_interval = calculate_interval(height)
@@ -129,6 +131,7 @@ def dislay_img(image_array: np.ndarray) -> None:
         pos_y = height - y
         draw.line([(margin_left - margin / 3, pos_y + margin_top - y_interval), (margin_left, pos_y + margin_top - y_interval)], fill="black", width=line_width)
         draw_text_with_height(draw, str(y), x=margin_left - margin / 3, y=y + margin_top, desired_height=margin / 3, h_align="right", v_align="center")
+
     enlarged_image.save(image_path)
     enlarged_image.show()
     #print(f"The shape of image is: {image_array.shape}")
