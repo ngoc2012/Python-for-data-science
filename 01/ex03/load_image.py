@@ -69,7 +69,7 @@ def draw_text_with_height(draw: ImageDraw, text: str, x: int, y: int, desired_he
     text_bbox = default_font.getbbox(text)
     text_width = text_bbox[2]
     text_height = text_bbox[3]
-    print(f"Text width: {text_width}, Text height: {text_height}, {text_height / text_width}")
+
     scale_factor = desired_height / text_height
     scaled_width = int(text_width * scale_factor)
     scaled_height = int(text_height * scale_factor)
@@ -121,8 +121,6 @@ def dislay_img(image_array: np.ndarray) -> None:
 
     x_interval = calculate_interval(width)
     y_interval = calculate_interval(height)
-    
-    # Draw scales on the axes
     draw = ImageDraw.Draw(enlarged_image)
 
     draw.rectangle([(margin_left - line_width / 2 + 1, margin_top - line_width / 2 + 1), (margin_left + width + line_width / 2, height + margin_top + line_width / 2)], outline="black", width=line_width)
