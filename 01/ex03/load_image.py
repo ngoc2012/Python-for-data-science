@@ -120,7 +120,7 @@ def dislay_img(image_array: np.ndarray) -> None:
     # Draw scales on the axes
     draw = ImageDraw.Draw(enlarged_image)
 
-    draw.rectangle([(margin_left, margin_top), (margin_left + width, height + margin_top)], outline="black", width=line_width)
+    draw.rectangle([(margin_left - line_width / 2, margin_top - line_width / 2), (margin_left + width + line_width / 2, height + margin_top + line_width / 2)], outline="black", width=line_width)
     # Draw X-axis scale (along the bottom margin)
     for x in range(0, width, x_interval):  # Use calculated interval
         pos_x = margin_left + x
