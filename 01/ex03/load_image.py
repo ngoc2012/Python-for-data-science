@@ -56,38 +56,51 @@ def calculate_interval(size, target_intervals=10):
 from PIL import Image, ImageDraw, ImageFont
 
 def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_align="top"):
-    """ Draw text at a specified height using the default font with justification.  """
+    """
+    Draw text at a specified height using the default font with justification.
+
+    Parameters:
+        draw (ImageDraw.Draw): The drawing object.
+        text (str): The text to draw.
+        x (int): The x-coordinate for text placement.
+        y (int): The y-coordinate for text placement.
+        desired_height (int): The desired height of the text in pixels.
+        h_align (str): Horizontal alignment ('left', 'center', 'right').
+        v_align (str): Vertical alignment ('top', 'center', 'bottom').
+    """
     # Load default font
     default_font = ImageFont.load_default()
 
+    # Calculate the size of the text using the default font
     text_bbox = default_font.getbbox(text)  # Get the bounding box of the text
     text_width = text_bbox[2]  # The width of the text (xmax - xmin)
     text_height = text_bbox[3]  # The height of the text (ymax - ymin)
-    print(f"Text width: {text_width}, Text height: {text_height}")
-    print(f"Text: {text} x = {x}, y = {y}")
 
+    # Calculate the scale factor
     scale_factor = desired_height / text_height
-    scaled_width = int(text_width * scale_factor)
-    scaled_height = int(text_height * scale_factor)
 
-    text_image = Image.new("RGBA", (text_width, text_height), (255, 255, 255, 0))
-    text_draw = ImageDraw.Draw(text_image)
-    text_draw.text((0, 0), text, fill="black", font=default_font)
-    draw.bitmap((100, 100), text_image)
-    #scaled_text_image = text_image.resize((scaled_width, scaled_height), resample=Image.Resampling.NEAREST)
+    # Create a new font with the desired size
+    scaled_font_size = int(default_font.size * scale_factor)
+    scaled_font = ImageFont.truetype("arial.ttf", scaled_font_size)
 
-    #if h_align == "center":
-    #    x -= scaled_width // 2
-    #elif h_align == "right":
-    #    x -= scaled_width
+    # Calculate the size of the text using the scaled font
+    scaled_text_bbox = scaled_font.getbbox(text)
+    scaled_width = scaled_text_bbox[2]
+    scaled_height = scaled_text_bbox[3]
 
-    #if v_align == "center":
-    #    y -= scaled_height // 2
-    #elif v_align == "bottom":
-    #    y -= scaled_height
+    # Adjust position based on alignment
+    if h_align == "center":
+        x -= scaled_width // 2
+    elif h_align == "right":
+        x -= scaled_width
 
-    # Paste the scaled text onto the main image
-    #draw.bitmap((x, y), scaled_text_image)
+    if v_align == "center":
+        y -= scaled_height // 2
+    elif v_align == "bottom":
+        y -= scaled_height
+
+    # Draw the text directly onto the main image
+    draw.text((x, y), text, fill="black", font=scaled_font)
 
 def dislay_img(image_array: np.ndarray) -> None:
     """Display an image from a numpy array."""
