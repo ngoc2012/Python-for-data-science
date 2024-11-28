@@ -64,7 +64,7 @@ def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_al
     text_width = text_bbox[2]  # The width of the text (xmax - xmin)
     text_height = text_bbox[3]  # The height of the text (ymax - ymin)
     print(f"Text width: {text_width}, Text height: {text_height}")
-    print(f"Text: {text}")
+    print(f"Text: {text} x = {x}, y = {y}")
 
     scale_factor = desired_height / text_height
     scaled_width = int(text_width * scale_factor)
