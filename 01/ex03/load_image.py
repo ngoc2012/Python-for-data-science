@@ -42,17 +42,6 @@ def slice_me(f: np.ndarray, start: int, end: int) -> np.ndarray:
     return f[start:end]
 
 
-def calculate_interval(size, target_intervals=10):
-    raw_interval = size / target_intervals
-    # Round to a "nice" number
-    if raw_interval <= 10:
-        return max(1, int(raw_interval))  # Round down for smaller sizes
-    elif raw_interval <= 50:
-        return int(raw_interval // 5) * 5  # Nearest multiple of 5
-    else:
-        return int(raw_interval // 10) * 10  # Nearest multiple of 10
-
-
 def get_text_ratio(n: int) -> float:
     default_font = ImageFont.load_default()
     text_bbox = default_font.getbbox(n * "0")
@@ -79,9 +68,7 @@ def draw_text_with_height(draw: ImageDraw, text: str, x: int, y: int, desired_he
     text_draw.text((0, 0), text, fill="black", font=default_font)
 
     scaled_text_image = text_image.resize((scaled_width, scaled_height), resample=Image.Resampling.NEAREST)
-    scaled_text_image.save(f"/tmp/{text}.png")
 
-    # Adjust position based on alignment
     if h_align == "center":
         x -= scaled_width // 2
     elif h_align == "right":
@@ -91,9 +78,8 @@ def draw_text_with_height(draw: ImageDraw, text: str, x: int, y: int, desired_he
         y -= scaled_height // 2
     elif v_align == "bottom":
         y -= scaled_height
-
-    # Paste the scaled text onto the main image
     draw.bitmap((x, y), scaled_text_image, fill="black")
+
 
 def dislay_img(image_array: np.ndarray) -> None:
     """Display an image from a numpy array."""
@@ -102,11 +88,11 @@ def dislay_img(image_array: np.ndarray) -> None:
     width, height = image.size
 
     n_digits = len(str(height))
-    ratio = get_text_ratio(n_digits)
+    text_ratio = get_text_ratio(n_digits)
 
     margin = max(20, int(min(width, height) / 10))
     text_height = int(margin / 3)
-    text_width = int(n_digits * ratio * text_height)
+    text_width = int(n_digits * text_ratio * text_height)
     line_width = max(1, int(margin / 40))
     line_height = int(margin / 10)
 
@@ -118,12 +104,6 @@ def dislay_img(image_array: np.ndarray) -> None:
     new_height = height + margin_bottom + margin_top
     enlarged_image = Image.new("RGB", (new_width, new_height), color=(255, 255, 255))
     enlarged_image.paste(image, (margin_left, margin_top))
-
-    x_interval = pow(10, max(len(str(width)) - 2, 0)) * 5
-    y_interval = pow(10, max(n_digits - 2, 0)) * 5
-    #print(f"x_target_intervals: {x_target_intervals}")
-    #x_interval = calculate_interval(width, x_target_intervals)
-    #y_interval = calculate_interval(height)
     draw = ImageDraw.Draw(enlarged_image)
 
     draw.rectangle([(
@@ -134,11 +114,18 @@ def dislay_img(image_array: np.ndarray) -> None:
         height + margin_top + line_width / 2
         )], outline="black", width=line_width)
     # Draw X-axis scale (along the bottom margin)
+    x_interval = pow(10, max(len(str(width)) - 2, 0)) * 5
     for x in range(0, width, x_interval):  # Use calculated interval
         pos_x = margin_left + x
-        draw.line([(pos_x, height + margin_top), (pos_x, height + margin_top + line_height)], fill="black", width=line_width)
-        draw_text_with_height(draw, str(x), x=pos_x, y=height + margin_top + line_height, desired_height=text_height, h_align="center", v_align="top")
+        draw.line([
+            (pos_x, height + margin_top)
+            (pos_x, height + margin_top + line_height)
+            ], fill="black", width=line_width)
+        draw_text_with_height(draw, str(x), x=pos_x,
+            y=height + margin_top + line_height,
+            desired_height=text_height, h_align="center", v_align="top")
     # Draw Y-axis scale (along the left margin)
+    y_interval = pow(10, max(n_digits - 2, 0)) * 5
     for y in range(0, height, y_interval):
         pos_y = height - y
         draw.line([(margin_left - line_height, pos_y + margin_top - y_interval), (margin_left, pos_y + margin_top - y_interval)], fill="black", width=line_width)
