@@ -124,8 +124,8 @@ def dislay_img(image_array: np.ndarray) -> None:
     # Draw X-axis scale (along the bottom margin)
     for x in range(0, width, x_interval):  # Use calculated interval
         pos_x = margin_left + x
-        draw.line([(pos_x, height + margin_top), (pos_x, height + margin / 3 + margin_top)], fill="black", width=line_width)
-        draw_text_with_height(draw, str(x), x=pos_x, y=height + margin / 3 + margin_top, desired_height=margin / 3, h_align="center", v_align="top")
+        draw.line([(pos_x, height + margin_top), (pos_x, height + margin_top + line_height)], fill="black", width=line_width)
+        draw_text_with_height(draw, str(x), x=pos_x, y=height + margin_top + line_height, desired_height=margin / 3, h_align="center", v_align="top")
     # Draw Y-axis scale (along the left margin)
     for y in range(0, height, y_interval):
         pos_y = height - y
