@@ -67,7 +67,9 @@ def draw_text_with_height(draw: ImageDraw, text: str, x: int, y: int, desired_he
     text_draw = ImageDraw.Draw(text_image)
     text_draw.text((0, 0), text, fill="black", font=default_font)
 
-    scaled_text_image = text_image.resize((scaled_width, scaled_height), resample=Image.Resampling.NEAREST)
+    scaled_text_image = text_image.resize(
+            (scaled_width, scaled_height),
+            resample=Image.Resampling.NEAREST)
 
     if h_align == "center":
         x -= scaled_width // 2
@@ -145,4 +147,3 @@ def dislay_img(image_array: np.ndarray) -> None:
     enlarged_image.save(image_path)
     enlarged_image.show()
     #print(f"The shape of image is: {image_array.shape}")
-
