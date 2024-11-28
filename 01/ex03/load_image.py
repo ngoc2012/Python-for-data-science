@@ -52,12 +52,12 @@ def calculate_interval(size, target_intervals=10):
     else:
         return int(raw_interval // 10) * 10  # Nearest multiple of 10
 
-def get_text_ratio() -> float:
+def get_text_ratio(n: int) -> float:
     default_font = ImageFont.load_default()
-    text_bbox = default_font.getbbox("0000000000")
+    text_bbox = default_font.getbbox(n * "0")
     text_width = text_bbox[2]
     text_height = text_bbox[3]
-    return text_width / text_height
+    return text_width / n / text_height
 
 
 def draw_text_with_height(draw: ImageDraw, text: str, x: int, y: int, desired_height: int, h_align="left", v_align="top"):
@@ -126,7 +126,7 @@ def dislay_img(image_array: np.ndarray) -> None:
     # Draw scales on the axes
     draw = ImageDraw.Draw(enlarged_image)
 
-    draw.rectangle([(margin_left - line_width / 2 + 1, margin_top - line_width / 2 + 1), (margin_left + width + line_width / 2, height + margin_top + line_width / 2, outline="black", width=line_width)
+    draw.rectangle([(margin_left - line_width / 2 + 1, margin_top - line_width / 2 + 1), (margin_left + width + line_width / 2, height + margin_top + line_width / 2)], outline="black", width=line_width)
     # Draw X-axis scale (along the bottom margin)
     for x in range(0, width, x_interval):  # Use calculated interval
         pos_x = margin_left + x
