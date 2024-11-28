@@ -75,10 +75,11 @@ def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_al
     # Render the text onto a temporary image
     text_image = Image.new("RGBA", (text_width, text_height), (255, 255, 255, 0))  # Transparent background
     text_draw = ImageDraw.Draw(text_image)
-    text_draw.text((0, 0), text, fill="black", font=default_font)
+    text_draw.text((0, 0), text, fill="white", font=default_font)
 
     # Resize the text image
     scaled_text_image = text_image.resize((scaled_width, scaled_height), resample=Image.Resampling.NEAREST)
+    enlarged_image.save(f"/tmp/{text}.png")
 
     # Adjust position based on alignment
     if h_align == "center":
@@ -113,24 +114,6 @@ def dislay_img(image_array: np.ndarray) -> None:
     
     # Draw scales on the axes
     draw = ImageDraw.Draw(enlarged_image)
-
-    #text = "0000"
-    #default_font = ImageFont.load_default()
-
-    ## Create a separate image for the text
-    #text_width, text_height = draw_main.textsize(text, font=default_font)
-    #text_image = Image.new("RGB", (text_width, text_height), color="white")
-    #draw_text = ImageDraw.Draw(text_image)
-    #draw_text.text((0, 0), text, fill="black", font=default_font)
-    #
-    ## Scale the text image to simulate font size
-    #scale_factor = 3  # Adjust this to change the font size
-    #scaled_width = int(text_width * scale_factor)
-    #scaled_height = int(text_height * scale_factor)
-    #scaled_text_image = text_image.resize((scaled_width, scaled_height), resample=Image.Resampling.NEAREST)
-    #
-    ## Paste the scaled text back onto the main image
-    #main_image.paste(scaled_text_image, (50, 20))
 
     # Draw border
     draw.rectangle([(margin_left, 0), (margin_left + width, height)], outline="black", width=line_width)
