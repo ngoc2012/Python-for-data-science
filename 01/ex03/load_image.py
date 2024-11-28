@@ -30,11 +30,12 @@ def zoom(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.ndar
     if len(shape) != 2:
         raise ValueError("Family must be a 2D array.")
                 raise TypeError("Family must be an array of integers.")
-    rows = shape[0]
-    if start < 0:
-        start = rows + start
-    if end < 0:
-        end = rows + end
+    height = shape[0]
+    width = shape[1]
+    if left < 0:
+        left = width + left
+    if right < 0:
+        right = width + right
     if start < 0 or start >= end or end > rows:
         raise IndexError("Index out of range.")
     new_shape = (end - start, shape[1])
