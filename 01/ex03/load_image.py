@@ -128,7 +128,7 @@ def dislay_img(image_array: np.ndarray) -> None:
         draw.line([(margin_left - margin / 3, pos_y), (margin_left, pos_y)], fill="black", width=line_width)
         #draw.text((margin_left - 40, pos_y - 5), str(y), fill="black")
         #draw.text((0, pos_y - 5), str(y), fill="black")
-        draw_text_with_height(draw, str(y), x=0, y=pos_y, desired_height=margin / 3, h_align="right", v_align="center")
+        draw_text_with_height(draw, str(y), x=margin_left - margin / 3, y=pos_y, desired_height=margin / 3, h_align="right", v_align="center")
     enlarged_image.save(image_path)
     enlarged_image.show()
     #print(f"The shape of image is: {image_array.shape}")
