@@ -25,10 +25,11 @@ def zoom(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.ndar
     if not isinstance(left, int) or not isinstance(right, int) or not isinstance(top, int) or not isinstance(bottom, int):
         raise TypeError("Positions must be integers.")
     if not isinstance(f, np.ndarray):
-        raise TypeError("Family must be a numpy array.")
+        raise TypeError("First argument must be a numpy array.")
     shape = f.shape
     if len(shape) != 2:
         raise ValueError("Family must be a 2D array.")
+
     rows = shape[0]
     if start < 0:
         start = rows + start
