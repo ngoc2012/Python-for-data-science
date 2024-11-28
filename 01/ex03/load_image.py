@@ -75,11 +75,11 @@ def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_al
     # Render the text onto a temporary image
     text_image = Image.new("RGBA", (text_width, text_height), (255, 255, 255, 0))  # Transparent background
     text_draw = ImageDraw.Draw(text_image)
-    text_draw.text((0, 0), text, fill="white", font=default_font)
+    text_draw.text((0, 0), text, fill="black", font=default_font)
 
     # Resize the text image
     scaled_text_image = text_image.resize((scaled_width, scaled_height), resample=Image.Resampling.NEAREST)
-    enlarged_image.save(f"/tmp/{text}.png")
+    text_image.save(f"/tmp/{text}.png")
 
     # Adjust position based on alignment
     if h_align == "center":
