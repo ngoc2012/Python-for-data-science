@@ -64,16 +64,15 @@ def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_al
     text_width = text_bbox[2]  # The width of the text (xmax - xmin)
     text_height = text_bbox[3]  # The height of the text (ymax - ymin)
 
-    # Calculate the scale factor
     scale_factor = desired_height / text_height
     scaled_width = int(text_width * scale_factor)
     scaled_height = int(text_height * scale_factor)
 
-    # Render the text onto a temporary image
     text_image = Image.new("RGBA", (text_width, text_height), (255, 255, 255, 0))
     text_draw = ImageDraw.Draw(text_image)
     text_draw.text((0, 0), text, fill="black", font=default_font)
-    scaled_text_image = text_image.resize((scaled_width, scaled_height), resample=Image.Resampling.NEAREST)
+    draw.bitmap((x, y), text_image)
+    #scaled_text_image = text_image.resize((scaled_width, scaled_height), resample=Image.Resampling.NEAREST)
 
     #if h_align == "center":
     #    x -= scaled_width // 2
@@ -86,7 +85,7 @@ def draw_text_with_height(draw, text, x, y, desired_height, h_align="left", v_al
     #    y -= scaled_height
 
     # Paste the scaled text onto the main image
-    draw.bitmap((x, y), scaled_text_image)
+    #draw.bitmap((x, y), scaled_text_image)
 
 def dislay_img(image_array: np.ndarray) -> None:
     """Display an image from a numpy array."""
