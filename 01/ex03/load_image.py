@@ -64,26 +64,19 @@ def draw_text_with_height(draw: ImageDraw, text: str, x: int, y: int, desired_he
     """
     Draw text at a specified height using the default font with justification.
     """
-    # Load default font
     default_font = ImageFont.load_default()
-
-    # Calculate the size of the text using the default font
-    text_bbox = default_font.getbbox(text)  # Get the bounding box of the text
-    text_width = text_bbox[2]  # The width of the text (xmax - xmin)
-    text_height = text_bbox[3]  # The height of the text (ymax - ymin)
+    text_bbox = default_font.getbbox(text)
+    text_width = text_bbox[2]
+    text_height = text_bbox[3]
     print(f"Text width: {text_width}, Text height: {text_height}, {text_height / text_width}")
-
-    # Calculate the scale factor
     scale_factor = desired_height / text_height
     scaled_width = int(text_width * scale_factor)
     scaled_height = int(text_height * scale_factor)
 
-    # Render the text onto a temporary image
-    text_image = Image.new("RGBA", (text_width, text_height), (255, 255, 255, 0))  # Transparent background
+    text_image = Image.new("RGBA", (text_width, text_height), (255, 255, 255, 0))
     text_draw = ImageDraw.Draw(text_image)
     text_draw.text((0, 0), text, fill="black", font=default_font)
 
-    # Resize the text image
     scaled_text_image = text_image.resize((scaled_width, scaled_height), resample=Image.Resampling.NEAREST)
     scaled_text_image.save(f"/tmp/{text}.png")
 
