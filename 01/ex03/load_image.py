@@ -109,7 +109,7 @@ def dislay_img(image_array: np.ndarray) -> None:
     line_height = int(margin / 5)
     margin_bottom = line_height + text_height
 
-    new_width = width + margin_left
+    new_width = width + margin_left + line_width
     new_height = height + margin_bottom + margin_top
     enlarged_image = Image.new("RGB", (new_width, new_height), color=(255, 255, 255))
     enlarged_image.paste(image, (margin_left, margin_top))
