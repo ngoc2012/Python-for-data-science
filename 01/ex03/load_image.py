@@ -106,7 +106,7 @@ def dislay_img(image_array: np.ndarray) -> None:
     text_height = int(margin / 3)
     margin_top = int(text_height / 2) + 1
     line_width = max(1, int(margin / 20))
-    line_height = text_height
+    line_height = int(margin / 5)
     margin_bottom = line_height + text_height
 
     new_width = width + margin_left
@@ -125,12 +125,12 @@ def dislay_img(image_array: np.ndarray) -> None:
     for x in range(0, width, x_interval):  # Use calculated interval
         pos_x = margin_left + x
         draw.line([(pos_x, height + margin_top), (pos_x, height + margin_top + line_height)], fill="black", width=line_width)
-        draw_text_with_height(draw, str(x), x=pos_x, y=height + margin_top + line_height, desired_height=margin / 3, h_align="center", v_align="top")
+        draw_text_with_height(draw, str(x), x=pos_x, y=height + margin_top + line_height, desired_height=text_height, h_align="center", v_align="top")
     # Draw Y-axis scale (along the left margin)
     for y in range(0, height, y_interval):
         pos_y = height - y
-        draw.line([(margin_left - margin / 3, pos_y + margin_top - y_interval), (margin_left, pos_y + margin_top - y_interval)], fill="black", width=line_width)
-        draw_text_with_height(draw, str(y), x=margin_left - margin / 3, y=y + margin_top, desired_height=margin / 3, h_align="right", v_align="center")
+        draw.line([(margin_left - line_height, pos_y + margin_top - y_interval), (margin_left, pos_y + margin_top - y_interval)], fill="black", width=line_width)
+        draw_text_with_height(draw, str(y), x=margin_left - line_height, y=y + margin_top, desired_height=text_height, h_align="right", v_align="center")
 
     enlarged_image.save(image_path)
     enlarged_image.show()
