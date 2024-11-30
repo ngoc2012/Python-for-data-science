@@ -102,13 +102,17 @@ def display_img(image_array: np.ndarray, mode = "RGB") -> None:
 
     new_width = width + margin_left + line_width
     new_height = height + margin_bottom + margin_top
-    if mode == "RGB":
-        color = (255, 255, 255)
-    elif mode == "L":
-        color = 255
-    else:
-        color = (0, 0, 0)
-    enlarged_image = Image.new(mode, (new_width, new_height), color=color)
+    default_colors = {
+        "RGB": (255, 255, 255),
+        "L": 255,
+        "RGBA": (255, 255, 255, 255),
+        "CMYK": (0, 0, 0, 0),
+        "1": 1,
+        "P": 0,
+        "I": 0,
+        "F": 0.0
+    }
+    enlarged_image = Image.new(mode, (new_width, new_height), color=default_colors[mode])
     enlarged_image.paste(image, (margin_left, margin_top))
     draw = ImageDraw.Draw(enlarged_image)
 
