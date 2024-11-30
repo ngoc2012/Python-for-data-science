@@ -7,7 +7,7 @@ from load_image import ft_load, slice_me, dislay_img
 #img = dislay_img(ft_load("/home/ngoc/Downloads/5x5.png"))
 #img = dislay_img(ft_load("/home/ngoc/Downloads/100x100.png"))
 #img = dislay_img(ft_load("/home/ngoc/Downloads/200x200.png"))
-img = dislay_img(ft_load("/home/ngoc/Downloads/400x400.png"))
+#img = dislay_img(ft_load("/home/ngoc/Downloads/400x400.png"))
 #img = dislay_img(ft_load("/home/ngoc/Downloads/1000x1000.png"))
 
 """
