@@ -159,7 +159,6 @@ def dislay_img(image_array: np.ndarray) -> None:
 
 def zoom_image(path: str, left: int, right: int, top: int, bottom: int) -> None:
     """Slice a 2D numpy array."""
-    
     f = ft_load(path)
     new_shape = slice_me(f, left, right, top, bottom)
     if new_shape.ndim != 3 and new_shape.shape[2] != 3:
