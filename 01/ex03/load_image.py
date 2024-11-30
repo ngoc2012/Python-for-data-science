@@ -165,3 +165,4 @@ def zoom(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.ndar
     if new_shape.ndim == 2:
         return new_shape
     grayscale_array = np.dot(new_shape[..., :3], [0.2989, 0.5870, 0.1140])
+    return grayscale_array
