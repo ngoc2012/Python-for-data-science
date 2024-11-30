@@ -27,7 +27,7 @@ def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.
     if not isinstance(f, np.ndarray):
         raise TypeError("First argument must be a numpy array.")
     shape = f.shape
-    if len(shape) != 2:
+    if len(shape) > 1:
         raise ValueError("Family must be a 2D array.")
     height = shape[0]
     width = shape[1]
@@ -159,7 +159,7 @@ def dislay_img(image_array: np.ndarray) -> None:
 def zoom_image(path: str, left: int, right: int, top: int, bottom: int) -> None:
     """Slice a 2D numpy array."""
     f = ft_load(path)
-    new_shape = slice_me(f, left, right, top, bottom)
+    new_shape = slide_2D(f, left, right, top, bottom)
     if new_shape.ndim != 3 and new_shape.shape[2] != 3:
         raise ValueError("Unsupported image formar")
     if new_shape.ndim == 2:
