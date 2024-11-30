@@ -155,3 +155,13 @@ def dislay_img(image_array: np.ndarray) -> None:
     enlarged_image.save(image_path)
     enlarged_image.show()
     #print(f"The shape of image is: {image_array.shape}")
+
+
+def zoom(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.ndarray:
+    """Slice a 2D numpy array."""
+   new_shape = slice_me(f, left, right, top, bottom)
+   if new_shape.ndim != 3 and new_shape.shape[2] != 3:
+        raise ValueError("Unsupported image formar")
+    if new_shape.ndim == 2:
+        return new_shape
+    grayscale_array = np.dot(new_shape[..., :3], [0.2989, 0.5870, 0.1140])
