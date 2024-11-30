@@ -81,7 +81,7 @@ def draw_text_with_height(draw: ImageDraw, text: str, x: int, y: int, desired_he
     draw.bitmap((x, y), scaled_text_image, fill="black")
 
 
-def display_img(image_array: np.ndarray) -> None:
+def display_img(image_array: np.ndarray, mode = "RGB") -> None:
     """Display an image from a numpy array."""
     image_path = "/tmp/00.png"
     image = Image.fromarray(image_array, 'RGB')
@@ -157,5 +157,6 @@ def zoom_image(path: str, left: int, right: int, top: int, bottom: int) -> None:
     if new_shape.ndim == 2:
         display_img(new_shape)
     grayscale_array = np.dot(new_shape[..., :3], [0.2989, 0.5870, 0.1140])
+    grayscale_array = grayscale_array.astype(np.uint8)
     print(grayscale_array)
     display_img(grayscale_array)
