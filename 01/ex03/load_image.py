@@ -150,7 +150,7 @@ def zoom_image(path: str, left: int, right: int, top: int, bottom: int) -> None:
     """Slice a 2D numpy array."""
     f = ft_load(path)
     new_shape = slide_2D(f, left, right, top, bottom)
-    print(f)
+    print(new_shape)
     if new_shape.ndim != 3 and new_shape.shape[2] != 3:
         raise ValueError("Unsupported image formar")
     if new_shape.ndim == 2:
