@@ -29,7 +29,6 @@ def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.
     shape = f.shape
     if len(shape) != 2:
         raise ValueError("Family must be a 2D array.")
-                raise TypeError("Family must be an array of integers.")
     height = shape[0]
     width = shape[1]
     if left < 0:

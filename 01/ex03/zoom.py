@@ -1,4 +1,4 @@
-from load_image import ft_load, slice_me, dislay_img
+from load_image import zoom_image
 
 
 #img = dislay_img(ft_load("/home/ngoc/Downloads/eyes-sparkled-with-vibrant-colors-autumn-leaves-generative-ai.jpg"))
@@ -9,6 +9,7 @@ from load_image import ft_load, slice_me, dislay_img
 #img = dislay_img(ft_load("/home/ngoc/Downloads/200x200.png"))
 #img = dislay_img(ft_load("/home/ngoc/Downloads/400x400.png"))
 #img = dislay_img(ft_load("/home/ngoc/Downloads/1000x1000.png"))
+zoom_image("/home/ngoc/Downloads/1000x1000.png", 0, 500, 0, 500)
 
 """
 from PIL import Image
