@@ -27,8 +27,8 @@ def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.
     if not isinstance(f, np.ndarray):
         raise TypeError("First argument must be a numpy array.")
     shape = f.shape
-    if len(shape) > 1:
-        raise ValueError("Family must be a 2D array.")
+    if len(shape) < 2:
+        raise ValueError("Family must be at least a 2D array.")
     height = shape[0]
     width = shape[1]
     if left < 0:
@@ -37,16 +37,6 @@ def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.
         right = width + right
     if left < 0 or left >= right or right > width:
         raise IndexError("Index out of range.")
-    if top < 0:
-        top = height + top
-    if bottom < 0:
-        bottom = height + bottom
-    if top < 0 or top >= bottom or bottom > height:
-        raise IndexError("Index out of range.")
-    new_shape = (right - left, bottom - top)
-    print(f"My shape is : {shape}")
-    print(f"My new shape is : {new_shape}")
-    return f[top:bottom, left:right]
 
 
 def get_text_ratio(n: int) -> float:
@@ -90,7 +80,7 @@ def draw_text_with_height(draw: ImageDraw, text: str, x: int, y: int, desired_he
     draw.bitmap((x, y), scaled_text_image, fill="black")
 
 
-def dislay_img(image_array: np.ndarray) -> None:
+def display_img(image_array: np.ndarray) -> None:
     """Display an image from a numpy array."""
     image_path = "/tmp/00.png"
     image = Image.fromarray(image_array, 'RGB')
@@ -160,6 +150,7 @@ def zoom_image(path: str, left: int, right: int, top: int, bottom: int) -> None:
     """Slice a 2D numpy array."""
     f = ft_load(path)
     new_shape = slide_2D(f, left, right, top, bottom)
+    print(f)
     if new_shape.ndim != 3 and new_shape.shape[2] != 3:
         raise ValueError("Unsupported image formar")
     if new_shape.ndim == 2:
