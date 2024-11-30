@@ -84,7 +84,7 @@ def draw_text_with_height(draw: ImageDraw, text: str, x: int, y: int, desired_he
 def display_img(image_array: np.ndarray, mode = "RGB") -> None:
     """Display an image from a numpy array."""
     image_path = "/tmp/00.png"
-    image = Image.fromarray(image_array, 'RGB')
+    image = Image.fromarray(image_array, mode = mode)
     width, height = image.size
 
     n_digits = len(str(height))
@@ -102,7 +102,7 @@ def display_img(image_array: np.ndarray, mode = "RGB") -> None:
 
     new_width = width + margin_left + line_width
     new_height = height + margin_bottom + margin_top
-    enlarged_image = Image.new("RGB", (new_width, new_height), color=(255, 255, 255))
+    enlarged_image = Image.new(mode, (new_width, new_height), color=(255, 255, 255))
     enlarged_image.paste(image, (margin_left, margin_top))
     draw = ImageDraw.Draw(enlarged_image)
 
@@ -159,4 +159,4 @@ def zoom_image(path: str, left: int, right: int, top: int, bottom: int) -> None:
     grayscale_array = np.dot(new_shape[..., :3], [0.2989, 0.5870, 0.1140])
     grayscale_array = grayscale_array.astype(np.uint8)
     print(grayscale_array)
-    display_img(grayscale_array)
+    display_img(grayscale_array, mode = "L")
