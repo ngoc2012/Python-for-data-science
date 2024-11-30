@@ -37,6 +37,7 @@ def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.
         right = width + right
     if left < 0 or left >= right or right > width:
         raise IndexError("Index out of range.")
+    return f[top:bottom, left:right]
 
 
 def get_text_ratio(n: int) -> float:
