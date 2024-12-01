@@ -58,8 +58,8 @@ def get_text_ratio(n: int) -> float:
 
 
 def draw_text(draw: ImageDraw, text: str,
-                x: int, y: int, desired_height: int,
-                h_align="left", v_align="top"):
+        x: int, y: int, desired_height: int,
+        h_align="left", v_align="top"):
     """ Draw text at a specified height.  """
     default_font = ImageFont.load_default()
     text_bbox = default_font.getbbox(text)
@@ -143,13 +143,14 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
             (pos_x, height + margin_top),
             (pos_x, height + margin_top + line_height)
             ], fill="black", width=line_width)
-        draw_text(draw,
-            str(x),
-            x=pos_x,
-            y=height + margin_top + line_height,
-            desired_height=text_height,
-            h_align="center",
-            v_align="top")
+        draw_text(
+                draw,
+                str(x),
+                x=pos_x,
+                y=height + margin_top + line_height,
+                desired_height=text_height,
+                h_align="center",
+                v_align="top")
     # Draw Y-axis scale (along the left margin)
     y_interval = pow(10, max(n_digits - 2, 0)) * 5
     for y in range(0, height, y_interval):
@@ -158,12 +159,14 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
             (margin_left - line_height, pos_y + margin_top - y_interval),
             (margin_left, pos_y + margin_top - y_interval)
             ], fill="black", width=line_width)
-        draw_text(draw, str(y),
-                x=margin_left - line_height,
-                y=y + margin_top,
-                desired_height=text_height,
-                h_align="right",
-                v_align="center")
+        draw_text(
+            draw,
+            str(y),
+            x=margin_left - line_height,
+            y=y + margin_top,
+            desired_height=text_height,
+            h_align="right",
+            v_align="center")
 
     enlarged_image.save(image_path)
     enlarged_image.show()
