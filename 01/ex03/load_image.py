@@ -51,7 +51,7 @@ def get_text_ratio(n: int) -> float:
 
 def draw_text_with_height(draw: ImageDraw, text: str,\
         x: int, y: int, desired_height: int,\
-        h_align="left", v_align="top", mode="RGB"):
+        h_align="left", v_align="top"):
     """ Draw text at a specified height.  """
     default_font = ImageFont.load_default()
     text_bbox = default_font.getbbox(text)
@@ -62,7 +62,7 @@ def draw_text_with_height(draw: ImageDraw, text: str,\
     scaled_width = int(text_width * scale_factor)
     scaled_height = int(text_height * scale_factor)
 
-    text_image = Image.new("RGB", (text_width, text_height), (255, 255, 255))
+    text_image = Image.new("RGBA", (text_width, text_height), (255, 255, 255, 0))
     text_draw = ImageDraw.Draw(text_image)
     text_draw.text((0, 0), text, fill="black", font=default_font)
 
