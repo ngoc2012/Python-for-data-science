@@ -69,7 +69,8 @@ def draw_text(draw: ImageDraw, text: str,
     scaled_width = int(text_width * scale_factor)
     scaled_height = int(text_height * scale_factor)
 
-    text_image = Image.new("RGBA", (text_width, text_height), (255, 255, 255, 0))
+    text_image = Image.new("RGBA",
+                           (text_width, text_height), (255, 255, 255, 0))
     text_draw = ImageDraw.Draw(text_image)
     text_draw.text((0, 0), text, fill="black", font=default_font)
 
