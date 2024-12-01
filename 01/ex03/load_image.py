@@ -156,22 +156,22 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
             (margin_left, pos_y + margin_top - y_interval)
             ], fill="black", width=line_width)
         draw_text(draw, str(y),
-            x=margin_left - line_height,
-            y=y + margin_top,
-            desired_height=text_height,
-            h_align="right",
-            v_align="center")
+                x=margin_left - line_height,
+                y=y + margin_top,
+                desired_height=text_height,
+                h_align="right",
+                v_align="center")
 
     enlarged_image.save(image_path)
     enlarged_image.show()
     #print(f"The shape of image is: {image_array.shape}")
 
 
-def zoom_image(path: str, left: int, right: int, top: int, bottom: int) -> None:
+def zoom_image(path: str, left: int, right: int, top: int, bottom: int)
+        -> None:
     """Slice a 2D numpy array."""
     f = ft_load(path)
     new_shape = slide_2D(f, left, right, top, bottom)
-    #print(new_shape)
     if new_shape.ndim != 3 and new_shape.shape[2] != 3:
         raise ValueError("Unsupported image formar")
     if new_shape.ndim == 2:
@@ -179,4 +179,4 @@ def zoom_image(path: str, left: int, right: int, top: int, bottom: int) -> None:
     grayscale_array = np.dot(new_shape[..., :3], [0.2989, 0.5870, 0.1140])
     grayscale_array = grayscale_array.astype(np.uint8)
     print(grayscale_array)
-    display_img(grayscale_array, mode = "L")
+    display_img(grayscale_array, mode="L")
