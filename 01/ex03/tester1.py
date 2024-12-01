@@ -1,6 +1,5 @@
 import unittest as ut
 from load_image import ft_load
-from PIL import Image
 
 
 class TestLoadPath(ut.TestCase):

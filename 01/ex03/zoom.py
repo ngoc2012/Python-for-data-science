@@ -1,6 +1,6 @@
 from load_image import zoom_image
 
-zoom_image(("/home/ngoc/Downloads/eyes-sparkled-with-vibrant-colors-autumn-leaves-generative-ai.jpg"), 0, 500, 0, 500)
+zoom_image(("/home/ngoc/Downloads/eye.jpg"), 0, 500, 0, 500)
 
 """
 from image_tools import create_random_image
