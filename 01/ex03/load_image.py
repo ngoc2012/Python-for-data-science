@@ -57,7 +57,8 @@ def get_text_ratio(n: int) -> float:
     return text_width / n / text_height
 
 
-def draw_text(draw: ImageDraw, text: str,
+def draw_text(
+        draw: ImageDraw, text: str,
         x: int, y: int, desired_height: int,
         h_align="left", v_align="top"):
     """ Draw text at a specified height.  """
@@ -122,9 +123,10 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
         "I": 0,
         "F": 0.0
     }
-    enlarged_image = Image.new(mode,
-                                (new_width, new_height),
-                               color=default_colors[mode])
+    enlarged_image = Image.new(
+                        mode,
+                        (new_width, new_height),
+                        color=default_colors[mode])
     enlarged_image.paste(image, (margin_left, margin_top))
     draw = ImageDraw.Draw(enlarged_image)
 
@@ -170,7 +172,6 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
 
     enlarged_image.save(image_path)
     enlarged_image.show()
-    #print(f"The shape of image is: {image_array.shape}")
 
 
 def zoom_image(path: str, left: int, right: int, top: int, bottom: int)\
