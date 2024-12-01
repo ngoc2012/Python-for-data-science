@@ -39,6 +39,12 @@ def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int)\
         right = width + right
     if left < 0 or left >= right or right > width:
         raise IndexError("Index out of range.")
+    if top < 0:
+        top = height + top
+    if bottom < 0:
+        bottom = height + bottom
+    if top < 0 or top >= bottom or bottom > height:
+        raise IndexError("Index out of range.")
     return f[top:bottom, left:right]
 
 
@@ -50,8 +56,8 @@ def get_text_ratio(n: int) -> float:
     return text_width / n / text_height
 
 
-def draw_text_with_height(draw: ImageDraw, text: str,\
-        x: int, y: int, desired_height: int,\
+def draw_text(draw: ImageDraw, text: str,
+        x: int, y: int, desired_height: int,
         h_align="left", v_align="top"):
     """ Draw text at a specified height.  """
     default_font = ImageFont.load_default()
@@ -133,7 +139,7 @@ def display_img(image_array: np.ndarray, mode = "RGB") -> None:
             (pos_x, height + margin_top),
             (pos_x, height + margin_top + line_height)
             ], fill="black", width=line_width)
-        draw_text_with_height(draw, str(x),
+        draw_text(draw, str(x),
             x=pos_x,
             y=height + margin_top + line_height,
             desired_height=text_height,
@@ -147,7 +153,7 @@ def display_img(image_array: np.ndarray, mode = "RGB") -> None:
             (margin_left - line_height, pos_y + margin_top - y_interval),
             (margin_left, pos_y + margin_top - y_interval)
             ], fill="black", width=line_width)
-        draw_text_with_height(draw, str(y),
+        draw_text(draw, str(y),
             x=margin_left - line_height,
             y=y + margin_top,
             desired_height=text_height,
