@@ -57,8 +57,8 @@ def get_text_ratio(n: int) -> float:
 
 
 def draw_text(draw: ImageDraw, text: str,
-        x: int, y: int, desired_height: int,
-        h_align="left", v_align="top"):
+            x: int, y: int, desired_height: int,
+            h_align="left", v_align="top"):
     """ Draw text at a specified height.  """
     default_font = ImageFont.load_default()
     text_bbox = default_font.getbbox(text)
@@ -90,10 +90,10 @@ def draw_text(draw: ImageDraw, text: str,
     draw.bitmap((x, y), scaled_text_image, fill="black")
 
 
-def display_img(image_array: np.ndarray, mode = "RGB") -> None:
+def display_img(image_array: np.ndarray, mode="RGB") -> None:
     """Display an image from a numpy array."""
     image_path = "/tmp/00.png"
-    image = Image.fromarray(image_array, mode = mode)
+    image = Image.fromarray(image_array, mode=mode)
     width, height = image.size
 
     n_digits = len(str(height))
@@ -121,7 +121,8 @@ def display_img(image_array: np.ndarray, mode = "RGB") -> None:
         "I": 0,
         "F": 0.0
     }
-    enlarged_image = Image.new(mode, (new_width, new_height), color=default_colors[mode])
+    enlarged_image = Image.new(mode,
+                        (new_width, new_height), color=default_colors[mode])
     enlarged_image.paste(image, (margin_left, margin_top))
     draw = ImageDraw.Draw(enlarged_image)
 
@@ -141,11 +142,11 @@ def display_img(image_array: np.ndarray, mode = "RGB") -> None:
             (pos_x, height + margin_top + line_height)
             ], fill="black", width=line_width)
         draw_text(draw, str(x),
-            x=pos_x,
-            y=height + margin_top + line_height,
-            desired_height=text_height,
-            h_align="center",
-            v_align="top")
+                x=pos_x,
+                y=height + margin_top + line_height,
+                desired_height=text_height,
+                h_align="center",
+                v_align="top")
     # Draw Y-axis scale (along the left margin)
     y_interval = pow(10, max(n_digits - 2, 0)) * 5
     for y in range(0, height, y_interval):
