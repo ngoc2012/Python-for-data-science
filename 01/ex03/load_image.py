@@ -17,6 +17,7 @@ def ft_load(path: str) -> np.ndarray:
         image = image.convert('RGB')
     image_array = np.array(image)
     print(f"The shape of image is: {image_array.shape}")
+    print(image_array)
     return image_array
 
 
@@ -57,8 +58,8 @@ def get_text_ratio(n: int) -> float:
 
 
 def draw_text(draw: ImageDraw, text: str,
-            x: int, y: int, desired_height: int,
-            h_align="left", v_align="top"):
+                x: int, y: int, desired_height: int,
+                h_align="left", v_align="top"):
     """ Draw text at a specified height.  """
     default_font = ImageFont.load_default()
     text_bbox = default_font.getbbox(text)
@@ -122,7 +123,8 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
         "F": 0.0
     }
     enlarged_image = Image.new(mode,
-                        (new_width, new_height), color=default_colors[mode])
+                                (new_width, new_height),
+                               color=default_colors[mode])
     enlarged_image.paste(image, (margin_left, margin_top))
     draw = ImageDraw.Draw(enlarged_image)
 
