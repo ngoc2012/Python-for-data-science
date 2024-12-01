@@ -143,12 +143,13 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
             (pos_x, height + margin_top),
             (pos_x, height + margin_top + line_height)
             ], fill="black", width=line_width)
-        draw_text(draw, str(x),
-                x=pos_x,
-                y=height + margin_top + line_height,
-                desired_height=text_height,
-                h_align="center",
-                v_align="top")
+        draw_text(draw,
+            str(x),
+            x=pos_x,
+            y=height + margin_top + line_height,
+            desired_height=text_height,
+            h_align="center",
+            v_align="top")
     # Draw Y-axis scale (along the left margin)
     y_interval = pow(10, max(n_digits - 2, 0)) * 5
     for y in range(0, height, y_interval):
