@@ -94,6 +94,18 @@ def draw_text(
 
 def display_img(image_array: np.ndarray, mode="RGB") -> None:
     """Display an image from a numpy array."""
+    default_colors = {
+        "RGB": (255, 255, 255),
+        "L": 255,
+        "RGBA": (255, 255, 255, 255),
+        "CMYK": (0, 0, 0, 0),
+        "1": 1,
+        "P": 0,
+        "I": 0,
+        "F": 0.0
+    }
+    if mode not in default_colors:
+        raise ValueError("Unsupported image mode.")
     image_path = "/tmp/00.png"
     image = Image.fromarray(image_array, mode=mode)
     width, height = image.size
@@ -113,16 +125,6 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
 
     new_width = width + margin_left + line_width
     new_height = height + margin_bottom + margin_top
-    default_colors = {
-        "RGB": (255, 255, 255),
-        "L": 255,
-        "RGBA": (255, 255, 255, 255),
-        "CMYK": (0, 0, 0, 0),
-        "1": 1,
-        "P": 0,
-        "I": 0,
-        "F": 0.0
-    }
     enlarged_image = Image.new(
                         mode,
                         (new_width, new_height),
