@@ -32,13 +32,19 @@ def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int)\
         raise ValueError("Family must be at least a 2D array.")
     height = shape[0]
     width = shape[1]
+    if left < -width or right < -width:
+        raise IndexError("Index of left or right out of range.")
+    if top < -height or bottom < -height:
+        raise IndexError("Index of top or bottom out of range.")
     if left < 0:
         left = width + left
     if right < 0:
         right = width + right
     right = min(right, width)
     if left < 0 or left >= right or right > width:
-        raise IndexError("Index out of range.")
+        raise IndexError(" out of range.")
+    if left < 0 or left >= right or right > width:
+        raise IndexError(" out of range.")
     if top < 0:
         top = height + top
     if bottom < 0:
