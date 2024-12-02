@@ -3,27 +3,27 @@ from load_image import zoom_image, ft_load
 
 
 class TestZoomImage(ut.TestCase):
-    """Test ft_load function."""
+    """Test zoom_image function."""
 
     def test_value(self):
         """Test the value of the path input."""
         with self.assertRaises(FileNotFoundError):
-            ft_load("dsfsadfdsfsd")
+            zoom_image("dsfsadfdsfsd", 0, 0, 0, 0)
         with self.assertRaises(TypeError):
-            ft_load("/home/ngoc/Downloads/meotravaux.mp4")
+            zoom_image("/home/ngoc/Downloads/meotravaux.mp4", 0, 0, 0, 0)
 
     def test_type(self):
         """Test the type of the path input."""
         with self.assertRaises(TypeError):
-            ft_load(None)
+            zoom_image(None, 0, 0, 0, 0)
         with self.assertRaises(TypeError):
-            ft_load({})
+            zoom_image({}, 0, 0, 0, 0)
         with self.assertRaises(TypeError):
-            ft_load([])
+            zoom_image([], 0, 0, 0, 0)
         with self.assertRaises(TypeError):
-            ft_load(())
+            zoom_image((), 0, 0, 0, 0)
         with self.assertRaises(TypeError):
-            ft_load(0)
+            zoom_image(0, 0, 0, 0, 0)
 
 
 #class TestZoomImage(ut.TestCase):
