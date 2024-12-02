@@ -11,6 +11,8 @@ class TestZoomImage(ut.TestCase):
             zoom_image("dsfsadfdsfsd", 0, 0, 0, 0)
         with self.assertRaises(TypeError):
             zoom_image("/home/ngoc/Downloads/meotravaux.mp4", 0, 0, 0, 0)
+        with self.assertRaises(TypeError):
+            zoom_image("animal_empty.jpeg", 0, 0, 0, 0)
 
     def test_type(self):
         """Test the type of the path input."""
