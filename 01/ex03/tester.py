@@ -30,10 +30,18 @@ class TestZoomImage(ut.TestCase):
         with self.assertRaises(TypeError):
             zoom_image(0, 0, 0, 0, 0)
 
-    def test_index(self):
+    def test_index_value(self):
         """Test the value of the path input."""
         with self.assertRaises(IndexError):
-            zoom_image("animal.jpeg", -1, 0, 0, 0)
+            zoom_image("animal.jpeg", 0, 0, 0, 100)
+        with self.assertRaises(IndexError):
+            zoom_image("animal.jpeg", 0, 100, 0, 0)
+        with self.assertRaises(IndexError):
+            zoom_image("animal.jpeg", 10, 0, 0, 100)
+        with self.assertRaises(IndexError):
+            zoom_image("animal.jpeg", 0, 100, 10, 0)
+        with self.assertRaises(IndexError):
+            zoom_image("animal.jpeg", -1, 0, 0, 100)
 
 
 #class TestZoomImage(ut.TestCase):
