@@ -1,7 +1,11 @@
 from load_image import zoom_image
 
-#zoom_image("/home/ngoc/Downloads/eye.jpg", 0, 500, 0, 500)
-zoom_image("/home/ngoc/Downloads/eye1.jpg", 0, 500, 0, 500)
+def main():
+    #zoom_image("/home/ngoc/Downloads/eye.jpg", 0, 500, 0, 500)
+    try:
+        zoom_image("/home/ngoc/Downloads/eye1.jpg", 0, 500, 0, 500)
+    except Exception as e:
+        print(e)
 
 """
 from image_tools import create_random_image
@@ -20,3 +24,6 @@ images = [
 for i in images:
     create_random_image(i[0], i[1], f"/home/ngoc/Downloads/{i[0]}x{i[1]}.png")
 """
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
