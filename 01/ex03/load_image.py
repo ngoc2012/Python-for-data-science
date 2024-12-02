@@ -119,7 +119,7 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
     n_digits = len(str(height))
     text_ratio = get_text_ratio(n_digits)
 
-    margin = max(20, int(min(width, height) / 10))
+    margin = max(40, int(min(width, height) / 10))
     text_height = int(margin / 3)
     text_width = int(n_digits * text_ratio * text_height)
     line_width = max(1, int(margin / 40))
@@ -146,7 +146,7 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
         height + margin_top + line_width / 2
         )], outline="black", width=line_width)
     # Draw X-axis scale (along the bottom margin)
-    x_interval = pow(10, max(len(str(width)) - 2, 0)) * 5
+    x_interval = pow(10, max(len(str(width)) - 2, 1)) * 5
     for x in range(0, width, x_interval):
         pos_x = margin_left + x
         draw.line([
@@ -162,7 +162,7 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
                 h_align="center",
                 v_align="top")
     # Draw Y-axis scale (along the left margin)
-    y_interval = pow(10, max(n_digits - 2, 0)) * 5
+    y_interval = pow(10, max(n_digits - 2, 1)) * 5
     for y in range(0, height, y_interval):
         pos_y = height - y
         draw.line([
