@@ -2,7 +2,7 @@ import unittest as ut
 from load_image import ft_load
 
 
-class TestLoadPath(ut.TestCase):
+class TestZoomImage(ut.TestCase):
     """Test ft_load function."""
 
     def test_value(self):
