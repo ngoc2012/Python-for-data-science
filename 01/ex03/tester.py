@@ -5,7 +5,7 @@ from load_image import zoom_image, ft_load
 class TestZoomImage(ut.TestCase):
     """Test zoom_image function."""
 
-    def test_value(self):
+    def test_file_name(self):
         """Test the value of the path input."""
         with self.assertRaises(FileNotFoundError):
             zoom_image("dsfsadfdsfsd", 0, 0, 0, 0)
@@ -13,7 +13,7 @@ class TestZoomImage(ut.TestCase):
     def test_file_type(self):
         """Test the type of the path input."""
         with self.assertRaises(TypeError):
-            zoom_image("/home/ngoc/Downloads/meotravaux.mp4", 0, 0, 0, 0)
+            zoom_image("meotravaux.mp4", 0, 0, 0, 0)
         with self.assertRaises(TypeError):
             zoom_image("animal_empty.jpeg", 0, 0, 0, 0)
 
@@ -29,6 +29,11 @@ class TestZoomImage(ut.TestCase):
             zoom_image((), 0, 0, 0, 0)
         with self.assertRaises(TypeError):
             zoom_image(0, 0, 0, 0, 0)
+
+    def test_index(self):
+        """Test the value of the path input."""
+        with self.assertRaises(FileNotFoundError):
+            zoom_image("animal.jpeg", 0, 0, 0, 0)
 
 
 #class TestZoomImage(ut.TestCase):
