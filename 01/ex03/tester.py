@@ -10,14 +10,14 @@ class TestZoomImage(ut.TestCase):
         with self.assertRaises(FileNotFoundError):
             zoom_image("dsfsadfdsfsd", 0, 0, 0, 0)
 
-    def test_file_type(self):
+    def test_file_format(self):
         """Test the type of the path input."""
         with self.assertRaises(TypeError):
             zoom_image("meotravaux.mp4", 0, 0, 0, 0)
         with self.assertRaises(TypeError):
             zoom_image("animal_empty.jpeg", 0, 0, 0, 0)
 
-    def test_arg_type(self):
+    def test_file_type(self):
         """Test the type of the path input."""
         with self.assertRaises(TypeError):
             zoom_image(None, 0, 0, 0, 0)
@@ -32,8 +32,8 @@ class TestZoomImage(ut.TestCase):
 
     def test_index(self):
         """Test the value of the path input."""
-        with self.assertRaises(FileNotFoundError):
-            zoom_image("animal.jpeg", 0, 0, 0, 0)
+        with self.assertRaises(IndexError):
+            zoom_image("animal.jpeg", -1, 0, 0, 0)
 
 
 #class TestZoomImage(ut.TestCase):
