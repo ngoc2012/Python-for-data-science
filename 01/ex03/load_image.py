@@ -38,12 +38,14 @@ def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int)\
         left = width + left
     if right < 0:
         right = width + right
+    right = min(right, width)
     if left < 0 or left >= right or right > width:
         raise IndexError("Index out of range.")
     if top < 0:
         top = height + top
     if bottom < 0:
         bottom = height + bottom
+    bottom = min(bottom, height)
     if top < 0 or top >= bottom or bottom > height:
         raise IndexError("Index out of range.")
     return f[top:bottom, left:right]
