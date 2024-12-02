@@ -41,10 +41,10 @@ def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int)\
     if right < 0:
         right = width + right
     right = min(right, width)
-    if left < 0 or left >= right or right > width:
-        raise IndexError(" out of range.")
-    if left < 0 or left >= right or right > width:
-        raise IndexError(" out of range.")
+    if left >= right:
+        raise IndexError("Left index is bigger than right.")
+    if top >= bottom:
+        raise IndexError("Top index is bigger than bottom.")
     if top < 0:
         top = height + top
     if bottom < 0:
