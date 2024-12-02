@@ -8,7 +8,9 @@ def main():
         #zoom_image(None, 450, 850, 100, 500)
         #zoom_image("animal.jpeg", 0, 0, 100, 500)
         #zoom_image("animal.jpeg", 0, 1, 100, 500)
-        zoom_image("animal.jpeg", 0, 10, 100, 500)
+        #zoom_image("animal.jpeg", 0, 10, 100, 500)
+        #zoom_image("animal.jpeg", 0, 10, 0, 10)
+        zoom_image("animal.jpeg", -999999990, 10, 0, 10)
     except Exception as e:
         print(e)
 
