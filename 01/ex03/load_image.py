@@ -9,7 +9,7 @@ def ft_load(path: str) -> np.ndarray:
     if not isinstance(path, str):
         raise TypeError("Path must be a string.")
     if not os.path.exists(path):
-        raise FileNotFoundError("File not found.")
+        raise FileNotFoundError(f"File {path} not found.")
     if imghdr.what(path) is None:
         raise TypeError("Invalid image format.")
     image = Image.open(path)
@@ -42,7 +42,7 @@ def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int)\
         right = width + right
     right = min(right, width)
     if left >= right:
-        raise IndexError("Right index must be bigger than left.")
+        raise IndexError(f"Right index {right} must be bigger than left {left}.")
     if top < 0:
         top = height + top
     if bottom < 0:
