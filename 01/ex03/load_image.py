@@ -14,7 +14,10 @@ def ft_load(path: str) -> np.ndarray:
         raise TypeError("Invalid image format.")
     image = Image.open(path)
     if image.mode != 'RGB':
-        image = image.convert('RGB')
+        try:
+            image = image.convert('RGB')
+        except ValueError:
+            raise ValueError("Unsupported image format.")
     image_array = np.array(image)
     return image_array
 
