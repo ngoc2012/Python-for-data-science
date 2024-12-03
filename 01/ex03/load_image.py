@@ -97,7 +97,7 @@ def draw_text(
         y -= scaled_height
     draw.bitmap((x, y), scaled_text_image, fill="black")
 
-def get_interval(L: int) -> None:
+def get_interval(L: int) -> int:
     d = pow(10, max(len(str(L)) - 2, 1)) * 5
     if int(L / d) < 5 and d > 5:
         d /= 10
@@ -120,6 +120,8 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
     image_path = "/tmp/00.png"
     image = Image.fromarray(image_array, mode=mode)
     width, height = image.size
+    width = int(width)
+    height = int(height)
 
     n_digits = len(str(height))
     text_ratio = get_text_ratio(n_digits)
@@ -151,8 +153,8 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
         height + margin_top + line_width / 2
         )], outline="black", width=line_width)
     # Draw X-axis scale (along the bottom margin)
-    #x_interval = pow(10, max(len(str(width)) - 2, 1)) * 5
-    x_interval = get_interval(width)
+    x_interval = pow(10, max(len(str(width)) - 2, 1)) * 5
+    #x_interval = get_interval(width)
     for x in range(0, width, x_interval):
         pos_x = margin_left + x
         draw.line([
@@ -168,8 +170,8 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
                 h_align="center",
                 v_align="top")
     # Draw Y-axis scale (along the left margin)
-    #y_interval = pow(10, max(n_digits - 2, 1)) * 5
-    y_interval = get_interval(height)
+    y_interval = pow(10, max(n_digits - 2, 1)) * 5
+    #y_interval = get_interval(height)
     for y in range(0, height, y_interval):
         pos_y = height - y
         draw.line([
