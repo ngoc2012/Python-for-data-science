@@ -97,6 +97,11 @@ def draw_text(
         y -= scaled_height
     draw.bitmap((x, y), scaled_text_image, fill="black")
 
+def get_interval(L: int) -> None:
+    d = pow(10, max(len(str(L)) - 2, 1)) * 5
+    if int(L / d) < 5 and d > 10:
+        d /= 10
+    return d
 
 def display_img(image_array: np.ndarray, mode="RGB") -> None:
     """Display an image from a numpy array."""
