@@ -10,7 +10,11 @@ def ft_load(path: str) -> np.ndarray:
         raise TypeError("Path must be a string.")
     if not os.path.exists(path):
         raise FileNotFoundError(f"File {path} not found.")
-    if imghdr.what(path) is None:
+    try:
+        output = imghdr.what(path)
+    except PermissionError:
+        raise PermissionError(f"Can not open file {path}.")
+    if output is None:
         raise TypeError("Invalid image format.")
     image = Image.open(path)
     if image.mode != 'RGB':

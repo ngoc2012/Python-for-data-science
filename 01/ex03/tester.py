@@ -16,6 +16,8 @@ class TestZoomImage(ut.TestCase):
             zoom_image("meotravaux.mp4", 0, 0, 0, 0)
         with self.assertRaises(TypeError):
             zoom_image("animal_empty.jpeg", 0, 0, 0, 0)
+        with self.assertRaises(PermissionError):
+            zoom_image("unreadable", 0, 0, 0, 0)
 
     def test_file_type(self):
         """Test the type of the path input."""

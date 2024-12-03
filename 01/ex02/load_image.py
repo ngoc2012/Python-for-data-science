@@ -14,7 +14,7 @@ def ft_load(path: str) -> np.array:
         output = imghdr.what(path)
     except PermissionError:
         raise PermissionError(f"Can not open file {path}.")
-    if imghdr.what(path) is None:
+    if output is None:
         raise TypeError("Invalid image format.")
     image = Image.open(path)
     if image.mode != 'RGB':
