@@ -140,7 +140,7 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
     line_height = int(margin / 10)
 
     margin_top = int(text_height / 2) + 1
-    margin_left = line_height + text_width
+    margin_left = line_height + text_width + line_width
     margin_bottom = line_height + text_height
 
     new_width = width + margin_left + line_width
@@ -152,7 +152,7 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
     enlarged_image.paste(image, (margin_left, margin_top))
     draw = ImageDraw.Draw(enlarged_image)
 
-    min_to_draw_border = 5
+    min_to_draw_border = 0
     if width > min_to_draw_border and height > min_to_draw_border:
         draw.rectangle([(
             margin_left - line_width,
@@ -183,13 +183,15 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
     #y_interval = get_interval(height)
     for y in range(0, height, y_interval):
         draw.line([
-            (margin_left - line_height - line_width / 2, y + margin_top + line_width / 2),
-            (margin_left - line_width / 2, y + margin_top + line_width / 2)
+            (margin_left - line_height - line_width / 2,
+             y + margin_top + line_width / 2),
+            (margin_left - line_width / 2,
+             y + margin_top + line_width / 2)
             ], fill="black", width=line_width)
         draw_text(
             draw,
             str(y),
-            x=margin_left - line_height - line_width / 2,
+            x=margin_left - line_height - line_width,
             y=y + margin_top,
             desired_height=text_height,
             h_align="right",
