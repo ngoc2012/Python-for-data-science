@@ -10,7 +10,10 @@ def ft_load(path: str) -> np.array:
         raise TypeError("Path must be a string.")
     if not os.path.exists(path):
         raise FileNotFoundError("File not found.")
-
+    try:
+        output = imghdr.what(path)
+    except PermissionError:
+        raise PermissionError(f"Can not open file {path}.")
     if imghdr.what(path) is None:
         raise TypeError("Invalid image format.")
     image = Image.open(path)
