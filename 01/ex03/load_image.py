@@ -165,7 +165,6 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
             )], outline="black", width=line_width)
     # Draw X-axis scale (along the bottom margin)
     x_interval = get_interval(width)
-    #x_interval = pow(10, max(len(str(width)) - 2, 1)) * 5
     for x in range(0, width, x_interval):
         pos_x = margin_left + x
         draw.line([
@@ -181,8 +180,7 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
                 h_align="center",
                 v_align="top")
     # Draw Y-axis scale (along the left margin)
-    y_interval = pow(10, max(n_digits - 2, 1)) * 5
-    #y_interval = get_interval(height)
+    y_interval = get_interval(height)
     for y in range(0, height, y_interval):
         draw.line([
             (margin_left - line_height - line_width / 2,

@@ -16,7 +16,8 @@ def create_random_image(width, height, filename):
             [200, 1000],
             [1000, 1000]]
     for i in images:
-        create_random_image(i[0], i[1], f"/home/ngoc/Downloads/{i[0]}x{i[1]}.png")
+        create_random_image(i[0], i[1],
+        f"/home/ngoc/Downloads/{i[0]}x{i[1]}.png")
     """
     random = np.random.randint(0, 256, (height, width, 3), dtype=np.uint8)
     image = Image.fromarray(random)
