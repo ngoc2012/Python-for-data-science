@@ -43,6 +43,15 @@ class TestZoomImage(ut.TestCase):
         with self.assertRaises(IndexError):
             zoom_image("animal.jpeg", -1, 0, 0, 100)
 
+    def test_index_type(self):
+        """Test the value of the path input."""
+        with self.assertRaises(TypeError):
+            zoom_image("animal.jpeg", None, 100, 0, 100)
+        with self.assertRaises(TypeError):
+            zoom_image("animal.jpeg", 0, None, 0, 100)
+        with self.assertRaises(TypeError):
+            zoom_image("animal.jpeg", 0, 100, None, 100)
+
 
 #class TestZoomImage(ut.TestCase):
 #    """Test ft_load function."""
