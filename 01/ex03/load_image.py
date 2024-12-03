@@ -152,13 +152,14 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
     enlarged_image.paste(image, (margin_left, margin_top))
     draw = ImageDraw.Draw(enlarged_image)
 
-    draw.rectangle([(
-        margin_left - line_width / 2 + 1,
-        margin_top - line_width / 2 + 1
-        ), (
-        margin_left + width + line_width / 2,
-        height + margin_top + line_width / 2
-        )], outline="black", width=line_width)
+    if width > 3 and height > 3:
+        draw.rectangle([(
+            margin_left - line_width / 2 + 1,
+            margin_top - line_width / 2 + 1
+            ), (
+            margin_left + width + line_width / 2,
+            height + margin_top + line_width / 2
+            )], outline="black", width=line_width)
     # Draw X-axis scale (along the bottom margin)
     x_interval = get_interval(width)
     #x_interval = pow(10, max(len(str(width)) - 2, 1)) * 5
