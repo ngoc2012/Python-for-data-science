@@ -44,7 +44,7 @@ def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int)\
     if left >= right:
         raise IndexError("Right index must be bigger than left.")
     if top >= bottom:
-        raise IndexError("Bottom index must be bigger than top.")
+        raise IndexError("Bottom index {bottom} must be bigger than top {top}.")
     if top < 0:
         top = height + top
     if bottom < 0:
