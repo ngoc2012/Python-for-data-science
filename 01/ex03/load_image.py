@@ -158,8 +158,8 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
             margin_left - line_width,
             margin_top - line_width
             ), (
-            margin_left + width + line_width,
-            height + margin_top + line_width
+            margin_left + width + line_width / 2,
+            height + margin_top + line_width / 2
             )], outline="black", width=line_width)
     # Draw X-axis scale (along the bottom margin)
     x_interval = get_interval(width)
