@@ -152,7 +152,8 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
     enlarged_image.paste(image, (margin_left, margin_top))
     draw = ImageDraw.Draw(enlarged_image)
 
-    if width > 3 and height > 3:
+    min_to_draw_border = 5
+    if width > min_to_draw_border and height > min_to_draw_border:
         draw.rectangle([(
             margin_left - line_width / 2 + 1,
             margin_top - line_width / 2 + 1
