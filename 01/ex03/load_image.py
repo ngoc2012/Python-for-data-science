@@ -49,14 +49,14 @@ def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int)\
         right = width + right
     right = min(right, width)
     if left >= right:
-        raise IndexError(f"Right index {right} must be bigger than left {left}.")
+        raise IndexError(f"Right {right} must be bigger than left {left}.")
     if top < 0:
         top = height + top
     if bottom < 0:
         bottom = height + bottom
     bottom = min(bottom, height)
     if top >= bottom:
-        raise IndexError(f"Bottom index {bottom} must be bigger than top {top}.")
+        raise IndexError(f"Bottom {bottom} must be bigger than top {top}.")
     if top < 0 or top >= bottom or bottom > height:
         raise IndexError("Index out of range.")
     return f[top:bottom, left:right]
@@ -104,11 +104,13 @@ def draw_text(
         y -= scaled_height
     draw.bitmap((x, y), scaled_text_image, fill="black")
 
+
 def get_interval(L: int) -> int:
     d = pow(10, max(len(str(L)) - 2, 1)) * 5
     if int(L / d) < 5 and d > 50:
         d = int(d / 10)
     return d
+
 
 def display_img(image_array: np.ndarray, mode="RGB") -> None:
     """Display an image from a numpy array."""
