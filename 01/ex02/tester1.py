@@ -11,6 +11,8 @@ class TestLoadPath(ut.TestCase):
         with self.assertRaises(FileNotFoundError):
             ft_load("dsfsadfdsfsd")
         with self.assertRaises(TypeError):
+            ft_load("unreadable")
+        with self.assertRaises(TypeError):
             ft_load("empty.jpg")
         with self.assertRaises(TypeError):
             ft_load("/home/ngoc/Downloads/meotravaux.mp4")
