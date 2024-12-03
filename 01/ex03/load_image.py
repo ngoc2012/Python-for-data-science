@@ -155,11 +155,11 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
     min_to_draw_border = 5
     if width > min_to_draw_border and height > min_to_draw_border:
         draw.rectangle([(
-            margin_left - line_width / 2 + 1,
-            margin_top - line_width / 2 + 1
+            margin_left - line_width / 2 + line_width,
+            margin_top - line_width / 2 + line_width
             ), (
-            margin_left + width + line_width / 2,
-            height + margin_top + line_width / 2
+            margin_left + width + line_width / 2 - line_width,
+            height + margin_top + line_width / 2 - line_width
             )], outline="black", width=line_width)
     # Draw X-axis scale (along the bottom margin)
     x_interval = get_interval(width)
