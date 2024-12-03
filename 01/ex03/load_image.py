@@ -173,10 +173,9 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
     y_interval = pow(10, max(n_digits - 2, 1)) * 5
     #y_interval = get_interval(height)
     for y in range(0, height, y_interval):
-        pos_y = height - y
         draw.line([
-            (margin_left - line_height, pos_y + margin_top - y_interval),
-            (margin_left, pos_y + margin_top - y_interval)
+            (margin_left - line_height, y + margin_top),
+            (margin_left, y + margin_top)
             ], fill="black", width=line_width)
         draw_text(
             draw,
