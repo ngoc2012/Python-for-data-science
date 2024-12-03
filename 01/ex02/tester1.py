@@ -10,7 +10,7 @@ class TestLoadPath(ut.TestCase):
         """Test the value of the path input."""
         with self.assertRaises(FileNotFoundError):
             ft_load("dsfsadfdsfsd")
-        with self.assertRaises(TypeError):
+        with self.assertRaises(PermissionError):
             ft_load("unreadable")
         with self.assertRaises(TypeError):
             ft_load("empty.jpg")

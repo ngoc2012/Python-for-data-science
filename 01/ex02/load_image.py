@@ -10,6 +10,7 @@ def ft_load(path: str) -> np.array:
         raise TypeError("Path must be a string.")
     if not os.path.exists(path):
         raise FileNotFoundError("File not found.")
+
     if imghdr.what(path) is None:
         raise TypeError("Invalid image format.")
     image = Image.open(path)
