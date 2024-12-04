@@ -4,15 +4,15 @@ from load_image import zoom_image
 def main():
     try:
         # Size (768, 1024, 3)
-        # zoom_image("animal.jpeg", 450, 850, 100, 500)
+        zoom_image("animal.jpeg", 450, 850, 100, 500)
         # zoom_image("animal_empty.jpeg", 450, 850, 100, 500)
         # zoom_image(None, 450, 850, 100, 500)
         # zoom_image("animal.jpeg", 0, 0, 100, 500)
         # zoom_image("animal.jpeg", 0, 1, 100, 500)
         # zoom_image("animal.jpeg", 0, 10, 100, 500)
         # zoom_image("animal.jpeg", 0, 10, 0, 10)
-        #zoom_image("animal.jpeg", 0, 100, 0, 100)
-        zoom_image("bigfile", 0, 100, 0, 100)
+        # zoom_image("animal.jpeg", 0, 100, 0, 100)
+        # zoom_image("bigfile", 0, 100, 0, 100)
         # zoom_image("animal.jpeg", -999999990, 10, 0, 10)
         # zoom_image("animal.jpeg", 0, 9999999, 0, 100)
         # zoom_image("animal.jpeg", 0, 6, 0, 6)
