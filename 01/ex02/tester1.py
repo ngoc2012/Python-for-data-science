@@ -16,6 +16,8 @@ class TestLoadPath(ut.TestCase):
             ft_load("empty.jpg")
         with self.assertRaises(TypeError):
             ft_load("meotravaux.mp4")
+        with self.assertRaises(TypeError):
+            ft_load("bigfile", 0, 0, 0, 0)
 
     def test_type(self):
         """Test the type of the path input."""
