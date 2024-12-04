@@ -16,6 +16,10 @@ def ft_load(path: str) -> np.ndarray:
         raise PermissionError("Can not open file " + path + ".")
     if output is None:
         raise TypeError("Invalid image format.")
+    file_size = os.path.getsize(file_path)
+    max_size = 100 * 1024 * 1024
+    if file_size > max_size:
+        raise TypeError("File is too large.")
     image = Image.open(path)
     if image.mode != 'RGB':
         try:
