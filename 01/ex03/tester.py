@@ -18,6 +18,8 @@ class TestZoomImage(ut.TestCase):
             zoom_image("animal_empty.jpeg", 0, 0, 0, 0)
         with self.assertRaises(PermissionError):
             zoom_image("unreadable", 0, 0, 0, 0)
+        with self.assertRaises(TypeError):
+            ft_load("bigfile", 0, 0, 0, 0)
 
     def test_file_type(self):
         """Test the type of the path input."""
@@ -68,6 +70,8 @@ class TestLoadPath(ut.TestCase):
             ft_load("empty.jpg")
         with self.assertRaises(TypeError):
             ft_load("meotravaux.mp4")
+        with self.assertRaises(TypeError):
+            ft_load("bigfile")
 
     def test_type(self):
         """Test the type of the path input."""
