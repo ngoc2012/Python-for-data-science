@@ -205,7 +205,7 @@ def display_img(image_array: np.ndarray, mode="RGB") -> None:
     enlarged_image.show()
 
 
-def zoom_image(path: str, left: int, right: int, top: int, bottom: int)\
+def rotate_image(path: str, left: int, right: int, top: int, bottom: int)\
         -> None:
     """Slice a 2D numpy array."""
     f = ft_load(path)
