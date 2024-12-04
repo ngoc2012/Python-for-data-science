@@ -1,4 +1,5 @@
 **/unreadable
+**/bigfile
 .env
 **/go*.tar.gz
 database/ib_logfile*
