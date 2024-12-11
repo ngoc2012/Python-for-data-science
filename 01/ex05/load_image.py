@@ -27,4 +27,6 @@ def ft_load(path: str) -> np.ndarray:
         except ValueError:
             raise ValueError("Unsupported image format.")
     image_array = np.array(image)
+    print(f"The shape of image is: {image_array.shape}")
+    print(image_array)
     return image_array
