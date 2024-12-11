@@ -27,6 +27,8 @@ def ft_load(path: str) -> np.ndarray:
         except ValueError:
             raise ValueError("Unsupported image format.")
     image_array = np.array(image)
+    print(f"The shape of image is: {image_array.shape}")
+    print(image_array)
     return image_array
 
 
@@ -223,8 +225,6 @@ def rotate_image(path: str, left: int, right: int, top: int, bottom: int)\
             transposed_array[j, i] = grayscale_array[i, j]
 
 
-    print(f"The shape of image is: {f.shape}")
-    print(f)
     print(f"New shape after slicing: {transposed_array.shape}")
     print(transposed_array)
     display_img(transposed_array, mode="L")
