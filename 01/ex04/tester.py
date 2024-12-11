@@ -3,58 +3,58 @@ from load_image import rotate_image, ft_load
 
 
 class TestZoomImage(ut.TestCase):
-    """Test zoom_image function."""
+    """Test rotate_image function."""
 
     def test_file_name(self):
         """Test the value of the path input."""
         with self.assertRaises(FileNotFoundError):
-            zoom_image("dsfsadfdsfsd", 0, 0, 0, 0)
+            rotate_image("dsfsadfdsfsd", 0, 0, 0, 0)
 
     def test_file_format(self):
         """Test the type of the path input."""
         with self.assertRaises(TypeError):
-            zoom_image("meotravaux.mp4", 0, 0, 0, 0)
+            rotate_image("meotravaux.mp4", 0, 0, 0, 0)
         with self.assertRaises(TypeError):
-            zoom_image("animal_empty.jpeg", 0, 0, 0, 0)
+            rotate_image("animal_empty.jpeg", 0, 0, 0, 0)
         with self.assertRaises(PermissionError):
-            zoom_image("unreadable", 0, 0, 0, 0)
+            rotate_image("unreadable", 0, 0, 0, 0)
         with self.assertRaises(TypeError):
-            zoom_image("bigfile", 0, 0, 0, 0)
+            rotate_image("bigfile", 0, 0, 0, 0)
 
     def test_file_type(self):
         """Test the type of the path input."""
         with self.assertRaises(TypeError):
-            zoom_image(None, 0, 0, 0, 0)
+            rotate_image(None, 0, 0, 0, 0)
         with self.assertRaises(TypeError):
-            zoom_image({}, 0, 0, 0, 0)
+            rotate_image({}, 0, 0, 0, 0)
         with self.assertRaises(TypeError):
-            zoom_image([], 0, 0, 0, 0)
+            rotate_image([], 0, 0, 0, 0)
         with self.assertRaises(TypeError):
-            zoom_image((), 0, 0, 0, 0)
+            rotate_image((), 0, 0, 0, 0)
         with self.assertRaises(TypeError):
-            zoom_image(0, 0, 0, 0, 0)
+            rotate_image(0, 0, 0, 0, 0)
 
     def test_index_value(self):
         """Test the value of the path input."""
         with self.assertRaises(IndexError):
-            zoom_image("animal.jpeg", 0, 0, 0, 100)
+            rotate_image("animal.jpeg", 0, 0, 0, 100)
         with self.assertRaises(IndexError):
-            zoom_image("animal.jpeg", 0, 100, 0, 0)
+            rotate_image("animal.jpeg", 0, 100, 0, 0)
         with self.assertRaises(IndexError):
-            zoom_image("animal.jpeg", 10, 0, 0, 100)
+            rotate_image("animal.jpeg", 10, 0, 0, 100)
         with self.assertRaises(IndexError):
-            zoom_image("animal.jpeg", 0, 100, 10, 0)
+            rotate_image("animal.jpeg", 0, 100, 10, 0)
         with self.assertRaises(IndexError):
-            zoom_image("animal.jpeg", -1, 0, 0, 100)
+            rotate_image("animal.jpeg", -1, 0, 0, 100)
 
     def test_index_type(self):
         """Test the value of the path input."""
         with self.assertRaises(TypeError):
-            zoom_image("animal.jpeg", None, 100, 0, 100)
+            rotate_image("animal.jpeg", None, 100, 0, 100)
         with self.assertRaises(TypeError):
-            zoom_image("animal.jpeg", 0, None, 0, 100)
+            rotate_image("animal.jpeg", 0, None, 0, 100)
         with self.assertRaises(TypeError):
-            zoom_image("animal.jpeg", 0, 100, None, 100)
+            rotate_image("animal.jpeg", 0, 100, None, 100)
 
 
 class TestLoadPath(ut.TestCase):
