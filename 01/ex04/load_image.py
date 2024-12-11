@@ -216,6 +216,7 @@ def rotate_image(path: str, left: int, right: int, top: int, bottom: int)\
         display_img(new_shape)
     grayscale_array = np.dot(new_shape[..., :3], [0.2989, 0.5870, 0.1140])
     grayscale_array = grayscale_array.astype(np.uint8)
+    rows, cols = array.shape
     transposed_array = np.empty((cols, rows), dtype=array.dtype)
     for i in range(rows):
         for j in range(cols):
@@ -224,6 +225,6 @@ def rotate_image(path: str, left: int, right: int, top: int, bottom: int)\
 
     print(f"The shape of image is: {f.shape}")
     print(f)
-    print(f"New shape after slicing: {grayscale_array.shape}")
-    print(grayscale_array)
-    display_img(grayscale_array, mode="L")
+    print(f"New shape after slicing: {transposed_array.shape}")
+    print(transposed_array)
+    display_img(transposed_array, mode="L")
