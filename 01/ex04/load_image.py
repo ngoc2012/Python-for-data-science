@@ -216,8 +216,8 @@ def rotate_image(path: str, left: int, right: int, top: int, bottom: int)\
         display_img(new_shape)
     grayscale_array = np.dot(new_shape[..., :3], [0.2989, 0.5870, 0.1140])
     grayscale_array = grayscale_array.astype(np.uint8)
-    rows, cols = array.shape
-    transposed_array = np.empty((cols, rows), dtype=array.dtype)
+    rows, cols = grayscale_array.shape
+    transposed_array = np.empty((cols, rows), dtype=grayscale_array.dtype)
     for i in range(rows):
         for j in range(cols):
             transposed_array[j, i] = grayscale_array[i, j]
