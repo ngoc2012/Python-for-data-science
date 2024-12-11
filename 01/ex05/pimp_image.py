@@ -41,6 +41,6 @@ def ft_grey(array) -> np.ndarray:
     grey_array = array.copy()
     grey_array = np.dot(grey_array[..., :3], [0.2989, 0.5870, 0.1140])
     grey_array = np.stack((grey_array,) * 3, axis=-1)
-    image = Image.fromarray(grey_array)
+    image = Image.fromarray(grey_array, mode='L')
     image.show()
     return grey_array
