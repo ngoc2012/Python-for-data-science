@@ -1,5 +1,5 @@
 import unittest as ut
-from load_image import zoom_image, ft_load
+from load_image import rotate_image, ft_load
 
 
 class TestZoomImage(ut.TestCase):
