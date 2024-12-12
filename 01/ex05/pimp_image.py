@@ -1,7 +1,7 @@
 import numpy as np
 from PIL import Image
 
-def check_rgb_image(array) -> bool:
+def _check_rgb_image(array) -> bool:
     if not isinstance(array, np.ndarray):
         return False
     if array.ndim != 3:
@@ -12,7 +12,7 @@ def check_rgb_image(array) -> bool:
 
 def ft_invert(array) -> np.ndarray:
     '''Inverts the color of the image received.'''
-    if not check_rgb_image(array):
+    if not _check_rgb_image(array):
         raise TypeError("Invalid image format.")
     inverted_array = 255 - array
     image = Image.fromarray(inverted_array)
@@ -20,7 +20,7 @@ def ft_invert(array) -> np.ndarray:
     return inverted_array
 
 def ft_red(array) -> np.ndarray:
-    if not check_rgb_image(array):
+    if not _check_rgb_image(array):
         raise TypeError("Invalid image format.")
     red_array = array.copy()
     red_array[:, :, 1] = 0  # Set green channel to 0
@@ -30,7 +30,7 @@ def ft_red(array) -> np.ndarray:
     return red_array
 
 def ft_green(array) -> np.ndarray:
-    if not check_rgb_image(array):
+    if not _check_rgb_image(array):
         raise TypeError("Invalid image format.")
     green_array = array.copy()
     green_array[:, :, 0] = 0  # Set red channel to 0
@@ -41,7 +41,7 @@ def ft_green(array) -> np.ndarray:
 
 def ft_blue(array) -> np.ndarray:
     '''Keep only the blue channel, set red and green channels to 0'''
-    if not check_rgb_image(array):
+    if not _check_rgb_image(array):
         raise TypeError("Invalid image format.")
     blue_array = array.copy()
     blue_array[:, :, 0] = 0  # Set red channel to 0
@@ -52,7 +52,7 @@ def ft_blue(array) -> np.ndarray:
 
 def ft_grey(array) -> np.ndarray:
     '''Convert the image to grayscale'''
-    if not check_rgb_image(array):
+    if not _check_rgb_image(array):
         raise TypeError("Invalid image format.")
     grey_array = array.copy()
     grey_array = np.dot(grey_array[..., :3], [0.2989, 0.5870, 0.1140])
