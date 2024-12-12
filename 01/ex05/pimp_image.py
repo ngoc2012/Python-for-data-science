@@ -1,6 +1,14 @@
 import numpy as np
 from PIL import Image
 
+def check_rgb_image(array) -> bool:
+    if not isinstance(array, np.ndarray):
+        return False
+    if array.ndim != 3:
+        return False
+    if array.shape[2] != 3:
+        return False
+    return True
 
 def ft_invert(array) -> np.ndarray:
     '''Inverts the color of the image received.'''
