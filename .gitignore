@@ -5,3 +5,8 @@
 database/ib_logfile*
 # data/
 **/zig-linux-x86_64-*.tar.xz
+*.o
+*.swp
+*.env
+*.crt
+*.key
