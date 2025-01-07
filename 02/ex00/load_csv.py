@@ -16,7 +16,7 @@ def load(path: str) -> pd.DataFrame:
         df = pd.read_csv(path, dtype=str)  # dtype=str ensures everything is read as string
 
         # Handle cases where the CSV might be empty or malformed
-        if df.empty:
+        if df.empty and len(df.columns) == 0:
             print("Warning: Loaded an empty DataFrame.")
             return None
 
