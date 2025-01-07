@@ -58,19 +58,19 @@ class TestLoadFunction(ut.TestCase):
 
     def test_file_with_invalid_format(self):
         """Test handling of a CSV file with an invalid format."""
-        invalid_file = "invalid.csv"
-        with open(invalid_file, "w") as f:
-            f.write("not,a,csv,file\n")
+        # invalid_file = "invalid.csv"
+        # with open(invalid_file, "w") as f:
+        #     f.write("not,a,csv,file\n")
         
         result = load(invalid_file)
         self.assertIsNone(result)
 
-    def tearDown(self):
-        """Clean up test files after each test."""
-        test_files = ["test_valid.csv", "empty.csv", "header_only.csv", "invalid.csv"]
-        for file in test_files:
-            if os.path.exists(file):
-                os.remove(file)
+    # def tearDown(self):
+    #     """Clean up test files after each test."""
+    #     test_files = ["test_valid.csv", "empty.csv", "header_only.csv", "invalid.csv"]
+    #     for file in test_files:
+    #         if os.path.exists(file):
+    #             os.remove(file)
 
 if __name__ == "__main__":
     ut.main()

@@ -20,16 +20,15 @@ def load(path: str) -> pd.DataFrame:
             print("Warning: Loaded an empty DataFrame (no columns, no data).")
             return None
 
-        # Handle cases where the file is malformed (e.g., wrong format)
-        if df.empty and len(df.columns) > 0:
-            print("Warning: Loaded a malformed file with headers but no rows.")
-            return None
-
         # If the DataFrame has no rows (only header), log a warning and return it
         if df.shape[0] == 0:
             print("Warning: Loaded a DataFrame with only a header (no data).")
             return df  # Return the empty DataFrame
 
+        # Handle cases where the file is malformed (e.g., wrong format)
+        if df.empty and len(df.columns) > 0:
+            print("Warning: Loaded a malformed file with headers but no rows.")
+            return None
 
         # Print the dimensions (rows, columns)
         print(f"Loading dataset of dimensions {df.shape}")  # This will print something like (num_rows, num_columns)
