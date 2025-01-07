@@ -1,6 +1,7 @@
 import numpy as np
 from PIL import Image
 
+
 def _check_rgb_image(array) -> bool:
     if not isinstance(array, np.ndarray):
         return False
