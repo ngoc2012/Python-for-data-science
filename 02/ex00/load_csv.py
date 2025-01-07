@@ -15,9 +15,14 @@ def load(path: str) -> pd.DataFrame:
         # Load the CSV file using pandas
         df = pd.read_csv(path, dtype=str)  # dtype=str ensures everything is read as string
 
-        # Handle cases where the CSV might be empty or malformed
+        # Handle cases where the CSV might be completely empty
         if df.empty and len(df.columns) == 0:
-            print("Warning: Loaded an empty DataFrame.")
+            print("Warning: Loaded an empty DataFrame (no columns, no data).")
+            return None
+
+        # Handle cases where the file is malformed (e.g., wrong format)
+        if df.empty and len(df.columns) > 0:
+            print("Warning: Loaded a malformed file with headers but no rows.")
             return None
 
         # If the DataFrame has no rows (only header), log a warning and return it
