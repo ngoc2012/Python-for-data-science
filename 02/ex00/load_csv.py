@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def load(path: str) -> pd.DataFrame:
     """
     Load a CSV file and return its contents as a Pandas DataFrame.
@@ -8,30 +9,24 @@ def load(path: str) -> pd.DataFrame:
     :return: Pandas DataFrame containing the dataset, or None if an error occurs.
     """
     try:
-        # Check if the path is a string
         if not isinstance(path, str):
             raise TypeError(f"Expected 'path' to be a string, but got {type(path).__name__}")
         
-        # Load the CSV file using pandas
-        df = pd.read_csv(path, dtype=str)  # dtype=str ensures everything is read as string
+        df = pd.read_csv(path, dtype=str)
 
-        # Handle cases where the CSV might be completely empty
         if df.empty and len(df.columns) == 0:
             print("Warning: Loaded an empty DataFrame (no columns, no data).")
             return None
 
-        # If the DataFrame has no rows (only header), log a warning and return it
         if df.shape[0] == 0:
             print("Warning: Loaded a DataFrame with only a header (no data).")
-            return df  # Return the empty DataFrame
+            return df
 
-        # Handle cases where the file is malformed (e.g., wrong format)
         if df.empty and len(df.columns) > 0:
             print("Warning: Loaded a malformed file with headers but no rows.")
             return None
 
-        # Print the dimensions (rows, columns)
-        print(f"Loading dataset of dimensions {df.shape}")  # This will print something like (num_rows, num_columns)
+        print(f"Loading dataset of dimensions {df.shape}")
         
         return df
     except FileNotFoundError:
