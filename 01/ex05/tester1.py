@@ -33,6 +33,7 @@ class TestLoadPath(ut.TestCase):
         with self.assertRaises(TypeError):
             ft_load(0)
 
+
 class TestImageFunctions(ut.TestCase):
     def setUp(self):
         """Set up test cases with valid and invalid inputs."""
@@ -45,8 +46,11 @@ class TestImageFunctions(ut.TestCase):
 
         # Create invalid inputs
         self.invalid_image_2d = np.array([[255, 0], [0, 255]])  # 2D array
-        self.invalid_image_grayscale = np.array([[[128], [64], [32]]], dtype=np.uint8)  # 3D but not RGB
-        self.invalid_image_type = "not an array"  # Not a numpy array
+        self.invalid_image_grayscale = np.array(
+            [[[128], [64], [32]]],
+            dtype=np.uint8
+            )
+        self.invalid_image_type = "not an array"
 
     def test_ft_invert(self):
         """Test ft_invert function."""

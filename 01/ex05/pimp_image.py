@@ -11,6 +11,7 @@ def _check_rgb_image(array) -> bool:
         return False
     return True
 
+
 def ft_invert(array) -> np.ndarray:
     '''Inverts the color of the image received.'''
     if not _check_rgb_image(array):
@@ -19,6 +20,7 @@ def ft_invert(array) -> np.ndarray:
     image = Image.fromarray(inverted_array)
     image.show()
     return inverted_array
+
 
 def ft_red(array) -> np.ndarray:
     if not _check_rgb_image(array):
@@ -30,6 +32,7 @@ def ft_red(array) -> np.ndarray:
     image.show()
     return red_array
 
+
 def ft_green(array) -> np.ndarray:
     if not _check_rgb_image(array):
         raise TypeError("Invalid image format.")
@@ -39,6 +42,7 @@ def ft_green(array) -> np.ndarray:
     image = Image.fromarray(green_array)
     image.show()
     return green_array
+
 
 def ft_blue(array) -> np.ndarray:
     '''Keep only the blue channel, set red and green channels to 0'''
@@ -50,6 +54,7 @@ def ft_blue(array) -> np.ndarray:
     image = Image.fromarray(blue_array)
     image.show()
     return blue_array
+
 
 def ft_grey(array) -> np.ndarray:
     '''Convert the image to grayscale'''
