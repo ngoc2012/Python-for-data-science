@@ -14,6 +14,9 @@ def load(path: str) -> pd.DataFrame:
         
         # Load the CSV file using pandas
         df = pd.read_csv(path, dtype=str)  # dtype=str ensures everything is read as string
+
+        # Print the dimensions (rows, columns)
+        print(f"Loading dataset of dimensions {df.shape}")  # This will print something like (num_rows, num_columns)
         
         return df
     except FileNotFoundError:
