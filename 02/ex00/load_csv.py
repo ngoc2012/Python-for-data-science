@@ -15,16 +15,15 @@ def load(path: str) -> pd.DataFrame:
         # Load the CSV file using pandas
         df = pd.read_csv(path, dtype=str)  # dtype=str ensures everything is read as string
 
+        # Handle cases where the CSV might be empty or malformed
+        if df.empty:
+            print("Warning: Loaded an empty DataFrame.")
+            return None
+
         # If the DataFrame has no rows (only header), log a warning and return it
         if df.shape[0] == 0:
             print("Warning: Loaded a DataFrame with only a header (no data).")
             return df  # Return the empty DataFrame
-
-        # Handle cases where the CSV might be empty or malformed
-        #if df.empty:
-        #    print("Warning: Loaded an empty DataFrame.")
-        #    return None
-
 
         # Print the dimensions (rows, columns)
         print(f"Loading dataset of dimensions {df.shape}")  # This will print something like (num_rows, num_columns)

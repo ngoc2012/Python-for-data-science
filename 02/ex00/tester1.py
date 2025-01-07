@@ -50,8 +50,11 @@ class TestLoadFunction(ut.TestCase):
             f.write("country,1800,1801,1802\n")
         
         result = load(header_file)
+        
         # Verify that the DataFrame is empty except for the column names
-        self.assertTrue(result.empty)
+        self.assertIsInstance(result, pd.DataFrame)
+        self.assertTrue(result.empty)  # Empty DataFrame has no rows
+        self.assertListEqual(list(result.columns), ["country", "1800", "1801", "1802"])
 
     def test_file_with_invalid_format(self):
         """Test handling of a CSV file with an invalid format."""
