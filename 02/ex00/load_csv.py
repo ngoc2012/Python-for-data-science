@@ -6,12 +6,13 @@ def load(path: str) -> pd.DataFrame:
     Load a CSV file and return its contents as a Pandas DataFrame.
 
     :param path: Path to the CSV file.
-    :return: Pandas DataFrame containing the dataset, or None if an error occurs.
+    :return: Pandas DataFrame containing the dataset,
+    or None if an error occurs.
     """
     try:
         if not isinstance(path, str):
-            raise TypeError(f"Expected 'path' to be a string, but got {type(path).__name__}")
-        
+            raise TypeError(f"Expected a string, got {type(path).__name__}")
+
         df = pd.read_csv(path, dtype=str)
 
         if df.empty and len(df.columns) == 0:
@@ -27,7 +28,7 @@ def load(path: str) -> pd.DataFrame:
             return None
 
         print(f"Loading dataset of dimensions {df.shape}")
-        
+
         return df
     except FileNotFoundError:
         print(f"Error: File not found at path '{path}'")
@@ -41,4 +42,3 @@ def load(path: str) -> pd.DataFrame:
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
         return None
-
