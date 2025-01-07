@@ -8,12 +8,12 @@ class TestLoadFunction(ut.TestCase):
     def test_valid_file(self):
         """Test loading a valid CSV file."""
         test_file = "test_valid.csv"
-        
+
         with open(test_file, "w") as f:
             f.write("country,1800,1801,1802\n")
             f.write('"Congo, Dem. Rep.",28.2,28.2,28.2\n')
             f.write("Albania,29.2,29.3,29.4\n")
-        
+
         result = load(test_file)
         expected = pd.DataFrame({
             'country': ['Congo, Dem. Rep.', 'Albania'],
@@ -37,7 +37,7 @@ class TestLoadFunction(ut.TestCase):
         """Test handling of an empty CSV file."""
         empty_file = "empty.csv"
         open(empty_file, "w").close()
-        
+
         result = load(empty_file)
         self.assertIsNone(result)
 
@@ -46,17 +46,20 @@ class TestLoadFunction(ut.TestCase):
         header_file = "header_only.csv"
         with open(header_file, "w") as f:
             f.write("country,1800,1801,1802\n")
-        
+
         result = load(header_file)
-        
+
         self.assertIsInstance(result, pd.DataFrame)
         self.assertTrue(result.empty)
-        self.assertListEqual(list(result.columns), ["country", "1800", "1801", "1802"])
+        self.assertListEqual(
+            list(result.columns),
+            ["country", "1800", "1801", "1802"]
+            )
 
     def test_file_with_invalid_format(self):
         """Test handling of a CSV file with an invalid format."""
         invalid_file = "invalid.csv"
-        
+
         result = load(invalid_file)
         self.assertIsNone(result)
 
