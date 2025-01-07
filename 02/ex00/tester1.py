@@ -67,6 +67,7 @@ class TestLoadFunction(ut.TestCase):
 
     # def tearDown(self):
     #     """Clean up test files after each test."""
+    #     test_files = ["test_valid.csv", "empty.csv", "header_only.csv"]
     #     test_files = ["test_valid.csv", "empty.csv", "header_only.csv", "invalid.csv"]
     #     for file in test_files:
     #         if os.path.exists(file):
