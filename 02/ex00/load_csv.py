@@ -25,6 +25,7 @@ def load(path: str) -> pd.DataFrame:
             print("Warning: Loaded a DataFrame with only a header (no data).")
             return df  # Return the empty DataFrame
 
+
         # Print the dimensions (rows, columns)
         print(f"Loading dataset of dimensions {df.shape}")  # This will print something like (num_rows, num_columns)
         
