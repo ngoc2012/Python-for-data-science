@@ -1,22 +1,28 @@
 import unittest as ut
-import numpy as np
-from load_csv import load
+import os
+import pandas as pd
+from your_module import load  # Replace 'your_module' with the actual module name where `load` is defined.
 
 class TestLoadFunction(ut.TestCase):
     def test_valid_file(self):
         """Test loading a valid CSV file."""
-        # Prepare a test CSV file
         test_file = "test_valid.csv"
+        
+        # Prepare a test CSV file
         with open(test_file, "w") as f:
             f.write("country,1800,1801,1802\n")
-            f.write("Afghanistan,28.2,28.2,28.2\n")
+            f.write('"Congo, Dem. Rep.",28.2,28.2,28.2\n')
             f.write("Albania,29.2,29.3,29.4\n")
         
         # Call the function and verify results
         result = load(test_file)
-        expected = np.array([['Afghanistan', 28.2, 28.2, 28.2],
-                             ['Albania', 29.2, 29.3, 29.4]], dtype=object)
-        np.testing.assert_array_equal(result, expected)
+        expected = pd.DataFrame({
+            'country': ['Congo, Dem. Rep.', 'Albania'],
+            '1800': ['28.2', '29.2'],
+            '1801': ['28.2', '29.3'],
+            '1802': ['28.2', '29.4']
+        })
+        pd.testing.assert_frame_equal(result, expected)
 
     def test_nonexistent_file(self):
         """Test handling of a nonexistent file."""
@@ -44,7 +50,8 @@ class TestLoadFunction(ut.TestCase):
             f.write("country,1800,1801,1802\n")
         
         result = load(header_file)
-        self.assertEqual(result.shape, (0,))  # Should return an empty array
+        # Verify that the DataFrame is empty except for the column names
+        self.assertTrue(result.empty)
 
     def test_file_with_invalid_format(self):
         """Test handling of a CSV file with an invalid format."""
@@ -55,6 +62,12 @@ class TestLoadFunction(ut.TestCase):
         result = load(invalid_file)
         self.assertIsNone(result)
 
+    def tearDown(self):
+        """Clean up test files after each test."""
+        test_files = ["test_valid.csv", "empty.csv", "header_only.csv", "invalid.csv"]
+        for file in test_files:
+            if os.path.exists(file):
+                os.remove(file)
+
 if __name__ == "__main__":
     ut.main()
-
