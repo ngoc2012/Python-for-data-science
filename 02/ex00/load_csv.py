@@ -1,4 +1,5 @@
 import numpy as np
 
-def load(path: str) -> Dataset: (You have to adapt the type of return according to your library)
+def load(path: str) -> np.object_
     #your code here
+    next
