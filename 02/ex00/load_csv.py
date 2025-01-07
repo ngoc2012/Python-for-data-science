@@ -7,6 +7,11 @@ def load(path: str) -> np.object_:
     :param path: Path to the CSV file.
     :return: NumPy array containing the dataset.
     """
+    # Check if the path is a string
+    if not isinstance(path, str):
+        print("Error: The path must be a string.")
+        return None
+
     try:
         # Load the CSV file into a NumPy array, skipping the header row
         data = np.genfromtxt(path, delimiter=',', dtype=None, encoding='utf-8', skip_header=1)
