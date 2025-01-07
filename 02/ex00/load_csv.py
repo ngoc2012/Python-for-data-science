@@ -28,7 +28,7 @@ def load(path: str) -> pd.DataFrame:
         # If the DataFrame has no rows (only header), log a warning and return it
         if df.shape[0] == 0:
             print("Warning: Loaded a DataFrame with only a header (no data).")
-            return None  # Return the empty DataFrame
+            return df  # Return the empty DataFrame
 
 
         # Print the dimensions (rows, columns)
