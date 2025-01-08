@@ -1,5 +1,6 @@
 from load_csv import load
 
 
-data = load("life_expectancy_years.csv")
-print(data)
+df = load("life_expectancy_years.csv")
+print(df)
+france_data = df[df["country"] == "France"]
