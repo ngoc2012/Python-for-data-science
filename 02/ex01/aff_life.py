@@ -4,6 +4,9 @@ from load_csv import load
 
 def main():
     df = load("life_expectancy_years.csv")
+    if df is None:
+        print("Failed to load data.")
+        return
     data = df[df["country"] == "France"]
     years = data.columns[1:].astype(int)
     values = data.iloc[0, 1:].astype(float)
