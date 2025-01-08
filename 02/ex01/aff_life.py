@@ -7,6 +7,12 @@ def main():
     if df is None:
         print("Failed to load data.")
         return
+    if "country" not in df.columns:
+        print("Missing 'country' column.")
+        return
+    if "France" not in df["country"].unique():
+        print("France data not found.")
+        return
     data = df[df["country"] == "France"]
     years = data.columns[1:].astype(int)
     values = data.iloc[0, 1:].astype(float)
