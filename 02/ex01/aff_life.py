@@ -12,6 +12,7 @@ def main():
     plt.figure(figsize=(10, 6))
     plt.plot(years, values, label="France", color="#468fc1", linewidth=2)
     
+    plt.xticks(range(1800, 2100, 40))
     plt.title("France Life expectancy Projections", fontsize=12)
     plt.xlabel("Year", fontsize=12)
     plt.ylabel("Life expectancy", fontsize=12)
