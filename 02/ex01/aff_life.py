@@ -11,7 +11,7 @@ def main():
     
     # Plot the data
     plt.figure(figsize=(10, 6))
-    plt.plot(years, values, label="France", color="blue", linewidth=2)
+    plt.plot(years, values, label="France", color="#468fc1", linewidth=2)
     
     # Add labels, title, and legend
     plt.title("France Life Expectancy Projections", fontsize=12)
