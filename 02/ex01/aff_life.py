@@ -17,7 +17,7 @@ def main():
     plt.title("France Life Expectancy Projections", fontsize=12)
     plt.xlabel("Year", fontsize=12)
     plt.ylabel("Value", fontsize=12)
-    plt.grid(True, linestyle="--", alpha=0.6)
+    #plt.grid(True, linestyle="--", alpha=0.6)
     #plt.legend(fontsize=12)
     plt.tight_layout()
     
