@@ -14,8 +14,11 @@ def main():
         print("France data not found.")
         return
     data = df[df["country"] == "France"]
-    years = data.columns[1:].astype(int)
-    values = data.iloc[0, 1:].astype(float)
+    try:
+        years = data.columns[1:].astype(int)
+        values = data.iloc[0, 1:].astype(float)
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
     plt.figure(figsize=(8, 6))
     plt.plot(years, values, label="France", color="#468fc1", linewidth=2)
