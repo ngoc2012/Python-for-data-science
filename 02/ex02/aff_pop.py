@@ -4,6 +4,7 @@ from load_csv import load
 
 def main():
     df = load("population_total.csv")
+    print(df.head())
     data = df[df["country"] == "France"]
     years = data.columns[1:].astype(int)
     values = data.iloc[0, 1:].astype(float)
