@@ -8,7 +8,7 @@ def main():
     years = data.columns[1:].astype(int)
     values = data.iloc[0, 1:].astype(float)
 
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(8, 6))
     plt.plot(years, values, label="France", color="#468fc1", linewidth=2)
 
     plt.xticks(range(1800, 2100, 40))
