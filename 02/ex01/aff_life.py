@@ -14,11 +14,11 @@ def main():
     plt.plot(years, values, label="France", color="blue", linewidth=2)
     
     # Add labels, title, and legend
-    plt.title("France Data Visualization", fontsize=16)
-    plt.xlabel("Year", fontsize=14)
-    plt.ylabel("Value", fontsize=14)
+    plt.title("France Life Expectancy Projections", fontsize=12)
+    plt.xlabel("Year", fontsize=12)
+    plt.ylabel("Value", fontsize=12)
     plt.grid(True, linestyle="--", alpha=0.6)
-    plt.legend(fontsize=12)
+    #plt.legend(fontsize=12)
     plt.tight_layout()
     
     # Show the plot
