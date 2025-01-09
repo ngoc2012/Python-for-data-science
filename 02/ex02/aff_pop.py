@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from load_csv import load
 
-
 def convert_population(value):
     """
     Function to convert population values to numeric
@@ -15,22 +14,6 @@ def convert_population(value):
         return float(value[:-1]) * 1_000
     else:
         return float(value)
-
-
-def generate_random_color():
-    """
-    Generate a random hex color code, making sure it's different from the two initial colors.
-    """
-    # Predefined initial colors
-    initial_colors = ["#2077b4", "#028002"]
-    
-    while True:
-        # Generate a random color in hexadecimal format
-        random_color = "#{:02x}{:02x}{:02x}".format(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-        
-        # Ensure the generated color is different from the initial two colors
-        if random_color not in initial_colors:
-            return random_color
 
 
 def main():
