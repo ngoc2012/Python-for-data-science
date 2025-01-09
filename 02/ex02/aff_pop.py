@@ -3,11 +3,22 @@ from load_csv import load
 
 
 def main():
-    df = load("population_total.csv")
-    print(df.head())
+    df = load("life_expectancy_years.csv")
+    if df is None:
+        print("Failed to load data.")
+        return
+    if "country" not in df.columns:
+        print("Missing 'country' column.")
+        return
+    if "France" not in df["country"].unique():
+        print("France data not found.")
+        return
     data = df[df["country"] == "France"]
-    years = data.columns[1:].astype(int)
-    values = data.iloc[0, 1:].astype(float)
+    try:
+        years = data.columns[1:].astype(int)
+        values = data.iloc[0, 1:].astype(float)
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
     plt.figure(figsize=(8, 6))
     plt.plot(years, values, label="France", color="#468fc1", linewidth=2)
