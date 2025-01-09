@@ -48,9 +48,9 @@ def main():
 
     plt.xticks(range(1800, 2100, 40))
     # Add labels, title, and legend
-    plt.title("Population Projections", fontsize=16)
-    plt.xlabel("Year", fontsize=14)
-    plt.ylabel("Population", fontsize=14)
+    plt.title("Population Projections", fontsize=12)
+    plt.xlabel("Year", fontsize=12)
+    plt.ylabel("Population", fontsize=12)
     plt.legend(fontsize=12)
     # plt.grid(True, linestyle="--", alpha=0.6)
     plt.tight_layout()
