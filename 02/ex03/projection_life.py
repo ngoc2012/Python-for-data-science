@@ -46,6 +46,8 @@ def main():
     
     combined_df["Income"] = combined_df["Income"].apply(convert_income)
 
+    combined_df["Life Expectancy"] = pd.to_numeric(combined_df["Life Expectancy"], errors='coerce')
+
     combined_df["Life Expectancy"] = combined_df["Life Expectancy"].fillna(combined_df["Life Expectancy"].median())
     combined_df["Life Expectancy"] = combined_df["Life Expectancy"].astype(float)
 
@@ -55,7 +57,7 @@ def main():
     # year = 1900
 
     # Plotting life expectancy vs. income
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(8, 6))
     plt.scatter(combined_df["Income"], combined_df["Life Expectancy"], color="blue", alpha=0.6)
     
     plt.title("Life Expectancy vs Income in 1900", fontsize=14)
