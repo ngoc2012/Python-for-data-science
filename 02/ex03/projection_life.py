@@ -60,6 +60,8 @@ def main():
     plt.figure(figsize=(8, 6))
     plt.scatter(combined_df["Income"], combined_df["Life Expectancy"], color="blue", alpha=0.6)
     
+    plt.xscale('log')
+    
     plt.title("Life Expectancy vs Income in 1900", fontsize=14)
     plt.xlabel("Income (PPP Adjusted)", fontsize=12)
     plt.ylabel("Life Expectancy (years)", fontsize=12)
