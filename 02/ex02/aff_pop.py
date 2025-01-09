@@ -35,6 +35,7 @@ def main():
             return
     filtered_df = df[df["country"].isin(countries)].set_index("country")
 
+    print(filtered_df)
     numeric_data = filtered_df.copy()
     for col in numeric_data.columns:
         numeric_data[col] = numeric_data[col].map(convert_population)
