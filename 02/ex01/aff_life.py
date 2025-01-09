@@ -24,7 +24,7 @@ def main():
         print(f"An error occurred: {e}")
 
     plt.figure(figsize=(8, 6))
-    plt.plot(years, values, label="France", color="#468fc1", linewidth=2)
+    plt.plot(years, values, label="France", color="#2279b5", linewidth=2)
 
     plt.xticks(range(1800, 2100, 40))
     plt.title("France Life expectancy Projections", fontsize=12)
