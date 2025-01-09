@@ -30,7 +30,7 @@ def main():
         print("Missing 'country' column.")
         return
 
-    countries = ["Belgium", "Vietnam", "India", "China", "France"]
+    countries = ["Belgium", "Vietnam", "India", "China", "France", "United States", "United Kingdom", "Germany", "Japan", "Brazil"]
     for country in countries:
         if country not in df["country"].unique():
             print(f"{country} data not found.")
@@ -86,7 +86,8 @@ def main():
 
     plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: f'{int(x / 1e6)}M'))
 
-    plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(20e6))
+    # plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(20e6))
+    plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(nbins=3))
 
     plt.legend(
         loc='lower right',
