@@ -44,25 +44,29 @@ def main():
         print("Error: Non-numeric columns detected in year columns.")
         return
 
-    filtered_df = filtered_df.loc[:, (filtered_df.columns >= 1800) & (filtered_df.columns <= 2050)]
+    filtered_df = filtered_df.loc[
+        :,
+        (filtered_df.columns >= 1800) & (filtered_df.columns <= 2050)
+        ]
 
     numeric_data = filtered_df.copy()
     for col in numeric_data.columns:
         numeric_data[col] = numeric_data[col].map(convert_population)
 
-    colors = ["#2077b4",
-                "#028002", 
-                "#1f77b4",  # Blue
-                "#ff7f0e",  # Orange
-                "#2ca02c",  # Green
-                "#d62728",  # Red
-                "#9467bd",  # Purple
-                "#8c564b",  # Brown
-                "#e377c2",  # Pink
-                "#7f7f7f",  # Gray
-                "#bcbd22",  # Yellow-green
-                "#17becf"   # Cyan
-              ]
+    colors = [
+        "#2077b4",
+        "#028002",
+        "#1f77b4",  # Blue
+        "#ff7f0e",  # Orange
+        "#2ca02c",  # Green
+        "#d62728",  # Red
+        "#9467bd",  # Purple
+        "#8c564b",  # Brown
+        "#e377c2",  # Pink
+        "#7f7f7f",  # Gray
+        "#bcbd22",  # Yellow-green
+        "#17becf"   # Cyan
+        ]
 
     if len(countries) > len(colors):
         for i in range(len(countries) - len(colors)):
@@ -85,7 +89,10 @@ def main():
     plt.xlabel("Year", fontsize=12)
     plt.ylabel("Population", fontsize=12)
 
-    plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: f'{int(x / 1e6)}M'))
+    plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(
+        lambda x,
+        pos: f'{int(x / 1e6)}M'
+        ))
 
     plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(nbins=4))
 
