@@ -3,7 +3,7 @@ import matplotlib.ticker as ticker
 from load_csv import load
 
 
-def convert_population(value):
+def convert_income(value):
     """
     Function to convert population values to numeric
     """
@@ -34,6 +34,16 @@ def main():
         print("Missing 'country' column.")
         return
 
+    df_life_1900 = df_life[["country", "1900"]]
+    df_income_1900 = df_income[["country", "1900"]]
+    
+    # Merge the data on 'country'
+    combined_df = pd.merge(df_life_1900, df_income_1900, on="country", how="inner", suffixes=('_life', '_income'))
+    
+    # Rename columns for clarity
+    combined_df = combined_df.rename(columns={"1900_life": "Life Expectancy", "1900_income": "Income"})
+    
+    
     # year = 1900
 
     # countries = ["Belgium", "France"]
