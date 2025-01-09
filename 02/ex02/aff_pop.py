@@ -49,7 +49,6 @@ def main():
         plt.plot(numeric_data.index, numeric_data[country], label=country)
 
     plt.xticks(range(1800, 2050, 40))
-    plt.xlim(1800, 2050)
     plt.title("Population Projections", fontsize=12)
     plt.xlabel("Year", fontsize=12)
     plt.ylabel("Population", fontsize=12)
