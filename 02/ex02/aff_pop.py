@@ -41,12 +41,19 @@ def main():
     for col in numeric_data.columns:
         numeric_data[col] = numeric_data[col].map(convert_population)
 
+    colors = ["#2077b4", "#028002"]
+
     # Transpose for plotting (years as index)
     numeric_data = numeric_data.T
 
     plt.figure(figsize=(8, 6))
-    for country in numeric_data.columns:
-        plt.plot(numeric_data.index, numeric_data[country], label=country)
+    for i, country in enumerate(numeric_data.columns):
+        plt.plot(
+            numeric_data.index,
+            numeric_data[country],
+            label=country,
+            color=colors[i],
+        )
 
     plt.xticks(range(1800, 2050, 40))
     plt.title("Population Projections", fontsize=12)
