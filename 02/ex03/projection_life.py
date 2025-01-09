@@ -46,6 +46,8 @@ def main():
     
     combined_df["Income"] = combined_df["Income"].apply(convert_income)
     
+    print(combined_df)
+    
     # year = 1900
 
     # Plotting life expectancy vs. income
