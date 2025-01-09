@@ -21,10 +21,11 @@ def main():
     """
     Main function to load data and plot population projections
     """
-    df = load("population_total.csv")
+    df_life = load("life_expectancy_years.csv")
+    df_income = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
     print(df)
 
-    if df is None:
+    if df_life is None or df_income is None:
         print("Failed to load data.")
         return
     if "country" not in df.columns:
