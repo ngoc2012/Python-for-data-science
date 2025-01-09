@@ -70,6 +70,8 @@ def main():
 
     plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: f'{int(x / 1e6)}M'))
 
+    plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(20e6))
+    
     plt.legend(fontsize=12)
     plt.tight_layout()
 
