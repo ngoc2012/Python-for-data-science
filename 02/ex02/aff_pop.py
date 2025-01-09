@@ -21,11 +21,22 @@ def main():
     df = load("population_total.csv")
     print(df)
 
+    if df is None:
+        print("Failed to load data.")
+        return
+    if "country" not in df.columns:
+        print("Missing 'country' column.")
+        return
+
     countries = ["Afghanistan", "Albania"]
+    for country in countries:
+        if country not in df["country"].unique():
+            print(f"{country} data not found.")
+            return
     filtered_df = df[df["country"].isin(countries)].set_index("country")
 
     # Convert population data to numeric
-    numeric_data = filtered_df.applymap(convert_population)
+    numeric_data = filtered_df.map(lambda col: col.map(convert_population))
 
     # Transpose for plotting (years as index)
     numeric_data = numeric_data.T
@@ -46,15 +57,8 @@ def main():
     # Show the plot
     plt.show()
 
-    # if df is None:
-    #     print("Failed to load data.")
-    #     return
-    # if "country" not in df.columns:
-    #     print("Missing 'country' column.")
-    #     return
-    # if "France" not in df["country"].unique():
-    #     print("France data not found.")
-    #     return
+    
+    
     # data = df[df["country"] == "France"]
     # try:
     #     years = data.columns[1:].astype(int)
