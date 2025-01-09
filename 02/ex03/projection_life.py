@@ -1,3 +1,4 @@
+import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from load_csv import load
@@ -43,8 +44,20 @@ def main():
     # Rename columns for clarity
     combined_df = combined_df.rename(columns={"1900_life": "Life Expectancy", "1900_income": "Income"})
     
+    combined_df["Income"] = combined_df["Income"].apply(convert_income)
     
     # year = 1900
+
+    # Plotting life expectancy vs. income
+    plt.figure(figsize=(10, 6))
+    plt.scatter(combined_df["Income"], combined_df["Life Expectancy"], color="blue", alpha=0.6)
+    
+    plt.title("Life Expectancy vs Income in 1900", fontsize=14)
+    plt.xlabel("Income (PPP Adjusted)", fontsize=12)
+    plt.ylabel("Life Expectancy (years)", fontsize=12)
+    
+    plt.tight_layout()
+    plt.show()
 
     # countries = ["Belgium", "France"]
     # for country in countries:
