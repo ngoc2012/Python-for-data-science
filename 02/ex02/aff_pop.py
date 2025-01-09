@@ -2,8 +2,20 @@ import matplotlib.pyplot as plt
 from load_csv import load
 
 
+def convert_population(value):
+    """
+    Function to convert population values to numeric
+    """
+    if value.endswith("M"):
+        return float(value[:-1]) * 1_000_000
+    elif value.endswith("k"):
+        return float(value[:-1]) * 1_000
+    else:
+        return float(value)
+
+
 def main():
-    df = load("life_expectancy_years.csv")
+    df = load("population_total.csv")
     print(df)
     # if df is None:
     #     print("Failed to load data.")
