@@ -20,6 +20,32 @@ def main():
     """
     df = load("population_total.csv")
     print(df)
+
+    countries = ["Afghanistan", "Albania"]
+    filtered_df = df[df["country"].isin(countries)].set_index("country")
+
+    # Convert population data to numeric
+    numeric_data = filtered_df.applymap(convert_population)
+
+    # Transpose for plotting (years as index)
+    numeric_data = numeric_data.T
+
+    # Plot the data
+    plt.figure(figsize=(10, 6))
+    for country in numeric_data.columns:
+        plt.plot(numeric_data.index, numeric_data[country], label=country)
+
+    # Add labels, title, and legend
+    plt.title("Population Trends", fontsize=16)
+    plt.xlabel("Year", fontsize=14)
+    plt.ylabel("Population", fontsize=14)
+    plt.legend(fontsize=12)
+    plt.grid(True, linestyle="--", alpha=0.6)
+    plt.tight_layout()
+
+    # Show the plot
+    plt.show()
+
     # if df is None:
     #     print("Failed to load data.")
     #     return
