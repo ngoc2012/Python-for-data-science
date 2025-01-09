@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from load_csv import load
 
+
 def convert_population(value):
     """
     Function to convert population values to numeric
@@ -30,8 +31,7 @@ def main():
         print("Missing 'country' column.")
         return
 
-    countries = ["Belgium", "Vietnam", "India", "China", "France", "United States", "United Kingdom", "Germany", "Japan", "Brazil"]
-    # countries = ["Belgium", "France"]
+    countries = ["Belgium", "France"]
     for country in countries:
         if country not in df["country"].unique():
             print(f"{country} data not found.")
@@ -87,12 +87,10 @@ def main():
 
     plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: f'{int(x / 1e6)}M'))
 
-    # plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(20e6))
     plt.gca().yaxis.set_major_locator(ticker.MaxNLocator(nbins=4))
 
     plt.legend(
-        # loc='lower right',
-        loc='upper left',
+        loc='lower right',
         fontsize=12
         )
     plt.tight_layout()
