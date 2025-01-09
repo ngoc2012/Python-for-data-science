@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 from load_csv import load
 
 
@@ -42,7 +43,7 @@ def main():
         return
 
     filtered_df = filtered_df.loc[:, (filtered_df.columns >= 1800) & (filtered_df.columns <= 2050)]
-    
+
     print(filtered_df)
     numeric_data = filtered_df.copy()
     for col in numeric_data.columns:
@@ -66,6 +67,9 @@ def main():
     plt.title("Population Projections", fontsize=12)
     plt.xlabel("Year", fontsize=12)
     plt.ylabel("Population", fontsize=12)
+
+    plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: f'{int(x / 1e6)}M'))
+
     plt.legend(fontsize=12)
     plt.tight_layout()
 
