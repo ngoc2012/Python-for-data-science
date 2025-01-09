@@ -17,7 +17,7 @@ def convert_population(value):
 
 def main():
     """
-    Main function
+    Main function to load data and plot population projections
     """
     df = load("population_total.csv")
     print(df)
@@ -29,7 +29,7 @@ def main():
         print("Missing 'country' column.")
         return
 
-    countries = ["Belgium", "France"]
+    countries = ["Vietnam", "France"]
     for country in countries:
         if country not in df["country"].unique():
             print(f"{country} data not found.")
@@ -44,7 +44,6 @@ def main():
 
     filtered_df = filtered_df.loc[:, (filtered_df.columns >= 1800) & (filtered_df.columns <= 2050)]
 
-    print(filtered_df)
     numeric_data = filtered_df.copy()
     for col in numeric_data.columns:
         numeric_data[col] = numeric_data[col].map(convert_population)
@@ -79,26 +78,6 @@ def main():
     plt.tight_layout()
 
     plt.show()
-
-    
-    
-    # data = df[df["country"] == "France"]
-    # try:
-    #     years = data.columns[1:].astype(int)
-    #     values = data.iloc[0, 1:].astype(float)
-    # except Exception as e:
-    #     print(f"An error occurred: {e}")
-
-    # plt.figure(figsize=(8, 6))
-    # plt.plot(years, values, label="France", color="#468fc1", linewidth=2)
-
-    # plt.xticks(range(1800, 2100, 40))
-    # plt.title("France Life expectancy Projections", fontsize=12)
-    # plt.xlabel("Year", fontsize=12)
-    # plt.ylabel("Life expectancy", fontsize=12)
-    # plt.tight_layout()
-
-    # plt.show()
 
 
 if __name__ == '__main__':
