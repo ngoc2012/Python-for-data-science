@@ -28,7 +28,7 @@ def main():
         print("Missing 'country' column.")
         return
 
-    countries = ["Afghanistan", "Albania"]
+    countries = ["Belgium", "France"]
     for country in countries:
         if country not in df["country"].unique():
             print(f"{country} data not found.")
@@ -48,7 +48,7 @@ def main():
     for country in numeric_data.columns:
         plt.plot(numeric_data.index, numeric_data[country], label=country)
 
-    # plt.xticks(range(1800, 2100, 40))
+    plt.xticks(range(1800, 2100, 40))
     # Add labels, title, and legend
     plt.title("Population Projections", fontsize=12)
     plt.xlabel("Year", fontsize=12)
