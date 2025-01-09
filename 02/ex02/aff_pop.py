@@ -11,7 +11,7 @@ def convert_population(value):
         return float(value[:-1]) * 1_000_000_000
     elif value.endswith("M") or value.endswith("m"):
         return float(value[:-1]) * 1_000_000
-    elif value.endswith("k") or value.endswith("K"):
+    elif value.endswith("K") or value.endswith("k"):
         return float(value[:-1]) * 1_000
     else:
         return float(value)
@@ -31,7 +31,7 @@ def main():
         print("Missing 'country' column.")
         return
 
-    countries = ["Belgium", "Vietnam", "China", "France"]
+    countries = ["Belgium", "Vietnam", "India", "China", "France"]
     for country in countries:
         if country not in df["country"].unique():
             print(f"{country} data not found.")
@@ -51,6 +51,10 @@ def main():
         numeric_data[col] = numeric_data[col].map(convert_population)
 
     colors = ["#2077b4", "#028002"]
+
+    if len(countries) > len(colors):
+        for i in range(len(countries) - len(colors)):
+            colors.append(colors[i])
 
     # Transpose for plotting (years as index)
     numeric_data = numeric_data.T
