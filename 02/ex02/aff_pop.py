@@ -34,8 +34,15 @@ def main():
             print(f"{country} data not found.")
             return
     filtered_df = df[df["country"].isin(countries)].set_index("country")
-    filtered_df.columns = filtered_df.columns.astype(int)
 
+    try:
+        filtered_df.columns = filtered_df.columns.astype(int)
+    except ValueError:
+        print("Error: Non-numeric columns detected in year columns.")
+        return
+
+    filtered_df = filtered_df.loc[:, (filtered_df.columns >= 1800) & (filtered_df.columns <= 2050)]
+    
     print(filtered_df)
     numeric_data = filtered_df.copy()
     for col in numeric_data.columns:
