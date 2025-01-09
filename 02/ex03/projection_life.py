@@ -42,6 +42,8 @@ def main():
     
     # Merge the data on 'country'
     combined_df = pd.merge(df_life_year, df_income_year, on="country", how="inner", suffixes=('_life', '_income'))
+
+    print(combined_df)
     
     # Rename columns for clarity
     combined_df = combined_df.rename(columns={"1900_life": "Life Expectancy", "1900_income": "Income"})
