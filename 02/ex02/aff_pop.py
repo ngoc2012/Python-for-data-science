@@ -42,16 +42,17 @@ def main():
     numeric_data = numeric_data.T
 
     # Plot the data
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(8, 6))
     for country in numeric_data.columns:
         plt.plot(numeric_data.index, numeric_data[country], label=country)
 
+    plt.xticks(range(1800, 2100, 40))
     # Add labels, title, and legend
-    plt.title("Population Trends", fontsize=16)
+    plt.title("Population Projections", fontsize=16)
     plt.xlabel("Year", fontsize=14)
     plt.ylabel("Population", fontsize=14)
     plt.legend(fontsize=12)
-    plt.grid(True, linestyle="--", alpha=0.6)
+    # plt.grid(True, linestyle="--", alpha=0.6)
     plt.tight_layout()
 
     # Show the plot
