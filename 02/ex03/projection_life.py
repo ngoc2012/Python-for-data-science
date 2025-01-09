@@ -38,7 +38,7 @@ def main():
     year = 1900
     
     df_life_year = df_life[["country", str(year)]]
-    df_income_year = df_income[["country", "1900"]]
+    df_income_year = df_income[["country", str(year)]]
     
     # Merge the data on 'country'
     combined_df = pd.merge(df_life_year, df_income_year, on="country", how="inner", suffixes=('_life', '_income'))
@@ -64,7 +64,7 @@ def main():
     
     plt.xscale('log')
 
-    plt.title("Life Expectancy vs Income in " + year, fontsize=14)
+    plt.title("Life Expectancy vs Income in " + str(year), fontsize=14)
     plt.xlabel("Income (PPP Adjusted)", fontsize=12)
     plt.ylabel("Life Expectancy (years)", fontsize=12)
     
