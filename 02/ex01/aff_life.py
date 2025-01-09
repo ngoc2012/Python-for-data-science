@@ -3,6 +3,9 @@ from load_csv import load
 
 
 def main():
+    """
+    Main program to plot life expectancy data for France.
+    """
     df = load("life_expectancy_years.csv")
     if df is None:
         print("Failed to load data.")

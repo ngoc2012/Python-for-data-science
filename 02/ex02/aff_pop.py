@@ -15,6 +15,9 @@ def convert_population(value):
 
 
 def main():
+    """
+    Main function
+    """
     df = load("population_total.csv")
     print(df)
     # if df is None:
