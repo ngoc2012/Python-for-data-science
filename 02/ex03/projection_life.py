@@ -35,18 +35,18 @@ def main():
         print("Missing 'country' column.")
         return
 
-    year = 1900
+    year = "1900"
     
-    df_life_year = df_life[["country", str(year)]]
-    df_income_year = df_income[["country", str(year)]]
+    df_life_year = df_life[["country", year]]
+    df_income_year = df_income[["country", year]]
     
     # Merge the data on 'country'
     combined_df = pd.merge(df_life_year, df_income_year, on="country", how="inner", suffixes=('_life', '_income'))
 
-    print(combined_df)
+    # print(combined_df)
     
     # Rename columns for clarity
-    combined_df = combined_df.rename(columns={"1900_life": "Life Expectancy", "1900_income": "Income"})
+    combined_df = combined_df.rename(columns={year + "_life": "Life Expectancy", year + "_income": "Income"})
     
     combined_df["Income"] = combined_df["Income"].apply(convert_income)
 
@@ -55,10 +55,7 @@ def main():
     combined_df["Life Expectancy"] = combined_df["Life Expectancy"].fillna(combined_df["Life Expectancy"].median())
     combined_df["Life Expectancy"] = combined_df["Life Expectancy"].astype(float)
 
-    
-    print(combined_df)
-
-    
+    print(combined_df)    
 
     # Plotting life expectancy vs. income
     plt.figure(figsize=(8, 6))
@@ -66,7 +63,7 @@ def main():
     
     plt.xscale('log')
 
-    plt.title("Life Expectancy vs Income in " + str(year), fontsize=14)
+    plt.title("Life Expectancy vs Income in " + year, fontsize=14)
     plt.xlabel("Income (PPP Adjusted)", fontsize=12)
     plt.ylabel("Life Expectancy (years)", fontsize=12)
     
