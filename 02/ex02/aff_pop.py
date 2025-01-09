@@ -35,7 +35,6 @@ def main():
             return
     filtered_df = df[df["country"].isin(countries)].set_index("country")
 
-    # Convert population data to numeric
     numeric_data = filtered_df.copy()
     for col in numeric_data.columns:
         numeric_data[col] = numeric_data[col].map(convert_population)
@@ -43,21 +42,17 @@ def main():
     # Transpose for plotting (years as index)
     numeric_data = numeric_data.T
 
-    # Plot the data
     plt.figure(figsize=(8, 6))
     for country in numeric_data.columns:
         plt.plot(numeric_data.index, numeric_data[country], label=country)
 
     plt.xticks(range(1800, 2050, 50))
-    # Add labels, title, and legend
     plt.title("Population Projections", fontsize=12)
     plt.xlabel("Year", fontsize=12)
     plt.ylabel("Population", fontsize=12)
     plt.legend(fontsize=12)
-    # plt.grid(True, linestyle="--", alpha=0.6)
     plt.tight_layout()
 
-    # Show the plot
     plt.show()
 
     
