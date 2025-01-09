@@ -45,9 +45,13 @@ def main():
     combined_df = combined_df.rename(columns={"1900_life": "Life Expectancy", "1900_income": "Income"})
     
     combined_df["Income"] = combined_df["Income"].apply(convert_income)
+
+    combined_df["Life Expectancy"] = combined_df["Life Expectancy"].fillna(combined_df["Life Expectancy"].median())
+    combined_df["Life Expectancy"] = combined_df["Life Expectancy"].astype(float)
+
     
     print(combined_df)
-    
+
     # year = 1900
 
     # Plotting life expectancy vs. income
