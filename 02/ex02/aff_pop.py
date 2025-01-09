@@ -49,11 +49,20 @@ def main():
     for col in numeric_data.columns:
         numeric_data[col] = numeric_data[col].map(convert_population)
 
-    colors = ["#2077b4", "#028002"]
+    colors = ["#2077b4", "#028002", "#1f77b4",  # Blue
+    "#ff7f0e",  # Orange
+    "#2ca02c",  # Green
+    "#d62728",  # Red
+    "#9467bd",  # Purple
+    "#8c564b",  # Brown
+    "#e377c2",  # Pink
+    "#7f7f7f",  # Gray
+    "#bcbd22",  # Yellow-green
+    "#17becf"   # Cyan]
 
     if len(countries) > len(colors):
         for i in range(len(countries) - len(colors)):
-            colors.append(generate_random_color())
+            colors.append(colors[i % len(colors)])
 
     # Transpose for plotting (years as index)
     numeric_data = numeric_data.T
