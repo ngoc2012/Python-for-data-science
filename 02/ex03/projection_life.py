@@ -25,10 +25,10 @@ def main():
     df_income = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
     print(df)
 
-    if df_life is None or df_income is None:
+    if not df_life or not df_income:
         print("Failed to load data.")
         return
-    if "country" not in df.columns:
+    if not all("country" in df.columns for df in [df_life, df_income]):
         print("Missing 'country' column.")
         return
 
