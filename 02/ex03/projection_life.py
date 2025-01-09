@@ -35,11 +35,13 @@ def main():
         print("Missing 'country' column.")
         return
 
-    df_life_1900 = df_life[["country", "1900"]]
-    df_income_1900 = df_income[["country", "1900"]]
+    year = 1900
+    
+    df_life_year = df_life[["country", str(year)]]
+    df_income_year = df_income[["country", "1900"]]
     
     # Merge the data on 'country'
-    combined_df = pd.merge(df_life_1900, df_income_1900, on="country", how="inner", suffixes=('_life', '_income'))
+    combined_df = pd.merge(df_life_year, df_income_year, on="country", how="inner", suffixes=('_life', '_income'))
     
     # Rename columns for clarity
     combined_df = combined_df.rename(columns={"1900_life": "Life Expectancy", "1900_income": "Income"})
@@ -54,18 +56,23 @@ def main():
     
     print(combined_df)
 
-    # year = 1900
+    
 
     # Plotting life expectancy vs. income
     plt.figure(figsize=(8, 6))
     plt.scatter(combined_df["Income"], combined_df["Life Expectancy"], color="blue", alpha=0.6)
     
     plt.xscale('log')
-    
-    plt.title("Life Expectancy vs Income in 1900", fontsize=14)
+
+    plt.title("Life Expectancy vs Income in " + year, fontsize=14)
     plt.xlabel("Income (PPP Adjusted)", fontsize=12)
     plt.ylabel("Life Expectancy (years)", fontsize=12)
     
+    plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(
+        lambda x,
+        pos: f'{int(x / 1000)}k'
+        ))
+
     plt.tight_layout()
     plt.show()
 
