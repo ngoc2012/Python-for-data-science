@@ -27,7 +27,7 @@ def main():
     print(df_income)
     dfs = [df_life, df_income]
     
-    if not all(dfs):
+    if not all(df is not None and not df.empty for df in dfs):
         print("Failed to load data.")
         return
     if not all("country" in df.columns for df in dfs):
