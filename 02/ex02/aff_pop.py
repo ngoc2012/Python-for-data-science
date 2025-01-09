@@ -7,9 +7,11 @@ def convert_population(value):
     """
     Function to convert population values to numeric
     """
-    if value.endswith("M"):
+    if value.endswith("B") or value.endswith("b"):
+        return float(value[:-1]) * 1_000_000_000
+    elif value.endswith("M") or value.endswith("m"):
         return float(value[:-1]) * 1_000_000
-    elif value.endswith("k"):
+    elif value.endswith("k") or value.endswith("K"):
         return float(value[:-1]) * 1_000
     else:
         return float(value)
@@ -29,7 +31,7 @@ def main():
         print("Missing 'country' column.")
         return
 
-    countries = ["Vietnam", "France"]
+    countries = ["Belgium", "Vietnam", "China", "France"]
     for country in countries:
         if country not in df["country"].unique():
             print(f"{country} data not found.")
