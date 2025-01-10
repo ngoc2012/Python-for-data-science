@@ -4,7 +4,7 @@ import matplotlib.ticker as ticker
 from load_csv import load
 
 
-def convert_income(value):
+def convert_income(value: str) -> float:
     """
     Function to convert population values to numeric
     """
