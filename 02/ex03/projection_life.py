@@ -76,9 +76,13 @@ def main():
             "1900"
             )
 
+    if df is None:
+        print("Failed to load data.")
+        return
+
     # Plotting life expectancy vs. income
     plt.figure(figsize=(8, 6))
-    plt.scatter(combined_df["Income"], combined_df["Life Expectancy"], color="blue", alpha=0.6)
+    plt.scatter(combined_df["Income"], df["Life Expectancy"], color="blue", alpha=0.6)
     
     plt.xscale('log')
 
