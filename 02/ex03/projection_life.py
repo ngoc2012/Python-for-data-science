@@ -22,10 +22,13 @@ def convert_income(value: str) -> float:
         return None  # Return None for invalid values
 
 
-def main():
+def data_collect(fn_life:str, fn_income:str, year: str) -> pd.DataFrame:
     """
-    Main function to load data and plot population projections
+    Function to clean the data
     """
+    # Convert population values to numeric
+    df["population"] = df["population"].apply(convert_income)
+    df["life_expectancy"] = df["life_expectancy"].apply(convert_income)
     df_life = load("life_expectancy_years.csv")
     df_income = load("income_per_person_gdppercapita_ppp_inflation_adjusted_data_error.csv")
     
@@ -61,6 +64,17 @@ def main():
     combined_df["Life Expectancy"] = combined_df["Life Expectancy"].astype(float)
 
     print(combined_df)    
+
+
+def main():
+    """
+    Main function to load data and plot population projections
+    """
+    df = data_collect(
+            "life_expectancy_years.csv",
+            "income_per_person_gdppercapita_ppp_inflation_adjusted_data_error.csv",
+            "1900"
+            )
 
     # Plotting life expectancy vs. income
     plt.figure(figsize=(8, 6))
