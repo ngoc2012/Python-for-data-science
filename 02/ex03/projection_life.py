@@ -23,9 +23,10 @@ def main():
     Main function to load data and plot population projections
     """
     df_life = load("life_expectancy_years_no_France.csv")
-    print(df_life)
     df_income = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
     
+    dfs = [df_life, df_income]
+
     if not all(df is not None and not df.empty for df in dfs):
         print("Failed to load data.")
         return
@@ -33,8 +34,8 @@ def main():
         print("Missing 'country' column.")
         return
 
-    print(df_income)
-    dfs = [df_life, df_income]
+    # print(dfs)
+    
 
     year = "1900"
     
