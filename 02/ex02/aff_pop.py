@@ -3,18 +3,22 @@ import matplotlib.ticker as ticker
 from load_csv import load
 
 
-def convert_population(value):
+def convert_income(value: str) -> float:
     """
     Function to convert population values to numeric
     """
-    if value.endswith("B") or value.endswith("b"):
-        return float(value[:-1]) * 1_000_000_000
-    elif value.endswith("M") or value.endswith("m"):
-        return float(value[:-1]) * 1_000_000
-    elif value.endswith("K") or value.endswith("k"):
-        return float(value[:-1]) * 1_000
-    else:
-        return float(value)
+    try:
+        if value.endswith("B") or value.endswith("b"):
+            return float(value[:-1]) * 1_000_000_000
+        elif value.endswith("M") or value.endswith("m"):
+            return float(value[:-1]) * 1_000_000
+        elif value.endswith("K") or value.endswith("k"):
+            return float(value[:-1]) * 1_000
+        else:
+            return float(value)
+    except (ValueError, AttributeError):
+        print(f"Invalid income value: {value}")
+        return None  # Return None for invalid values
 
 
 def main():
@@ -53,6 +57,8 @@ def main():
     for col in numeric_data.columns:
         numeric_data[col] = numeric_data[col].map(convert_population)
 
+    numeric_data = numeric_data.T
+
     colors = [
         "#2077b4",
         "#028002",
@@ -71,9 +77,6 @@ def main():
     if len(countries) > len(colors):
         for i in range(len(countries) - len(colors)):
             colors.append(colors[i % len(colors)])
-
-    # Transpose for plotting (years as index)
-    numeric_data = numeric_data.T
 
     plt.figure(figsize=(8, 6))
     for i, country in enumerate(numeric_data.columns):
