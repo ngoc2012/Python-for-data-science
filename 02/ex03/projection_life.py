@@ -8,14 +8,18 @@ def convert_income(value: str) -> float:
     """
     Function to convert population values to numeric
     """
-    if value.endswith("B") or value.endswith("b"):
-        return float(value[:-1]) * 1_000_000_000
-    elif value.endswith("M") or value.endswith("m"):
-        return float(value[:-1]) * 1_000_000
-    elif value.endswith("K") or value.endswith("k"):
-        return float(value[:-1]) * 1_000
-    else:
-        return float(value)
+    try:
+        if value.endswith("B") or value.endswith("b"):
+            return float(value[:-1]) * 1_000_000_000
+        elif value.endswith("M") or value.endswith("m"):
+            return float(value[:-1]) * 1_000_000
+        elif value.endswith("K") or value.endswith("k"):
+            return float(value[:-1]) * 1_000
+        else:
+            return float(value)
+    except (ValueError, AttributeError):
+        print(f"Invalid income value: {value}")
+        return None  # Return None for invalid values
 
 
 def main():
