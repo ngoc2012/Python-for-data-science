@@ -22,8 +22,8 @@ def main():
     """
     Main function to load data and plot population projections
     """
-    df_life = load("life_expectancy_years_no_France.csv")
-    df_income = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
+    df_life = load("life_expectancy_years.csv")
+    df_income = load("income_per_person_gdppercapita_ppp_inflation_adjusted_no_France.csv")
     
     dfs = [df_life, df_income]
 
