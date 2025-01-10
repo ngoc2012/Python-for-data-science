@@ -50,9 +50,11 @@ def main():
     
     combined_df["Income"] = combined_df["Income"].apply(convert_income)
 
-    combined_df["Life Expectancy"] = pd.to_numeric(combined_df["Life Expectancy"], errors='coerce')
+    combined_df = combined_df.dropna()
 
-    combined_df["Life Expectancy"] = combined_df["Life Expectancy"].fillna(combined_df["Life Expectancy"].median())
+    # combined_df["Life Expectancy"] = pd.to_numeric(combined_df["Life Expectancy"], errors='coerce')
+
+    # combined_df["Life Expectancy"] = combined_df["Life Expectancy"].fillna(combined_df["Life Expectancy"].median())
     combined_df["Life Expectancy"] = combined_df["Life Expectancy"].astype(float)
 
     print(combined_df)    
