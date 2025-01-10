@@ -24,37 +24,26 @@ def convert_income(value: str) -> float:
 
 def data_collect(fn_life:str, fn_income:str, year: str) -> pd.DataFrame:
     """
-    Function to clean the data
+    Function to collect data
     """
-    # Convert population values to numeric
-    df["population"] = df["population"].apply(convert_income)
-    df["life_expectancy"] = df["life_expectancy"].apply(convert_income)
-    df_life = load("life_expectancy_years.csv")
-    df_income = load("income_per_person_gdppercapita_ppp_inflation_adjusted_data_error.csv")
+    df_life = load(fn_life)
+    df_income = load(fn_income)
     
     dfs = [df_life, df_income]
 
     if not all(df is not None and not df.empty for df in dfs):
         print("Failed to load data.")
-        return
+        return None
     if not all("country" in df.columns for df in dfs):
         print("Missing 'country' column.")
-        return
-
-    # print(dfs)
-    
+        return None
 
     year = "1900"
     
     df_life_year = df_life[["country", year]]
     df_income_year = df_income[["country", year]]
     
-    # Merge the data on 'country'
     combined_df = pd.merge(df_life_year, df_income_year, on="country", how="inner", suffixes=('_life', '_income'))
-
-    # print(combined_df)
-    
-    # Rename columns for clarity
     combined_df = combined_df.rename(columns={year + "_life": "Life Expectancy", year + "_income": "Income"})
     
     combined_df["Income"] = combined_df["Income"].apply(convert_income)
@@ -63,7 +52,7 @@ def data_collect(fn_life:str, fn_income:str, year: str) -> pd.DataFrame:
 
     combined_df["Life Expectancy"] = combined_df["Life Expectancy"].astype(float)
 
-    print(combined_df)    
+    return combined_df
 
 
 def main():
