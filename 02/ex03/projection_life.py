@@ -23,7 +23,7 @@ def main():
     Main function to load data and plot population projections
     """
     df_life = load("life_expectancy_years.csv")
-    df_income = load("income_per_person_gdppercapita_ppp_inflation_adjusted_no_France.csv")
+    df_income = load("income_per_person_gdppercapita_ppp_inflation_adjusted_data_error.csv")
     
     dfs = [df_life, df_income]
 
@@ -54,9 +54,6 @@ def main():
 
     combined_df = combined_df.dropna()
 
-    # combined_df["Life Expectancy"] = pd.to_numeric(combined_df["Life Expectancy"], errors='coerce')
-
-    # combined_df["Life Expectancy"] = combined_df["Life Expectancy"].fillna(combined_df["Life Expectancy"].median())
     combined_df["Life Expectancy"] = combined_df["Life Expectancy"].astype(float)
 
     print(combined_df)    
