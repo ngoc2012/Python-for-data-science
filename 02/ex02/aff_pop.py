@@ -1,3 +1,4 @@
+import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from load_csv import load
@@ -20,6 +21,19 @@ def convert_income(value: str) -> float:
         print(f"Invalid income value: {value}")
         return None  # Return None for invalid values
 
+
+def data_collect(fn: str) -> pd.DataFrame:
+    """
+    Function to load data from a CSV file
+    """
+    df = load(fn)
+    if df is None:
+        print("Failed to load data.")
+        return None
+    if "country" not in df.columns:
+        print("Missing 'country' column.")
+        return None
+    return df
 
 def main():
     """
