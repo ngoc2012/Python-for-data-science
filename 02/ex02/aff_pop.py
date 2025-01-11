@@ -34,7 +34,7 @@ def data_collect(fn: str) -> pd.DataFrame:
         print("Missing 'country' column.")
         return None
 
-    countries = ["Belgium", "France"]
+    
     for country in countries:
         if country not in df["country"].unique():
             print(f"{country} data not found.")
@@ -60,16 +60,10 @@ def data_collect(fn: str) -> pd.DataFrame:
     return numeric_data
 
 
-def main():
+def get_colors(n: int) -> list:
     """
-    Main function to load data and plot population projections
+    Function to generate a list of colors for plotting
     """
-    df = data_collect("population_total.csv")
-
-    if df is None:
-        print("Failed to load data.")
-        return
-
     colors = [
         "#2077b4",
         "#028002",
@@ -85,9 +79,25 @@ def main():
         "#17becf"   # Cyan
         ]
 
-    if len(countries) > len(colors):
-        for i in range(len(countries) - len(colors)):
+    if n > len(colors):
+        for i in range(n - len(colors)):
             colors.append(colors[i % len(colors)])
+    
+    return colors
+
+
+def main():
+    """
+    Main function to load data and plot population projections
+    """
+    countries = ["Belgium", "France"]
+    df = data_collect("population_total.csv", countries)
+
+    if df is None:
+        print("Failed to load data.")
+        return
+
+    colors = get_colors(len(countries))
 
     plt.figure(figsize=(8, 6))
     for i, country in enumerate(numeric_data.columns):
