@@ -33,27 +33,12 @@ def data_collect(fn: str) -> pd.DataFrame:
     if "country" not in df.columns:
         print("Missing 'country' column.")
         return None
-    return df
-
-def main():
-    """
-    Main function to load data and plot population projections
-    """
-    df = load("population_total.csv")
-    print(df)
-
-    if df is None:
-        print("Failed to load data.")
-        return
-    if "country" not in df.columns:
-        print("Missing 'country' column.")
-        return
 
     countries = ["Belgium", "France"]
     for country in countries:
         if country not in df["country"].unique():
             print(f"{country} data not found.")
-            return
+            return None
     filtered_df = df[df["country"].isin(countries)].set_index("country")
 
     try:
@@ -72,6 +57,18 @@ def main():
         numeric_data[col] = numeric_data[col].map(convert_population)
 
     numeric_data = numeric_data.T
+    return numeric_data
+
+
+def main():
+    """
+    Main function to load data and plot population projections
+    """
+    df = data_collect("population_total.csv")
+
+    if df is None:
+        print("Failed to load data.")
+        return
 
     colors = [
         "#2077b4",
