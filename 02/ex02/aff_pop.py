@@ -22,10 +22,13 @@ def convert_income(value: str) -> float:
         return None  # Return None for invalid values
 
 
-def data_collect(fn: str) -> pd.DataFrame:
+def data_collect(fn: str, countries: list) -> pd.DataFrame:
     """
     Function to load data from a CSV file
     """
+    if len(countries) == 0:
+        print("No countries provided.")
+        return None
     df = load(fn)
     if df is None:
         print("Failed to load data.")
@@ -34,7 +37,6 @@ def data_collect(fn: str) -> pd.DataFrame:
         print("Missing 'country' column.")
         return None
 
-    
     for country in countries:
         if country not in df["country"].unique():
             print(f"{country} data not found.")
@@ -94,7 +96,6 @@ def main():
     df = data_collect("population_total.csv", countries)
 
     if df is None:
-        print("Failed to load data.")
         return
 
     colors = get_colors(len(countries))
