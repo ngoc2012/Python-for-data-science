@@ -1,7 +1,5 @@
 import unittest as ut
-import os
-import pandas as pd
-from load_csv import load
+from S1E9 import Character, Stark
 
 
 class TestLoadFunction(ut.TestCase):
