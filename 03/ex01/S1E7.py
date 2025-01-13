@@ -15,6 +15,8 @@ class Lannister(Character):
         """Constructor of Lannister class"""
         self.first_name = first_name
         self.is_alive = is_alive
-    # decorator
-    def create_lannister(your code here):
+    
+    @classmethod
+    def create_lannister(cls, first_name, is_alive=True):
+        return cls(first_name, is_alive)
     #your code here
