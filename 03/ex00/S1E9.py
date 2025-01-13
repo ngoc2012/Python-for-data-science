@@ -9,7 +9,7 @@ class Character(ABC):
     def __init__(self, first_name, is_alive=True):
         next
 
-    def set_die(self):
+    def die(self):
         self.is_alive = False
 
 
