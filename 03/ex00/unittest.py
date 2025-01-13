@@ -9,15 +9,10 @@ class TestStarkClass(ut.TestCase):
                                 stdout=subprocess.PIPE, 
                                 stderr=subprocess.PIPE, 
                                 text=True)
-
-        # Read the expected output
         with open('output', 'r') as file:
             expected_output = file.read().strip()
-
-        # Get the actual output from the script
         actual_output = result.stdout.strip()
-
-        # Compare outputs
+        
         self.assertEqual(actual_output, expected_output, 
                          "Output of tester.py does not match the expected output.")
 
