@@ -17,6 +17,7 @@ class Lannister(Character):
         self.is_alive = is_alive
     
     @classmethod
-    def create_lannister(cls, first_name, is_alive=True):
+    def create_lannister(cls, first_name, is_alive):
+        obj = cls(first_name, is_alive)
         return cls(first_name, is_alive)
     #your code here
