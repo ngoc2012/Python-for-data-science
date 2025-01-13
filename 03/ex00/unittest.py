@@ -2,24 +2,13 @@ import unittest as ut
 from S1E9 import Character, Stark
 
 
-class TestLoadFunction(ut.TestCase):
-    def test_valid_file(self):
-        """Test loading a valid CSV file."""
-        test_file = "test_valid.csv"
-
-        with open(test_file, "w") as f:
-            f.write("country,1800,1801,1802\n")
-            f.write('"Congo, Dem. Rep.",28.2,28.2,28.2\n')
-            f.write("Albania,29.2,29.3,29.4\n")
-
-        result = load(test_file)
-        expected = pd.DataFrame({
-            'country': ['Congo, Dem. Rep.', 'Albania'],
-            '1800': ['28.2', '29.2'],
-            '1801': ['28.2', '29.3'],
-            '1802': ['28.2', '29.4']
-        })
-        pd.testing.assert_frame_equal(result, expected)
+class TestCharacterClass(ut.TestCase):
+    def test_type_error(self):
+        with self.assertRaises(TypeError) as context:
+            function_to_test("not an integer")  # Passing a string instead of an integer
+        
+        # Optionally, check the exception message
+        self.assertEqual(str(context.exception), "Expected an integer.")
 
     def test_nonexistent_file(self):
         """Test handling of a nonexistent file."""
