@@ -32,7 +32,13 @@ def ft_load(path: str) -> np.ndarray:
     return image_array
 
 
-def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.ndarray:
+def slide_2D(
+        f: np.ndarray,
+        left: int,
+        right: int,
+        top: int,
+        bottom: int
+        ) -> np.ndarray:
     """Slice a 2D numpy array."""
     if (
         not isinstance(left, int)
@@ -226,7 +232,6 @@ def rotate_image(path: str, left: int, right: int, top: int, bottom: int)\
     for i in range(rows):
         for j in range(cols):
             transposed_array[j, i] = grayscale_array[i, j]
-
 
     print(f"New shape after slicing: {transposed_array.shape}")
     print(transposed_array)

@@ -4,7 +4,7 @@ from load_image import rotate_image
 def main():
     try:
         # Size (768, 1024, 3)
-        #rotate_image("animal.jpeg", 450, 850, 100, 500)
+        # rotate_image("animal.jpeg", 450, 850, 100, 500)
         # rotate_image("animal_empty.jpeg", 450, 850, 100, 500)
         # rotate_image(None, 450, 850, 100, 500)
         # rotate_image("animal.jpeg", 0, 0, 100, 500)
