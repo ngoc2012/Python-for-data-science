@@ -7,6 +7,9 @@ class Baratheon(Character):
         """Constructor of Baratheon class"""
         self.first_name = first_name
         self.is_alive = is_alive
+        self.family_name = "Baratheon"
+        self.eyes = "brown"
+        self.hairs = "dark"
 
 
 class Lannister(Character):
