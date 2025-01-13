@@ -87,5 +87,5 @@ class TestLoadPath(ut.TestCase):
             ft_load(0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     ut.main()

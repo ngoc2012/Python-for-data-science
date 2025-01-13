@@ -21,9 +21,9 @@ def ft_load(path: str) -> np.ndarray:
     if file_size > max_size:
         raise TypeError("File is too large.")
     image = Image.open(path)
-    if image.mode != 'RGB':
+    if image.mode != "RGB":
         try:
-            image = image.convert('RGB')
+            image = image.convert("RGB")
         except ValueError:
             raise ValueError("Unsupported image format.")
     image_array = np.array(image)
@@ -32,11 +32,14 @@ def ft_load(path: str) -> np.ndarray:
     return image_array
 
 
-def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int)\
-        -> np.ndarray:
+def slide_2D(f: np.ndarray, left: int, right: int, top: int, bottom: int) -> np.ndarray:
     """Slice a 2D numpy array."""
-    if not isinstance(left, int) or not isinstance(right, int)\
-            or not isinstance(top, int) or not isinstance(bottom, int):
+    if (
+        not isinstance(left, int)
+        or not isinstance(right, int)
+        or not isinstance(top, int)
+        or not isinstance(bottom, int)
+    ):
         raise TypeError("Positions must be integers.")
     if not isinstance(f, np.ndarray):
         raise TypeError("First argument must be a numpy array.")
