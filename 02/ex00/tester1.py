@@ -15,12 +15,14 @@ class TestLoadFunction(ut.TestCase):
             f.write("Albania,29.2,29.3,29.4\n")
 
         result = load(test_file)
-        expected = pd.DataFrame({
-            'country': ['Congo, Dem. Rep.', 'Albania'],
-            '1800': ['28.2', '29.2'],
-            '1801': ['28.2', '29.3'],
-            '1802': ['28.2', '29.4']
-        })
+        expected = pd.DataFrame(
+            {
+                'country': ['Congo, Dem. Rep.', 'Albania'],
+                '1800': ['28.2', '29.2'],
+                '1801': ['28.2', '29.3'],
+                '1802': ['28.2', '29.4']
+            }
+        )
         pd.testing.assert_frame_equal(result, expected)
 
     def test_nonexistent_file(self):
@@ -54,7 +56,7 @@ class TestLoadFunction(ut.TestCase):
         self.assertListEqual(
             list(result.columns),
             ["country", "1800", "1801", "1802"]
-            )
+        )
 
     def test_file_with_invalid_format(self):
         """Test handling of a CSV file with an invalid format."""

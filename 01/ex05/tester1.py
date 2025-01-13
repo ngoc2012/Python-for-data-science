@@ -38,18 +38,18 @@ class TestImageFunctions(ut.TestCase):
     def setUp(self):
         """Set up test cases with valid and invalid inputs."""
         # Create a valid RGB image (3x3 pixels for simplicity)
-        self.valid_rgb_image = np.array([
-            [[255, 0, 0], [0, 255, 0], [0, 0, 255]],
-            [[255, 255, 0], [0, 255, 255], [255, 0, 255]],
-            [[128, 128, 128], [64, 64, 64], [32, 32, 32]]
-        ], dtype=np.uint8)
+        self.valid_rgb_image = np.array(
+            [
+                [[255, 0, 0], [0, 255, 0], [0, 0, 255]],
+                [[255, 255, 0], [0, 255, 255], [255, 0, 255]],
+                [[128, 128, 128], [64, 64, 64], [32, 32, 32]]
+            ],
+            dtype=np.uint8
+        )
 
         # Create invalid inputs
         self.invalid_image_2d = np.array([[255, 0], [0, 255]])  # 2D array
-        self.invalid_image_grayscale = np.array(
-            [[[128], [64], [32]]],
-            dtype=np.uint8
-            )
+        self.invalid_image_grayscale = np.array([[[128], [64], [32]]], dtype=np.uint8)
         self.invalid_image_type = "not an array"
 
     def test_ft_invert(self):
@@ -117,7 +117,9 @@ class TestImageFunctions(ut.TestCase):
     def test_ft_grey(self):
         """Test ft_grey function."""
         # Valid input
-        expected_output = np.dot(self.valid_rgb_image[..., :3], [0.2989, 0.5870, 0.1140]).astype(np.uint8)
+        expected_output = np.dot(
+            self.valid_rgb_image[..., :3], [0.2989, 0.5870, 0.1140]
+        ).astype(np.uint8)
         np.testing.assert_array_equal(ft_grey(self.valid_rgb_image), expected_output)
 
         # Invalid inputs
@@ -128,5 +130,5 @@ class TestImageFunctions(ut.TestCase):
         with self.assertRaises(TypeError):
             ft_grey(self.invalid_image_type)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     ut.main()

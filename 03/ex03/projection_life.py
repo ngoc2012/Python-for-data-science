@@ -1,6 +1,6 @@
-import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
+import pandas as pd
 from load_csv import load
 
 
