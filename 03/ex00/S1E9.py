@@ -4,9 +4,8 @@ from abc import ABC, abstractmethod
 class Character(ABC):
     """Abstract class for characters"""
     @abstractmethod
-    def __init__(self, first_name, is_alive=True):
+    def __init__(self):
         """Constructor of Character class"""
-        next
 
     def die(self):
         """Method to kill a character"""
