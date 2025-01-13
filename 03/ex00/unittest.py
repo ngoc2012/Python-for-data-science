@@ -5,10 +5,10 @@ from S1E9 import Character, Stark
 class TestCharacterClass(ut.TestCase):
     def test_type_error(self):
         with self.assertRaises(TypeError) as context:
-            function_to_test("not an integer")  # Passing a string instead of an integer
+            Character("hodor")  # Passing a string instead of an integer
         
         # Optionally, check the exception message
-        self.assertEqual(str(context.exception), "Expected an integer.")
+        self.assertEqual(str(context.exception), "Can't instantiate abstract class Character with abstract method")
 
     def test_nonexistent_file(self):
         """Test handling of a nonexistent file."""
