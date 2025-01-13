@@ -1,8 +1,8 @@
 {'first_name': 'Ned', 'is_alive': True}
 True
 False
-Your docstring for Class
-Your docstring for Constructor
-Your docstring for Method
+Class for the Starks familly
+Constructor of Stark class
+Method to kill a character
 ---
 {'first_name': 'Lyanna', 'is_alive': False}

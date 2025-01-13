@@ -1,2 +1,8 @@
-[22.507863455018317, 29.0359168241966] <class 'list'>
-[False, True]
+{'first_name': 'Ned', 'is_alive': True}
+True
+False
+Class for the Starks familly
+Constructor of Stark class
+Method to kill a character
+---
+{'first_name': 'Lyanna', 'is_alive': False}
