@@ -12,7 +12,7 @@ class TestStarkClass(ut.TestCase):
         with open('output', 'r') as file:
             expected_output = file.read().strip()
         actual_output = result.stdout.strip()
-        
+
         self.assertEqual(actual_output, expected_output, 
                          "Output of tester.py does not match the expected output.")
 
@@ -20,9 +20,7 @@ class TestStarkClass(ut.TestCase):
 class TestCharacterClass(ut.TestCase):
     def test_type_error(self):
         with self.assertRaises(TypeError) as context:
-            Character("hodor")  # Passing a string instead of an integer
-        
-        # Optionally, check the exception message
+            Character("hodor")
         self.assertEqual(str(context.exception), "Can't instantiate abstract class Character with abstract method")
 
 if __name__ == "__main__":
