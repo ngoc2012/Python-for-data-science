@@ -14,8 +14,9 @@ class Character(ABC):
 
 
 class Stark(Character):
-    """Your docstring for Class"""
+    """
+    Class for the Starks familly
+    """
     def __init__(self, name, is_alive=True):
         self.name = name
         self.is_alive = is_alive
-    #your code here
