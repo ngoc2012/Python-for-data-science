@@ -11,11 +11,11 @@ class Baratheon(Character):
         self.hairs = "dark"
 
     def __str__(self):
-        """Return a string representation for end-users."""
+        """String representation of the Baratheon family."""
         return super().__str__()
 
     def __repr__(self):
-        """Return an unambiguous string representation for developers."""
+        """Unambiguous string representation of the Baratheon family."""
         return super().__repr__()
 
 
@@ -29,9 +29,11 @@ class Lannister(Character):
         self.hairs = "light"
 
     def __str__(self):
+        """String representation of the Lannister family."""
         return super().__str__()
 
     def __repr__(self):
+        """Unambiguous string representation of the Lannister family."""
         return super().__repr__()
 
     @classmethod
