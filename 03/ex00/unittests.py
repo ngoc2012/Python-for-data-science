@@ -3,7 +3,7 @@ import subprocess
 from S1E9 import Character, Stark
 
 
-class TestStarkClass(ut.TestCase):
+class TestAllClass(ut.TestCase):
     def test_tester_output_matches_expected(self):
         result = subprocess.run(['python3', 'tester.py'], 
                                 stdout=subprocess.PIPE, 
@@ -16,6 +16,8 @@ class TestStarkClass(ut.TestCase):
         self.assertEqual(actual_output, expected_output, 
                          "Output of tester.py does not match the expected output.")
 
+
+class TestStarkClass(ut.TestCase):
     def test_value(self):
         with self.assertRaises(TypeError):
             Stark(0)
