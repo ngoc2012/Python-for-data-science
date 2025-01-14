@@ -3,12 +3,12 @@ from S1E7 import Baratheon, Lannister
 
 class King(Baratheon, Lannister):
     """Representing the King family."""
-    def __init__(self, first_name: str, is_alive: bool=True):
+    def __init__(self, first_name: str, is_alive: bool = True):
         """Constructor of King class"""
         if not isinstance(first_name, str):
             raise TypeError("first_name should be a string")
         if not isinstance(is_alive, bool):
-            raise ValueError("is_alive must be a boolean.")
+            raise TypeError("is_alive must be a boolean.")
         Lannister.__init__(self, first_name, is_alive)
         Baratheon.__init__(self, first_name, is_alive)
 

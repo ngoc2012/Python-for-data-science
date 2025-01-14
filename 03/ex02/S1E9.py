@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 class Character(ABC):
     """Abstract class for characters"""
     @abstractmethod
-    def __init__(self, first_name: str, is_alive: bool=True):
+    def __init__(self, first_name: str, is_alive: bool = True):
         """Constructor of Character class"""
         if not isinstance(first_name, str):
             raise TypeError("first_name should be a string")
@@ -12,7 +12,7 @@ class Character(ABC):
             raise TypeError("is_alive must be a boolean.")
         self.first_name = first_name
         self.is_alive = is_alive
-    
+
     def __str__(self):
         """Return a string representation for end-users."""
         return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"

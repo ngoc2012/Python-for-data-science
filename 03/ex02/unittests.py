@@ -1,33 +1,43 @@
 import unittest as ut
 import subprocess
-from S1E9 import Character, Stark
+from S1E9 import Character
+# from S1E7 import Baratheon, Lannister
+from DiamondTrap import King
 
 
 class TestAllClass(ut.TestCase):
     def test_tester_output_matches_expected(self):
-        result = subprocess.run(['python3', 'tester.py'], 
-                                stdout=subprocess.PIPE, 
-                                stderr=subprocess.PIPE, 
+        result = subprocess.run(['python3', 'tester.py'],
+                                stdout=subprocess.PIPE,
+                                stderr=subprocess.PIPE,
                                 text=True)
         with open('output', 'r') as file:
             expected_output = file.read().strip()
         actual_output = result.stdout.strip()
 
-        self.assertEqual(actual_output, expected_output, 
-                         "Output of tester.py does not match the expected output.")
+        self.assertEqual(
+            actual_output,
+            expected_output,
+            "Output of tester.py does not match the expected output.")
 
 
 class TestKingClass(ut.TestCase):
     def test_value(self):
         with self.assertRaises(TypeError):
-            Joffrey1 = King("Joffrey", None)
+            King("Joffrey", None)
+    def test_value(self):
+        with self.assertRaises(TypeError):
+            King("Joffrey", 0)
 
 
 class TestCharacterClass(ut.TestCase):
     def test_type_error(self):
         with self.assertRaises(TypeError) as context:
             Character("hodor")
-        self.assertEqual(str(context.exception), "Can't instantiate abstract class Character with abstract method __init__")
+        self.assertEqual(
+            str(context.exception),
+            "Can't instantiate abstract class \
+Character with abstract method __init__")
 
 
 if __name__ == "__main__":

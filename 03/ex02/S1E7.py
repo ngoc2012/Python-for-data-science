@@ -3,7 +3,7 @@ from S1E9 import Character
 
 class Baratheon(Character):
     """Representing the Baratheon family."""
-    def __init__(self, first_name: str, is_alive:bool = True):
+    def __init__(self, first_name: str, is_alive: bool = True):
         """Constructor of Baratheon class"""
         if not isinstance(first_name, str):
             raise TypeError("first_name should be a string")
@@ -25,7 +25,7 @@ class Baratheon(Character):
 
 class Lannister(Character):
     """Representing the Lannister family."""
-    def __init__(self, first_name: str, is_alive:bool = True):
+    def __init__(self, first_name: str, is_alive: bool = True):
         """Constructor of Lannister class"""
         if not isinstance(first_name, str):
             raise TypeError("first_name should be a string")
