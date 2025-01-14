@@ -1,6 +1,6 @@
 import unittest as ut
 import subprocess
-from S1E9 import Character, Stark
+from S1E7 import Baratheon, Lannister
 
 
 class TestAllClass(ut.TestCase):
@@ -21,11 +21,16 @@ class TestAllClass(ut.TestCase):
             Stark(0)
 
 
-class TestCharacterClass(ut.TestCase):
-    def test_type_error(self):
-        with self.assertRaises(TypeError) as context:
-            Character("hodor")
-        self.assertEqual(str(context.exception), "Can't instantiate abstract class Character with abstract method __init__")
+class TestBaratheonClass(ut.TestCase):
+    def test_value(self):
+        with self.assertRaises(TypeError):
+            Baratheon("Joffrey", None)
+    def test_value(self):
+        with self.assertRaises(TypeError):
+            Baratheon("Joffrey", 0)
+    def test_value(self):
+        with self.assertRaises(TypeError):
+            Baratheon("Joffrey", [])
 
 
 if __name__ == "__main__":
