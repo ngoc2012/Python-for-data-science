@@ -28,6 +28,9 @@ class TestKingClass(ut.TestCase):
     def test_value(self):
         with self.assertRaises(TypeError):
             King("Joffrey", 0)
+    def test_value(self):
+        with self.assertRaises(TypeError):
+            King("Joffrey", [])
 
 
 class TestCharacterClass(ut.TestCase):

@@ -9,7 +9,7 @@ class Character(ABC):
         if not isinstance(first_name, str):
             raise TypeError("first_name should be a string")
         if not isinstance(is_alive, bool):
-            raise ValueError("is_alive must be a boolean.")
+            raise TypeError("is_alive must be a boolean.")
         self.first_name = first_name
         self.is_alive = is_alive
 

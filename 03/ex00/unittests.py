@@ -19,6 +19,15 @@ class TestStarkClass(ut.TestCase):
     def test_value(self):
         with self.assertRaises(TypeError):
             Stark(0)
+    def test_value(self):
+        with self.assertRaises(TypeError):
+            Stark("Arya", 0)
+    def test_value(self):
+        with self.assertRaises(TypeError):
+            Stark("Arya", None)
+    def test_value(self):
+        with self.assertRaises(TypeError):
+            Stark("Arya", [])
 
 
 class TestCharacterClass(ut.TestCase):
