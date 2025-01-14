@@ -5,10 +5,9 @@ class King(Baratheon, Lannister):
     """Representing the King family."""
     def __init__(self, first_name, is_alive=True):
         """Constructor of King class"""
-        Baratheon.__init__(self, first_name, is_alive)
         Lannister.__init__(self, first_name, is_alive)
-        self.family_name = "King"
-    
+        Baratheon.__init__(self, first_name, is_alive)
+
     def set_eyes(self, color):
         """Set the color of the eyes"""
         self.eyes = color
