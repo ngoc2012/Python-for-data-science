@@ -8,7 +8,7 @@ class Baratheon(Character):
         if not isinstance(first_name, str):
             raise TypeError("first_name should be a string")
         if not isinstance(is_alive, bool):
-            raise ValueError("is_alive must be a boolean.")
+            raise TypeError("is_alive must be a boolean.")
         super().__init__(first_name, is_alive)
         self.family_name = "Baratheon"
         self.eyes = "brown"
@@ -30,7 +30,7 @@ class Lannister(Character):
         if not isinstance(first_name, str):
             raise TypeError("first_name should be a string")
         if not isinstance(is_alive, bool):
-            raise ValueError("is_alive must be a boolean.")
+            raise TypeError("is_alive must be a boolean.")
         super().__init__(first_name, is_alive)
         self.family_name = "Lannister"
         self.eyes = "blue"

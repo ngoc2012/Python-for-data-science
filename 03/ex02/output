@@ -1,8 +1,4 @@
-{'first_name': 'Ned', 'is_alive': True}
-True
-False
-Class for the Starks familly
-Constructor of Stark class
-Method to kill a character
----
-{'first_name': 'Lyanna', 'is_alive': False}
+{'first_name': 'Joffrey', 'is_alive': True, 'family_name': 'Baratheon', 'eyes': 'brown', 'hair': 'dark'}
+blue
+light
+{'first_name': 'Joffrey', 'is_alive': True, 'family_name': 'Baratheon', 'eyes': 'blue', 'hairs': 'light'}
