@@ -16,10 +16,6 @@ class TestAllClass(ut.TestCase):
         self.assertEqual(actual_output, expected_output, 
                          "Output of tester.py does not match the expected output.")
 
-    def test_value(self):
-        with self.assertRaises(TypeError):
-            Stark(0)
-
 
 class TestBaratheonClass(ut.TestCase):
     def test_value(self):
@@ -31,6 +27,18 @@ class TestBaratheonClass(ut.TestCase):
     def test_value(self):
         with self.assertRaises(TypeError):
             Baratheon("Joffrey", [])
+
+
+class TestLannisterClass(ut.TestCase):
+    def test_value(self):
+        with self.assertRaises(TypeError):
+            Lannister("Joffrey", None)
+    def test_value(self):
+        with self.assertRaises(TypeError):
+            Lannister("Joffrey", 0)
+    def test_value(self):
+        with self.assertRaises(TypeError):
+            Lannister("Joffrey", [])
 
 
 if __name__ == "__main__":
