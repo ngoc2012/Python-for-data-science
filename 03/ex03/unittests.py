@@ -24,6 +24,13 @@ class TestCalculatorClass(ut.TestCase):
         with self.assertRaises(ZeroDivisionError):
             calculator([10.0, 15.0, 20.0]) / 0
 
+    def test_value(self):
+        with self.assertRaises(TypeError):
+            calculator([10.0, 15.0, 20.0]) + None
+
+    def test_value(self):
+        with self.assertRaises(TypeError):
+            calculator([10.0, 15.0, 20.0]) + []
 
 if __name__ == "__main__":
     ut.main()

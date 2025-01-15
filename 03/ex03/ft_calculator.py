@@ -14,6 +14,8 @@ class calculator:
             self.vector = [x + object for x in self.vector]
             print(self.vector)
             return self.vector
+        else:
+            raise TypeError("object should be an integer or a float")
 
     def __mul__(self, object) -> None:
         """Multiplication operator"""
@@ -21,6 +23,8 @@ class calculator:
             self.vector = [x * object for x in self.vector]
             print(self.vector)
             return self.vector
+        else:
+            raise TypeError("object should be an integer or a float")
 
     def __sub__(self, object) -> None:
         """Subtraction operator"""
@@ -28,6 +32,8 @@ class calculator:
             self.vector = [x - object for x in self.vector]
             print(self.vector)
             return self.vector
+        else:
+            raise TypeError("object should be an integer or a float")
 
     def __truediv__(self, object) -> None:
         """Division operator"""
@@ -37,3 +43,5 @@ class calculator:
             self.vector = [x / object for x in self.vector]
             print(self.vector)
             return self.vector
+        else:
+            raise TypeError("object should be an integer or a float")

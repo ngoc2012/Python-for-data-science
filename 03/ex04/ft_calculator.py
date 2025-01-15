@@ -8,32 +8,15 @@ class calculator:
             raise ValueError("vector should not be empty")
         self.vector = vector
 
-    def __add__(self, object) -> None:
-        """Addition operator"""
-        if isinstance(object, int) or isinstance(object, float):
-            self.vector = [x + object for x in self.vector]
-            print(self.vector)
-            return self.vector
+    @staticmethod
+    def dotproduct(V1: list[float], V2: list[float]) -> None:
+        x = sum([V1[i] * V2[i] for i in range(len(V1))])
+        print("Dot product is: ", x)
 
-    def __mul__(self, object) -> None:
-        """Multiplication operator"""
-        if isinstance(object, int) or isinstance(object, float):
-            self.vector = [x * object for x in self.vector]
-            print(self.vector)
-            return self.vector
+    @staticmethod
+    def add_vec(V1: list[float], V2: list[float]) -> None:
+    #your code here
 
-    def __sub__(self, object) -> None:
-        """Subtraction operator"""
-        if isinstance(object, int) or isinstance(object, float):
-            self.vector = [x - object for x in self.vector]
-            print(self.vector)
-            return self.vector
-
-    def __truediv__(self, object) -> None:
-        """Division operator"""
-        if isinstance(object, int) or isinstance(object, float):
-            if object == 0:
-                raise ZeroDivisionError("Cannot divide by zero")
-            self.vector = [x / object for x in self.vector]
-            print(self.vector)
-            return self.vector
+    @staticmethod
+    def sous_vec(V1: list[float], V2: list[float]) -> None:
+    #your code here
