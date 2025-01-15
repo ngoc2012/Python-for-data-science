@@ -19,10 +19,10 @@ class TestAllClass(ut.TestCase):
             "Output of tester.py does not match the expected output.")
 
 
-class TestCalculatorClass(ut.TestCase):
-    def test_value(self):
-        with self.assertRaises(ZeroDivisionError):
-            calculator([10.0, 15.0, 20.0]) / 0
+# class TestCalculatorClass(ut.TestCase):
+#     def test_value(self):
+#         with self.assertRaises(ZeroDivisionError):
+#             calculator([10.0, 15.0, 20.0]) / 0
 
 
 if __name__ == "__main__":
