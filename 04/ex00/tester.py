@@ -1,14 +1,10 @@
-from S1E9 import Character, Stark
+from statistics import ft_statistics
 
 
-Ned = Stark("Ned")
-print(Ned.__dict__)
-print(Ned.is_alive)
-Ned.die()
-print(Ned.is_alive)
-print(Ned.__doc__)
-print(Ned.__init__.__doc__)
-print(Ned.die.__doc__)
-print("---")
-Lyanna = Stark("Lyanna", False)
-print(Lyanna.__dict__)
+ft_statistics(1, 42, 360, 11, 64, toto="mean", tutu="median", tata="quartile")
+print("-----")
+ft_statistics(5, 75, 450, 18, 597, 27474, 48575, hello="std", world="var")
+print("-----")
+ft_statistics(5, 75, 450, 18, 597, 27474, 48575, ejfhhe="heheh", ejdjdejn="kdekem")
+print("-----")
+ft_statistics(toto="mean", tutu="median", tata="quartile")
