@@ -1,7 +1,5 @@
 import unittest as ut
 import subprocess
-from S1E9 import Character
-# from S1E7 import Baratheon, Lannister
 from DiamondTrap import King
 
 
@@ -25,10 +23,12 @@ class TestKingClass(ut.TestCase):
     def test_value(self):
         with self.assertRaises(TypeError):
             King("Joffrey", None)
-    def test_value(self):
+
+    def test_value0(self):
         with self.assertRaises(TypeError):
             King("Joffrey", 0)
-    def test_value(self):
+
+    def test_value1(self):
         with self.assertRaises(TypeError):
             King("Joffrey", [])
 

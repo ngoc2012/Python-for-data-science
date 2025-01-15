@@ -1,6 +1,6 @@
 import unittest as ut
 import subprocess
-from ft_calculator import calculator
+# from ft_calculator import calculator
 
 
 class TestAllClass(ut.TestCase):

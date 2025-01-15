@@ -40,7 +40,11 @@ class TestCharacterClass(ut.TestCase):
     def test_type_error(self):
         with self.assertRaises(TypeError) as context:
             Character("hodor")
-        self.assertEqual(str(context.exception), "Can't instantiate abstract class Character with abstract method __init__")
+        self.assertEqual(
+            str(context.exception),
+            "Can't instantiate abstract \
+class Character with abstract method __init__"
+        )
 
 
 if __name__ == "__main__":

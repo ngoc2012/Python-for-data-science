@@ -12,7 +12,7 @@ class Character(ABC):
             raise ValueError("is_alive must be a boolean.")
         self.first_name = first_name
         self.is_alive = is_alive
-    
+
     def __str__(self):
         """Return a string representation for end-users."""
         return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
