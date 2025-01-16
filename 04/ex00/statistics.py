@@ -1,19 +1,25 @@
-def calculate_mean(data):
+def check_data(data: list) -> bool:
+    """Check if the data is valid."""
+    if not data
+        or not isinstance(data, list)
+        or len(data) == 0:
+        return False
+    return all(isinstance(x, (int, float)) for x in data)
+
+
+def calculate_mean(data: list) -> float:
     """Calculate the mean of a dataset."""
-    if not data:
-        return None
+    if not check_data(data):
+        raise ValueError("Invalid data.")
     return sum(data) / len(data)
 
 
 def calculate_median(data):
     """Calculate the median of a dataset."""
-    if not data
-        or not isinstance(data, list)
-        or not all(isinstance(x, (int, float)) for x in data)
-        or len(data) == 0:
-        return None
+    if not check_data(data):
+        raise ValueError("Invalid data.")
     
-    data.sort()  # Sort the dataset
+    data.sort()
     n = len(data)
     mid = n // 2
 
@@ -25,8 +31,8 @@ def calculate_median(data):
 
 def calculate_quartiles(data):
     """Calculate the quartiles [25%, 75%] of a dataset."""
-    if not data:
-        return None
+    if not check_data(data):
+        raise ValueError("Invalid data.")
 
     data.sort()  # Sort the dataset
     n = len(data)
@@ -40,5 +46,30 @@ def calculate_quartiles(data):
     return [q1, q3]
 
 
+def calculate_variance(data):
+    """Calculate the sample variance of a dataset."""
+    if not check_data(data):
+        raise ValueError("Invalid data.")
+    if len(data) < 2:
+        raise ValueError("Variance requires at least two data points.")
+    
+    mean = sum(data) / len(data)
+    squared_differences = [(x - mean) ** 2 for x in data]
+    return sum(squared_differences) / (len(data) - 1)
+
+
+def calculate_standard_deviation(data):
+    """Calculate the sample standard deviation of a dataset."""
+    variance = calculate_variance(data)
+    return variance ** 0.5
+
+
 def ft_statistics(*args: Any, **kwargs: Any) -> None:
-    next
+    """Print statistics of a dataset."""
+    params = [v for k, v in kwargs.items()]
+    if not all(isinstance(x, str) for x in data):
+        raise TypeError("Invalid params.")
+        if value == 'data':
+            data = value
+        else:
+            raise ValueError(f"Invalid argument: {key}")
