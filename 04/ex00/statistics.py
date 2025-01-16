@@ -42,7 +42,17 @@ def quartiles(data):
 
     q1 = median(lower_half)
     q3 = median(upper_half)
+    # import statistics
+    # print("Quartiles:", statistics.quantiles(data, n=4))
+    import pandas as pd
+    data_series = pd.Series(data)
+    q1 = data_series.quantile(0.25)  # Q1
+    q2 = data_series.quantile(0.50)  # Q2/Median
+    q3 = data_series.quantile(0.75)  # Q3
 
+    print("Q1:", q1)
+    print("Median (Q2):", q2)
+    print("Q3:", q3)
     return [q1, q3]
 
 
@@ -52,7 +62,11 @@ def variance(data):
         raise ValueError("ERROR")
     if len(data) < 2:
         raise ValueError("Variance requires at least two data points.")
-    
+    # import statistics
+    # print("Variance:", statistics.variance(data))
+    import numpy as np
+    variance = np.var(data, ddof=1)  # ddof=1 for sample variance
+    print("Variance:", variance)
     m = mean(data)
     squared_differences = [(x - m) ** 2 for x in data]
     return sum(squared_differences) / (len(data) - 1)
@@ -60,6 +74,11 @@ def variance(data):
 
 def standard_deviation(data):
     """Calculate the sample standard deviation of a dataset."""
+    # import statistics
+    # print("Standard Deviation:", statistics.stdev(data))
+    import numpy as np
+    std_dev = np.std(data, ddof=1)  # ddof=1 for sample standard deviation
+    print("Standard Deviation:", std_dev)
     return variance(data) ** 0.5
 
 
