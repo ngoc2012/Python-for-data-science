@@ -93,7 +93,7 @@ def ft_statistics(*args: any, **kwargs: any) -> None:
                 print("ERROR")
         elif p == 'quartile':
             try:
-                print(f"quartile: {quartiles(data)}")
+                print(f"quartile: {list(map(float, quartiles(data)))}")
             except ValueError as e:
                 print("ERROR")
         elif p == 'variance' or p == "var":

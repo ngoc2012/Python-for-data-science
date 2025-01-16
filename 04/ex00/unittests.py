@@ -3,6 +3,10 @@ import subprocess
 from S1E9 import Character, Stark
 
 
+def args_to_list(*args):
+    return list(args)
+
+
 class TestAllClass(ut.TestCase):
     def test_tester_output_matches_expected(self):
         result = subprocess.run(['python3', 'tester.py'], 
