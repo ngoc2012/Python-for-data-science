@@ -53,10 +53,15 @@ def quartiles(data):
     mid = n // 2
 
     if n % 2 == 0:
-        return [median(data[:mid], True),  data[(n // 4) * 3]]
-    else
-
-    return [data[n // 4], data[(n // 4) * 3]]
+        return [
+            median(data[:mid], True),
+            median(data[mid:], True)
+        ]
+    return [
+        median(data[:(mid + 1)], True),
+        median(data[mid:], True)
+    ]
+    # return [data[n // 4], data[(n // 4) * 3]]
 
 
 def variance(data):
