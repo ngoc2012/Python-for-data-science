@@ -25,12 +25,13 @@ def mean(data: list) -> float:
     return sum(data) / len(data)
 
 
-def median(data):
+def median(data, sorted = False):
     """Calculate the median of a dataset."""
     if not check_data(data):
         raise ValueError("Invalid data.")
     
-    data = sort(data)
+    if not sorted:
+        data = sort(data)
     n = len(data)
     mid = n // 2
 
@@ -49,6 +50,12 @@ def quartiles(data):
     # print("Quartile: ", [data_series.quantile(0.25), data_series.quantile(0.75)])
     data = sort(data)
     n = len(data)
+    mid = n // 2
+
+    if n % 2 == 0:
+        return [median(data[:mid], True),  data[(n // 4) * 3]]
+    else
+
     return [data[n // 4], data[(n // 4) * 3]]
 
 
@@ -89,12 +96,12 @@ def ft_statistics(*args: any, **kwargs: any) -> None:
         elif p == 'median':
             try:
                 m = median(data)
+                if int(m) == m:
+                    print(f"median : {int(m)}")
+                else:
+                    print(f"median : {m}")
             except ValueError as e:
                 print("ERROR")
-            if int(m) == m:
-                print(f"median : {int(m)}")
-            else:
-                print(f"median : {m}")
         elif p == 'quartile':
             try:
                 print(f"quartile : {list(map(float, quartiles(data)))}")
