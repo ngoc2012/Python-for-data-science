@@ -83,26 +83,26 @@ def ft_statistics(*args: any, **kwargs: any) -> None:
     for p in params:
         if p == 'mean':
             try:
-                print(f"mean: {mean(data)}")
+                print(f"mean : {mean(data)}")
             except ValueError as e:
                 print("ERROR")
         elif p == 'median':
             try:
-                print(f"median: {median(data)}")
+                print(f"median : {median(data)}")
             except ValueError as e:
                 print("ERROR")
         elif p == 'quartile':
             try:
-                print(f"quartile: {list(map(float, quartiles(data)))}")
+                print(f"quartile : {list(map(float, quartiles(data)))}")
             except ValueError as e:
                 print("ERROR")
         elif p == 'variance' or p == "var":
             try:
-                print(f"var: {variance(data)}")
+                print(f"var : {variance(data)}")
             except ValueError as e:
                 print("ERROR")
         elif p == 'std' or p == 'standard_deviation':
             try:
-                print(f"std: {standard_deviation(data)}")
+                print(f"std : {standard_deviation(data)}")
             except ValueError as e:
                 print("ERROR")

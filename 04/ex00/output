@@ -1,8 +1,11 @@
-{'first_name': 'Ned', 'is_alive': True}
-True
-False
-Class for the Starks familly
-Constructor of Stark class
-Method to kill a character
----
-{'first_name': 'Lyanna', 'is_alive': False}
+mean : 95.6
+median : 42
+quartile : [11.0, 64.0]
+-----
+std : 17982.70124086944
+var : 323377543.9183673
+-----
+-----
+ERROR
+ERROR
+ERROR
