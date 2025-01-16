@@ -45,12 +45,14 @@ def panda_mean(data):
 
 class TestMeanFunction(ut.TestCase):
     def test_output(self):
-        samples = generate_random_lists(10, 1, 10, -1000000, 1000000)
+        samples = generate_random_lists(100, 1, 1000, -1000000, 1000000)
         for input_list in samples:
             with self.subTest(input_list=input_list):
-                result = ft_statistics(*input_list, toto="mean")
-                print("result: ", result)
-                self.assertEqual(result, panda_mean(input_list))
+                captured_output = StringIO()
+                sys.stdout = captured_output
+                ft_statistics(*input_list, toto="mean")
+                sys.stdout = sys.__stdout__
+                self.assertEqual(captured_output.getvalue(), panda_mean(input_list))
                 
 
 if __name__ == "__main__":
