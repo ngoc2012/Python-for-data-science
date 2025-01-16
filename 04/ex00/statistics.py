@@ -88,9 +88,13 @@ def ft_statistics(*args: any, **kwargs: any) -> None:
                 print("ERROR")
         elif p == 'median':
             try:
-                print(f"median : {median(data)}")
+                m = median(data)
             except ValueError as e:
                 print("ERROR")
+            if int(m) == m:
+                print(f"median : {int(m)}")
+            else:
+                print(f"median : {m}")
         elif p == 'quartile':
             try:
                 print(f"quartile : {list(map(float, quartiles(data)))}")

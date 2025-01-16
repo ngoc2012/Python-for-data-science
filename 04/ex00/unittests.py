@@ -43,8 +43,19 @@ def panda_mean(data):
     return output_capture.getvalue()
 
 
-class TestMeanFunction(ut.TestCase):
-    def test_output(self):
+def panda_median(data):
+    output_capture = StringIO()
+    sys.stdout = output_capture
+    if int(pd.Series(data).median()) == pd.Series(data).median():
+        print("median :", int(pd.Series(data).median()))
+    else:
+        print("median :", pd.Series(data).median())
+    sys.stdout = sys.__stdout__
+    return output_capture.getvalue()
+
+
+class TestOutputFunction(ut.TestCase):
+    def test_mean(self):
         samples = generate_random_lists(100, 1, 1000, -1000000, 1000000)
         for input_list in samples:
             with self.subTest(input_list=input_list):
@@ -53,6 +64,16 @@ class TestMeanFunction(ut.TestCase):
                 ft_statistics(*input_list, toto="mean")
                 sys.stdout = sys.__stdout__
                 self.assertEqual(captured_output.getvalue(), panda_mean(input_list))
+
+    def test_median(self):
+        samples = generate_random_lists(5, 1, 1000, -1000000, 1000000)
+        for input_list in samples:
+            with self.subTest(input_list=input_list):
+                captured_output = StringIO()
+                sys.stdout = captured_output
+                ft_statistics(*input_list, toto="median")
+                sys.stdout = sys.__stdout__
+                self.assertEqual(captured_output.getvalue(), panda_median(input_list))
                 
 
 if __name__ == "__main__":
