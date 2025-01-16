@@ -80,6 +80,8 @@ def ft_statistics(*args: any, **kwargs: any) -> None:
     if not all(isinstance(x, str) for x in params):
         raise TypeError("Type of data must be a string.")
     data = [x for x in args]
+    print("Data: ", data)
+    print("Params: ", params)
     for p in params:
         if p == 'mean':
             try:

@@ -1,3 +1,6 @@
+from io import StringIO
+import sys
+
 import random
 import pandas as pd
 import unittest as ut
@@ -32,14 +35,22 @@ class TestAllClass(ut.TestCase):
                          "Output of tester.py does not match the expected output.")
 
 
+def panda_mean(data):
+    output_capture = StringIO()
+    sys.stdout = output_capture
+    print("mean :", pd.Series(data).mean())
+    sys.stdout = sys.__stdout__
+    return output_capture.getvalue()
+
+
 class TestMeanFunction(ut.TestCase):
     def test_output(self):
-        samples = generate_random_lists(10, 1, 1000, -1000000, 1000000)
+        samples = generate_random_lists(10, 1, 10, -1000000, 1000000)
         for input_list in samples:
-            with self.subTest(input_list=input_list, expected=expected):
-                expected = pd.Series(input_list).mean()
-                result = ft_statistics(*input_list, mean="mean")
-                self.assertEqual(result, expected)
+            with self.subTest(input_list=input_list):
+                result = ft_statistics(*input_list, toto="mean")
+                print("result: ", result)
+                self.assertEqual(result, panda_mean(input_list))
                 
 
 if __name__ == "__main__":
