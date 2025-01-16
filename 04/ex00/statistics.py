@@ -1,7 +1,7 @@
 def check_data(data: list) -> bool:
     """Check if the data is valid."""
-    if not data
-        or not isinstance(data, list)
+    if not data\
+        or not isinstance(data, list)\
         or len(data) == 0:
         return False
     return all(isinstance(x, (int, float)) for x in data)
@@ -49,7 +49,7 @@ def calculate_quartiles(data):
 def calculate_variance(data):
     """Calculate the sample variance of a dataset."""
     if not check_data(data):
-        raise ValueError("Invalid data.")
+        raise ValueError("ERROR")
     if len(data) < 2:
         raise ValueError("Variance requires at least two data points.")
     
@@ -64,12 +64,35 @@ def calculate_standard_deviation(data):
     return variance ** 0.5
 
 
-def ft_statistics(*args: Any, **kwargs: Any) -> None:
+def ft_statistics(*args: any, **kwargs: any) -> None:
     """Print statistics of a dataset."""
     params = [v for k, v in kwargs.items()]
-    if not all(isinstance(x, str) for x in data):
-        raise TypeError("Invalid params.")
-        if value == 'data':
-            data = value
-        else:
-            raise ValueError(f"Invalid argument: {key}")
+    if not all(isinstance(x, str) for x in params):
+        raise TypeError("Type of data must be a string.")
+    data = [x for x in args]
+    for p in params:
+        if p == 'mean':
+            try:
+                print(f"mean: {calculate_mean(data)}")
+            except ValueError as e:
+                print("ERROR")
+        elif p == 'median':
+            try:
+                print(f"median: {calculate_median(data)}")
+            except ValueError as e:
+                print("ERROR")
+        elif p == 'quartile':
+            try:
+                print(f"quartile: {calculate_quartiles(data)}")
+            except ValueError as e:
+                print("ERROR")
+        elif p == 'variance' or p == "var":
+            try:
+                print(f"var: {calculate_variance(data)}")
+            except ValueError as e:
+                print("ERROR")
+        elif p == 'std' or p == 'standard_deviation':
+            try:
+                print(f"std: {calculate_standard_deviation(data)}")
+            except ValueError as e:
+                print("ERROR")
