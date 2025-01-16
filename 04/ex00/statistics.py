@@ -11,6 +11,8 @@ def mean(data: list) -> float:
     """Calculate the mean of a dataset."""
     if not check_data(data):
         raise ValueError("Invalid data.")
+    import statistics
+    print(f"Mean: {statistics.mean(data)}")
     return sum(data) / len(data)
 
 
