@@ -1,10 +1,12 @@
-from statistics import ft_statistics
-
-
-ft_statistics(1, 42, 360, 11, 64, toto="mean", tutu="median", tata="quartile")
-print("-----")
-ft_statistics(5, 75, 450, 18, 597, 27474, 48575, hello="std", world="var")
-print("-----")
-ft_statistics(5, 75, 450, 18, 597, 27474, 48575, ejfhhe="heheh", ejdjdejn="kdekem")
-print("-----")
-ft_statistics(toto="mean", tutu="median", tata="quartile")
+from in_out import outer
+from in_out import square
+from in_out import pow
+my_counter = outer(3, square)
+print(my_counter())
+print(my_counter())
+print(my_counter())
+print("---")
+another_counter = outer(1.5, pow)
+print(another_counter())
+print(another_counter())
+print(another_counter())

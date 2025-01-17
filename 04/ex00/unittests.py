@@ -13,7 +13,7 @@ def args_to_list(*args):
     return list(args)
 
 
-def generate_random_lists(num_lists, min_length, max_length, min_value, max_value):
+def generate_random_lists(num_lists: int, min_length: int, max_length: int, min_value: int, max_value: int):
     random_lists = []
     for _ in range(num_lists):
         length = random.randint(min_length, max_length)
