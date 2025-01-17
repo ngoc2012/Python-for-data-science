@@ -45,6 +45,8 @@ def quartiles(data):
     """Calculate the quartiles [25%, 75%] of a dataset."""
     if not check_data(data):
         raise ValueError("Invalid data.")
+    if len(data) == 1:
+        return [data[0], data[0]]
     data = sort(data)
     n = len(data)
     lower = (n - 1) / 4
@@ -53,8 +55,6 @@ def quartiles(data):
     lower_index = int(lower)
     upper_index = int(upper)
     
-    # print(lower_index, upper_index)
-    # print(data[lower_index], data[upper_index])
     lower_value = data[lower_index] + (data[lower_index + 1] - data[lower_index]) * (lower - lower_index)
 
     upper_value = data[upper_index] + (data[upper_index + 1] - data[upper_index]) * (upper - upper_index)
@@ -66,11 +66,8 @@ def variance(data):
     """Calculate the sample variance of a dataset."""
     if not check_data(data):
         raise ValueError("ERROR")
-    if len(data) < 2:
-        raise ValueError("Variance requires at least two data points.")
-    # import numpy as np
-    # variance = np.var(data, ddof=0)
-    # print("Variance:", variance)
+    if len(data) == 1:
+        return 0
     m = mean(data)
     squared_differences = [(x - m) ** 2 for x in data]
     return sum(squared_differences) / len(data)
@@ -78,9 +75,6 @@ def variance(data):
 
 def standard_deviation(data):
     """Calculate the sample standard deviation of a dataset."""
-    # import numpy as np
-    # std_dev = np.std(data, ddof=0)
-    # print("Standard Deviation:", std_dev)
     return variance(data) ** 0.5
 
 

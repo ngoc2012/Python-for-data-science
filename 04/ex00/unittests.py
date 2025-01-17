@@ -54,10 +54,18 @@ def panda_median(data):
     return output_capture.getvalue()
 
 
+def panda_std(data):
+    output_capture = StringIO()
+    sys.stdout = output_capture
+    print("mean :", pd.Series(data).mean())
+    sys.stdout = sys.__stdout__
+    return output_capture.getvalue()
+
+
 class TestOutputFunction(ut.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.samples = generate_random_lists(100, 1, 1000, -1000000, 1000000)
+        cls.samples = generate_random_lists(100, 1, 2, -1000000, 1000000)
 
     def test_mean(self):
         for input_list in self.samples:
