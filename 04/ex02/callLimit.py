@@ -1,6 +1,8 @@
 def callLimit(limit: int):
     """Outer Function: This function takes an argument (limit) \
 and returns the actual decorator (callLimiter)."""
+    if not isinstance(limit, int):
+        raise TypeError("limit must be an integer")
     count = 0
     def callLimiter(function):
         """Decorator Function: This function takes the target function \
