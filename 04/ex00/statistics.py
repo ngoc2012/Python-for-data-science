@@ -25,7 +25,7 @@ def mean(data: list) -> float:
     return sum(data) / len(data)
 
 
-def median(data, sorted = False):
+def median(data: list, sorted: bool = False) -> float:
     """Calculate the median of a dataset."""
     if not check_data(data):
         raise ValueError("Invalid data.")
@@ -41,7 +41,7 @@ def median(data, sorted = False):
         return data[mid]
 
 
-def quartiles(data):
+def quartiles(data: list) -> list:
     """Calculate the quartiles [25%, 75%] of a dataset."""
     if not check_data(data):
         raise ValueError("Invalid data.")
@@ -62,7 +62,7 @@ def quartiles(data):
     return [lower_value, upper_value]
 
 
-def variance(data):
+def variance(data: list) -> float:
     """Calculate the sample variance of a dataset."""
     if not check_data(data):
         raise ValueError("ERROR")
@@ -73,7 +73,7 @@ def variance(data):
     return sum(squared_differences) / len(data)
 
 
-def standard_deviation(data):
+def standard_deviation(data: list) -> float:
     """Calculate the sample standard deviation of a dataset."""
     return variance(data) ** 0.5
 
@@ -106,7 +106,11 @@ def ft_statistics(*args: any, **kwargs: any) -> None:
                 print("ERROR")
         elif p == 'variance' or p == "var":
             try:
-                print(f"var : {variance(data)}")
+                v = variance(data)
+                if int(v) == v:
+                    print("var :", int(v))
+                else:
+                    print("var :", v)
             except ValueError as e:
                 print("ERROR")
         elif p == 'std' or p == 'standard_deviation':

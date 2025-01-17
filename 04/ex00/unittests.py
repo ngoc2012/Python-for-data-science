@@ -3,6 +3,7 @@ import sys
 
 import random
 import pandas as pd
+import numpy as np
 import unittest as ut
 import subprocess
 from statistics import ft_statistics
@@ -46,10 +47,11 @@ def panda_mean(data):
 def panda_median(data):
     output_capture = StringIO()
     sys.stdout = output_capture
-    if int(pd.Series(data).median()) == pd.Series(data).median():
-        print("median :", int(pd.Series(data).median()))
+    m = pd.Series(data).median()
+    if int(m) == m:
+        print("median :", int(m))
     else:
-        print("median :", pd.Series(data).median())
+        print("median :", m)
     sys.stdout = sys.__stdout__
     return output_capture.getvalue()
 
@@ -57,7 +59,19 @@ def panda_median(data):
 def panda_std(data):
     output_capture = StringIO()
     sys.stdout = output_capture
-    print("mean :", pd.Series(data).mean())
+    print("std :", np.std(data, ddof = 0))
+    sys.stdout = sys.__stdout__
+    return output_capture.getvalue()
+
+
+def panda_var(data):
+    output_capture = StringIO()
+    sys.stdout = output_capture
+    v = np.var(data, ddof = 0)
+    if int(v) == v:
+        print("var :", int(v))
+    else:
+        print("var :", v)
     sys.stdout = sys.__stdout__
     return output_capture.getvalue()
 
@@ -65,7 +79,7 @@ def panda_std(data):
 class TestOutputFunction(ut.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.samples = generate_random_lists(100, 1, 2, -1000000, 1000000)
+        cls.samples = generate_random_lists(100, 1, 100, -1000000, 1000000)
 
     def test_mean(self):
         for input_list in self.samples:
@@ -93,6 +107,25 @@ class TestOutputFunction(ut.TestCase):
                 ft_statistics(*input_list, toto="quartile")
                 sys.stdout = sys.__stdout__
                 self.assertEqual(captured_output.getvalue(), "quartile : " + str(pd.Series(input_list).quantile([0.25, 0.75]).tolist()) + '\n')                
+
+    def test_var(self):
+        for input_list in self.samples:
+            with self.subTest(input_list=input_list):
+                captured_output = StringIO()
+                sys.stdout = captured_output
+                ft_statistics(*input_list, toto="var")
+                sys.stdout = sys.__stdout__
+                self.assertEqual(captured_output.getvalue(), panda_var(input_list))
+    
+    def test_std(self):
+        for input_list in self.samples:
+            with self.subTest(input_list=input_list):
+                captured_output = StringIO()
+                sys.stdout = captured_output
+                ft_statistics(*input_list, toto="std")
+                sys.stdout = sys.__stdout__
+                self.assertEqual(captured_output.getvalue(), panda_std(input_list))
+
 
 if __name__ == "__main__":
     ut.main()
