@@ -55,9 +55,12 @@ def panda_median(data):
 
 
 class TestOutputFunction(ut.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.samples = generate_random_lists(100, 1, 1000, -1000000, 1000000)
+
     def test_mean(self):
-        samples = generate_random_lists(5, 1, 1000, -1000000, 1000000)
-        for input_list in samples:
+        for input_list in self.samples:
             with self.subTest(input_list=input_list):
                 captured_output = StringIO()
                 sys.stdout = captured_output
@@ -66,8 +69,7 @@ class TestOutputFunction(ut.TestCase):
                 self.assertEqual(captured_output.getvalue(), panda_mean(input_list))
 
     def test_median(self):
-        samples = generate_random_lists(5, 1, 1000, -1000000, 1000000)
-        for input_list in samples:
+        for input_list in self.samples:
             with self.subTest(input_list=input_list):
                 captured_output = StringIO()
                 sys.stdout = captured_output
@@ -76,14 +78,13 @@ class TestOutputFunction(ut.TestCase):
                 self.assertEqual(captured_output.getvalue(), panda_median(input_list))
 
     def test_quartiles(self):
-        samples = generate_random_lists(5, 1, 1000, -1000000, 1000000)
-        for input_list in samples:
+        for input_list in self.samples:
             with self.subTest(input_list=input_list):
                 captured_output = StringIO()
                 sys.stdout = captured_output
                 ft_statistics(*input_list, toto="quartile")
                 sys.stdout = sys.__stdout__
-                self.assertEqual(captured_output.getvalue(), "quartile : " + str(pd.Series(input_list).quantile([0.25, 0.75]).tolist()))                
+                self.assertEqual(captured_output.getvalue(), "quartile : " + str(pd.Series(input_list).quantile([0.25, 0.75]).tolist()) + '\n')                
 
 if __name__ == "__main__":
     ut.main()

@@ -45,23 +45,21 @@ def quartiles(data):
     """Calculate the quartiles [25%, 75%] of a dataset."""
     if not check_data(data):
         raise ValueError("Invalid data.")
-    # import pandas as pd
-    # data_series = pd.Series(data)
-    # print("Quartile: ", [data_series.quantile(0.25), data_series.quantile(0.75)])
     data = sort(data)
     n = len(data)
-    mid = n // 2
+    lower = (n - 1) / 4
+    upper = 3 * (n - 1) / 4
 
-    if n % 2 == 0:
-        return [
-            median(data[:mid], True),
-            median(data[mid:], True)
-        ]
-    return [
-        median(data[:(mid + 1)], True),
-        median(data[mid:], True)
-    ]
-    # return [data[n // 4], data[(n // 4) * 3]]
+    lower_index = int(lower)
+    upper_index = int(upper)
+    
+    # print(lower_index, upper_index)
+    # print(data[lower_index], data[upper_index])
+    lower_value = data[lower_index] + (data[lower_index + 1] - data[lower_index]) * (lower - lower_index)
+
+    upper_value = data[upper_index] + (data[upper_index + 1] - data[upper_index]) * (upper - upper_index)
+
+    return [lower_value, upper_value]
 
 
 def variance(data):
